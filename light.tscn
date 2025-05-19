@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2q7cwy3s5bgy"]
+
+[ext_resource type="PackedScene" uid="uid://kf2lwh44jhp1" path="res://models/Light Ceiling.glb" id="1_hdgcg"]
+
+[node name="Root Scene" instance=ExtResource("1_hdgcg")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="RootNode" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.728979, 0)
+light_color = Color(1, 1, 0.45098, 1)
+spot_range = 8.984
+spot_angle = 71.02
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RootNode" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.883452, 0)
+light_color = Color(1, 1, 0.572549, 1)
+omni_range = 0.288

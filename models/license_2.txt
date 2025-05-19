@@ -1,0 +1,11 @@
+Model Information:
+* title:	Restaurant LowPoly
+* source:	https://sketchfab.com/3d-models/restaurant-lowpoly-69d7483cfbf34db5823299dd0c0121ba
+* author:	Jennifer (https://sketchfab.com/JenniferMoura)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Restaurant LowPoly" (https://sketchfab.com/3d-models/restaurant-lowpoly-69d7483cfbf34db5823299dd0c0121ba) by Jennifer (https://sketchfab.com/JenniferMoura) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

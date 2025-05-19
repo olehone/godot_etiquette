@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c10tco423th6s"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_ebwxq"]
+[ext_resource type="PackedScene" uid="uid://cw6rnj5pj6qvj" path="res://models/прибори-виделка.glb" id="2_uixun"]
+[ext_resource type="Script" uid="uid://njxbuuerpuod" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="3_bjx1k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0jnqb"]
+size = Vector3(0.285118, 0.0904875, 0.103584)
+
+[node name="Fork" instance=ExtResource("1_ebwxq")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.131212, 0.0471824, -0.00407115)
+shape = SubResource("BoxShape3D_0jnqb")
+
+[node name="прибори-виделка" parent="." index="1" instance=ExtResource("2_uixun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114452, 0, 0.00175399)
+
+[node name="XRToolsGrabPointHand" type="Marker3D" parent="." index="2"]
+transform = Transform3D(-0.174662, 0, 0.984628, 0, 1, 0, -0.984628, 0, -0.174662, 0.00863799, 0.0386192, 0.0170515)
+script = ExtResource("3_bjx1k")
+hand = 1
+metadata/_custom_type_script = "uid://njxbuuerpuod"

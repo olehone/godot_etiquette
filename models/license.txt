@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cartoon Low Poly Cafe Bakery
+* source:	https://sketchfab.com/3d-models/cartoon-low-poly-cafe-bakery-7a27efd9aa5d43b4be00cc13d9be174a
+* author:	pinyal (https://sketchfab.com/pinyal)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cartoon Low Poly Cafe Bakery" (https://sketchfab.com/3d-models/cartoon-low-poly-cafe-bakery-7a27efd9aa5d43b4be00cc13d9be174a) by pinyal (https://sketchfab.com/pinyal) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

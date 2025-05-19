@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=3 uid="uid://cqsodpswgup8w"]
+
+[ext_resource type="Script" uid="uid://rkp4t7eqnc0o" path="res://main.gd" id="1_fsva1"]
+[ext_resource type="PackedScene" uid="uid://c3el0opbcoqwp" path="res://sketchfab_scene_copy_new.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c1bcqmqywkpr" path="res://models/Nature.glb" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://b7ei1kuvh4mtx" path="res://xr_camera_3d.gd" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="5_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="6_dg77c"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="7_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="8_w48qg"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="9_vivmo"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="10_efxa6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0x6cv"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_dqyx0"]
+sky_material = SubResource("ProceduralSkyMaterial_0x6cv")
+
+[sub_resource type="Environment" id="Environment_m0xew"]
+background_mode = 2
+background_color = Color(0, 0, 0, 0)
+sky = SubResource("Sky_dqyx0")
+ambient_light_source = 2
+ambient_light_color = Color(0.270588, 0.270588, 0.270588, 1)
+tonemap_mode = 2
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_fsva1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m0xew")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.860249, -0.411517, -0.30104, 0.266491, -0.866243, 0.422618, -0.434689, 0.283332, 0.85485, 0.499559, 16.817, 4.71584)
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.055612, 0.423925, 0.903988, 0.266491, -0.866243, 0.422618, 0.962232, 0.264407, -0.0647987, 0.499559, 16.817, 4.71584)
+shadow_enabled = true
+
+[node name="Scene" type="Node3D" parent="."]
+transform = Transform3D(0.414693, 0, -0.909961, 0, 1, 0, 0.909961, 0, 0.414693, -22.0107, -7.62939e-06, -27.4584)
+
+[node name="Building" parent="Scene" instance=ExtResource("3_h2yge")]
+transform = Transform3D(-0.741976, 0, -0.670427, 0, 1, 0, 0.670427, 0, -0.741976, 58.8538, -0.579401, 10.0279)
+
+[node name="Nature_0" type="Node3D" parent="Scene"]
+transform = Transform3D(0.999048, 0, 0.0436194, 0, 1, 0, -0.0436194, 0, 0.999048, 0, -0.52075, 0)
+
+[node name="Nature" parent="Scene/Nature_0" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(14.545, 0, 0, 0, 14.545, 0, 0, 0, 14.545, 0, 0, 0)
+
+[node name="Nature2" parent="Scene/Nature_0" instance=ExtResource("4_1bvp3")]
+transform = Transform3D(14.545, 0, 0, 0, 14.545, 0, 0, 0, 14.545, 67.77, 0, 0)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96566, -1.18523, 34.4927)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 0.877079, 0.480346, 0, -0.480346, 0.877079, -0.238372, 0.368396, 0.0804138)
+fov = 59.4126
+script = ExtResource("4_lquwl")
+
+[node name="XRController3D" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0271934, -0.68224)
+tracker = &"left_hand"
+pose = &"grip"
+
+[node name="LeftHand" parent="XROrigin3D/XRController3D" instance=ExtResource("5_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.355644, 0.182486, -0.175117)
+
+[node name="MovementDirect" parent="XROrigin3D/XRController3D" instance=ExtResource("6_dg77c")]
+
+[node name="FunctionPickup" parent="XROrigin3D/XRController3D" instance=ExtResource("7_ycdy4")]
+
+[node name="XRController3D2" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.285517, 0.0271934, -0.758789)
+tracker = &"right_hand"
+pose = &"grip"
+
+[node name="RightHand" parent="XROrigin3D/XRController3D2" instance=ExtResource("8_w48qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133681, 0.220112, -0.19136)
+
+[node name="MovementTurn" parent="XROrigin3D/XRController3D2" instance=ExtResource("9_vivmo")]
+
+[node name="FunctionPickup" parent="XROrigin3D/XRController3D2" instance=ExtResource("7_ycdy4")]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("10_efxa6")]
