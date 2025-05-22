@@ -1,0 +1,39 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bf3g1sp6eed6r"
+path.s3tc="res://.godot/imported/cutting_board_big_wall_cut.png-f43fbe2dda89402d803ef5d5d55afd6a.s3tc.ctex"
+path.etc2="res://.godot/imported/cutting_board_big_wall_cut.png-f43fbe2dda89402d803ef5d5d55afd6a.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "46d628afdd54bb4ef934f0fc7571e1ed"
+}
+
+[deps]
+
+source_file="res://cutting_board_big_wall_cut.png"
+dest_files=["res://.godot/imported/cutting_board_big_wall_cut.png-f43fbe2dda89402d803ef5d5d55afd6a.s3tc.ctex", "res://.godot/imported/cutting_board_big_wall_cut.png-f43fbe2dda89402d803ef5d5d55afd6a.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=219 format=4 uid="uid://c3el0opbcoqwp"]
+[gd_scene load_steps=222 format=4 uid="uid://c3el0opbcoqwp"]
 
 [ext_resource type="Texture2D" uid="uid://byl748la8beae" path="res://models/textures/TextureAtlas_baseColor.png" id="1_7swej"]
 [ext_resource type="PackedScene" uid="uid://cw8u8te7ahvw3" path="res://models/Wall Art 01.glb" id="2_hevp1"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://b2dvgfcluyfh1" path="res://models/Junk_Food/chicken_nuggets.glb" id="7_7olpk"]
 [ext_resource type="PackedScene" uid="uid://c2q7cwy3s5bgy" path="res://light.tscn" id="7_b0bro"]
 [ext_resource type="PackedScene" uid="uid://c10tco423th6s" path="res://addons/godot-xr-tools/objects/fork.tscn" id="13_52pt3"]
+[ext_resource type="PackedScene" uid="uid://cm4y3ad73imx8" path="res://cutting_board.tscn" id="14_6k3dm"]
+[ext_resource type="PackedScene" uid="uid://bv73vvlv50b5j" path="res://models/Junk_Food/Pizza_One_Piece.glb" id="14_p8ntc"]
+[ext_resource type="PackedScene" uid="uid://bir6lwt24mxgg" path="res://dumpling.tscn" id="16_p6mvs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0c6v"]
 resource_name = "mat21"
@@ -285,7 +288,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x7jbs")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7swej"]
-size = Vector3(0.16, 0.015, 0.32)
+size = Vector3(0.161909, 0.0104297, 0.31999)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w8dpf"]
 _surfaces = [{
@@ -2391,6 +2394,7 @@ transform = Transform3D(1, 0, 0, 0, 2.22045e-16, -1, 0, 1, 2.22045e-16, 0, 0, 0)
 
 [node name="Ceiling_0" type="Node3D" parent="Sketchfab_model/root/GLTF_SceneRootNode"]
 transform = Transform3D(-5.97535e-07, -34.67, -2.43035e-07, 0, -1.51547e-06, 5.56, -13.67, 1.51547e-06, 1.06234e-14, 1.61443, 4.1131, 6.2407)
+visible = false
 
 [node name="Plain_wall" type="MeshInstance3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Ceiling_0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
@@ -2478,7 +2482,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244342, 0.0513194, -0.362116)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Walls/PlainWall_3/Plain_wall/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0177503, 0.0226135, -0.0119629)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.42109e-14, 0, 1, -0.0177503, 0.0226135, -0.0119629)
 shape = SubResource("BoxShape3D_s6qar")
 
 [node name="PlainWall_4" type="Node3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Walls"]
@@ -2680,6 +2684,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437606, -0.00731392, -0.195869)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Kitchen/Furniture/KitchenTable_0/group1453542057/StaticBody3D"]
+transform = Transform3D(0.999994, 0, 0, 0, 0.999994, -3.78653e-27, 0, 3.78653e-27, 0.999994, 0.000954568, -0.00485854, -0.0013037)
 shape = SubResource("BoxShape3D_7swej")
 
 [node name="KitchenTable_1" type="Node3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Kitchen/Furniture"]
@@ -2693,6 +2698,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437606, -0.00731392, -0.195869)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Kitchen/Furniture/KitchenTable_1/group1453542057/StaticBody3D"]
+transform = Transform3D(0.999994, 0, 0, 0, 0.999994, -3.78653e-27, 0, 3.78653e-27, 0.999994, 0.000954568, -0.00485854, -0.0013037)
 shape = SubResource("BoxShape3D_7swej")
 
 [node name="KitchenTable_2" type="Node3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Kitchen/Furniture"]
@@ -2706,6 +2712,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437606, -0.00731392, -0.195869)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Kitchen/Furniture/KitchenTable_2/group1453542057/StaticBody3D"]
+transform = Transform3D(0.999994, 0, 0, 0, 0.999994, -3.78653e-27, 0, 3.78653e-27, 0.999994, 0.000954568, -0.00485854, -0.0013037)
 shape = SubResource("BoxShape3D_7swej")
 
 [node name="Chair_003_32" type="Node3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Kitchen/Furniture"]
@@ -3718,3 +3725,102 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Serving/Food/Breads/Boxes_002_57/Object_116/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_5orsc")
+
+[node name="pizza" type="Node3D" parent="."]
+transform = Transform3D(0.559913, -0.000384841, 0.347663, 0.00104369, 0.659067, -0.000951323, -0.347662, 0.00135875, 0.559912, 3.67776, 0.968634, -1.556)
+
+[node name="Pizza_One_Piece2" parent="pizza" instance=ExtResource("14_p8ntc")]
+transform = Transform3D(3.58653, 0.00583283, 0.838768, -0.00689028, 3.6833, 0.00384868, -0.838759, -0.00531661, 3.58653, -0.085916, 0.0117879, 0.0212526)
+
+[node name="Pizza_One_Piece3" parent="pizza" instance=ExtResource("14_p8ntc")]
+transform = Transform3D(1.94296, 0.00583283, 3.12916, -0.00759359, 3.6833, -0.00215073, -3.12915, -0.00531661, 1.94297, -0.105187, 0.0118086, 0.0144514)
+
+[node name="Pizza_One_Piece4" parent="pizza" instance=ExtResource("14_p8ntc")]
+transform = Transform3D(-0.838768, 0.00583283, 3.58653, -0.00384868, 3.6833, -0.00689028, -3.58653, -0.00531661, -0.838759, -0.0977765, 0.0118059, 0.0207038)
+
+[node name="Pizza_One_Piece5" parent="pizza" instance=ExtResource("14_p8ntc")]
+transform = Transform3D(-3.12916, 0.00583283, 1.94296, 0.00215073, 3.6833, -0.00759359, -1.94297, -0.00531661, -3.12915, -0.09058, 0.011812, 0.0328354)
+
+[node name="Pizza_One_Piece6" parent="pizza" instance=ExtResource("14_p8ntc")]
+transform = Transform3D(-3.58653, 0.00583283, -0.838768, 0.00689028, 3.6833, -0.00384868, 0.838759, -0.00531661, -3.58653, -0.0738059, 0.0118707, 0.0919204)
+
+[node name="Pizza_One_Piece7" parent="pizza" instance=ExtResource("14_p8ntc")]
+transform = Transform3D(-1.94296, 0.00583283, -3.12916, 0.00759359, 3.6833, 0.00215073, 3.12915, -0.00531661, -1.94297, -0.0353519, 0.0117536, 0.0529668)
+
+[node name="Pizza_One_Piece8" parent="pizza" instance=ExtResource("14_p8ntc")]
+transform = Transform3D(0.838768, 0.00583283, -3.58653, 0.00384868, 3.6833, 0.00689028, 3.58653, -0.00531661, 0.838759, -0.0228402, 0.0116867, 0.0203266)
+
+[node name="Pizza_One_Piece9" parent="pizza" instance=ExtResource("14_p8ntc")]
+transform = Transform3D(3.12916, 0.00583283, -1.94296, -0.00215073, 3.6833, 0.00759359, 1.94297, -0.00531661, 3.12915, -0.029638, 0.0116347, -0.0231356)
+
+[node name="cutting_board" parent="pizza" instance=ExtResource("14_6k3dm")]
+transform = Transform3D(1, 1.16415e-10, 5.96046e-08, 0, 1, 0, 0, 0, 1, -0.074203, -1.19209e-07, 0.0412676)
+
+[node name="cutting_board2" parent="pizza" instance=ExtResource("14_6k3dm")]
+transform = Transform3D(0.515038, 0.770417, 0.375757, -4.65661e-10, 0.438371, -0.898794, -0.857167, 0.462913, 0.225778, -0.866229, 0.513714, 0.152591)
+
+[node name="dumplings" type="Node3D" parent="."]
+transform = Transform3D(0.559913, -0.000384841, 0.347663, 0.00104369, 0.659067, -0.000951323, -0.347662, 0.00135875, 0.559912, 3.60523, 1.00985, -0.522288)
+
+[node name="dumpling" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.644232, 0.464098, 0.0180143, -0.274324, 0.35537, 0.655139, 0.374777, -0.537655, 0.448572, 0.0595798, 0.0990673, -0.431446)
+
+[node name="dumpling2" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.362563, -0.0448938, -0.70518, -0.129212, 0.775016, -0.115773, 0.694694, 0.167582, 0.346502, 0.191978, 0.0997077, 0.157556)
+
+[node name="dumpling3" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.736115, 0.265026, 0.136536, 0.186158, -0.124507, -0.761966, -0.232866, 0.738245, -0.177523, 0.381343, 0.0988218, -0.248546)
+
+[node name="dumpling4" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(-0.470411, 0.536565, 0.348652, -0.622747, -0.48338, -0.09632, 0.147129, -0.330437, 0.707044, -0.292165, 0.0995021, -0.516183)
+
+[node name="dumpling5" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(-0.48832, -0.586663, 0.219353, 0.623866, -0.480248, 0.104408, 0.0555174, 0.236505, 0.756129, -0.242173, 0.100092, -0.052546)
+
+[node name="dumpling6" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.455747, 0.564798, 0.322558, 0.477417, -0.557975, 0.302464, 0.441718, 0.0203323, -0.659712, 0.228357, 0.0994123, -0.00733924)
+
+[node name="dumpling7" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(-0.766232, 0.161446, 0.132556, 0.158745, 0.122456, 0.768474, 0.135778, 0.767911, -0.150414, 0.00387049, 0.100082, 0.210444)
+
+[node name="dumpling8" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, -0.0922227, 0.0372051, 0.0465381)
+
+[node name="dumpling9" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, -0.295731, 0.0998545, -0.276111)
+
+[node name="dumpling10" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, -0.0672612, 0.0993944, -0.344163)
+
+[node name="dumpling11" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, -0.128321, 0.16747, -0.16386)
+
+[node name="dumpling12" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, 0.19263, 0.0990341, -0.308429)
+
+[node name="dumpling13" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, -0.108851, 0.0628014, -0.107898)
+
+[node name="dumpling14" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, 0.0290003, 0.18419, -0.206054)
+
+[node name="dumpling15" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, 0.176211, 0.0131371, -0.583663)
+
+[node name="dumpling16" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, 0.075572, -0.0160042, 0.0703187)
+
+[node name="dumpling17" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, 0.11279, 0.0995742, -0.0221872)
+
+[node name="dumpling18" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, 0.0473361, 0.0995262, -0.126959)
+
+[node name="dumpling19" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, -0.00112391, -0.0543967, -0.1578)
+
+[node name="dumpling20" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, 0.082068, -0.0307696, -0.235587)
+
+[node name="dumpling21" parent="dumplings" instance=ExtResource("16_p6mvs")]
+transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, 0.169588, -0.0427548, -0.0630805)
