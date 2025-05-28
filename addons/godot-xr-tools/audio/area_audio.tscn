@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://duqehif60vcjg"]
+[gd_scene load_steps=5 format=3 uid="uid://duqehif60vcjg"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/audio/area_audio.gd" id="1_q1jr0"]
+[ext_resource type="Script" uid="uid://hcvpnv2sw0hh" path="res://addons/godot-xr-tools/audio/area_audio.gd" id="1_q1jr0"]
+[ext_resource type="Script" uid="uid://cib3bou6ha34c" path="res://addons/godot-xr-tools/audio/area_audio_type.gd" id="2_vb7m6"]
+
+[sub_resource type="AudioStream" id="AudioStream_bb6hr"]
+
+[sub_resource type="Resource" id="Resource_unley"]
+resource_local_to_scene = true
+script = ExtResource("2_vb7m6")
+name = "test"
+touch_sound = SubResource("AudioStream_bb6hr")
+metadata/_custom_type_script = "uid://cib3bou6ha34c"
 
 [node name="AreaAudio" type="AudioStreamPlayer3D"]
 unit_size = 3.0
 max_distance = 100.0
 script = ExtResource("1_q1jr0")
+area_audio_type = SubResource("Resource_unley")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
