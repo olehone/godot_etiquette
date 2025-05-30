@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://csskrpp0gb6nm"]
+
+[ext_resource type="FontFile" uid="uid://bv5dthkr6x36s" path="res://fonts/joystix/joystix monospace.otf" id="1_1j3fy"]
+
+[resource]
+base_font = ExtResource("1_1j3fy")
