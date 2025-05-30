@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://byl748la8beae" path="res://models/textures/TextureAtlas_baseColor.png" id="3_lswn8"]
 [ext_resource type="PackedScene" uid="uid://c1bcqmqywkpr" path="res://models/Nature.glb" id="4_1bvp3"]
 [ext_resource type="Script" path="res://xr_camera_3d.gd" id="4_lquwl"]
-[ext_resource type="Texture2D" uid="uid://cpkofcshairn6" path="res://addons/kaykit_restaurant_bits/Assets/gltf/restaurantbits_texture.png" id="4_ryguw"]
+[ext_resource type="Texture2D" uid="uid://r1j0fs75ct2b" path="res://addons/kaykit_restaurant_bits/Assets/gltf/restaurantbits_texture.png" id="4_ryguw"]
 [ext_resource type="Script" uid="uid://cgrl67imhfk5o" path="res://addons/godot-xr-tools/objects/pickable.gd" id="5_d13ii"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="5_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="6_dg77c"]
@@ -19,8 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://c2q7cwy3s5bgy" path="res://light.tscn" id="14_facbu"]
 [ext_resource type="PackedScene" uid="uid://bv73vvlv50b5j" path="res://models/Junk_Food/Pizza_One_Piece.glb" id="15_b1qrp"]
 [ext_resource type="Script" uid="uid://dvw5d3th60c8d" path="res://addons/godot-xr-tools/player/player_body.gd" id="15_ryguw"]
-[ext_resource type="PackedScene" uid="uid://cm4y3ad73imx8" path="res://cutting_board.tscn" id="16_come4"]
-[ext_resource type="PackedScene" uid="uid://bir6lwt24mxgg" path="res://dumpling.tscn" id="17_h8e4i"]
+[ext_resource type="PackedScene" path="res://cutting_board.tscn" id="16_come4"]
+[ext_resource type="PackedScene" path="res://dumpling.tscn" id="17_h8e4i"]
 [ext_resource type="Script" uid="uid://ogqf5o2a1qif" path="res://addons/godot-xr-tools/functions/function_teleport.gd" id="20_0odxb"]
 [ext_resource type="Material" path="res://addons/godot-xr-tools/materials/capsule.tres" id="21_lswn8"]
 [ext_resource type="Material" uid="uid://bk72wfw25ff0v" path="res://addons/godot-xr-tools/materials/teleport.tres" id="22_a6jrf"]
@@ -3720,13 +3720,11 @@ fov = 73.2296
 script = ExtResource("4_lquwl")
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, -0.0712936, 0.742394, -0.38982)
+transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, -0.2, 0.8, -0.4)
 tracker = &"left_hand"
 pose = &"grip"
 
 [node name="LeftHand" parent="XROrigin3D/LeftController" instance=ExtResource("5_efxa6")]
-
-[node name="MovementDirect" parent="XROrigin3D/LeftController" instance=ExtResource("6_dg77c")]
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftController" instance=ExtResource("7_ycdy4")]
 
@@ -3751,14 +3749,13 @@ mesh = SubResource("3")
 surface_material_override/0 = ExtResource("21_lswn8")
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154243, 0.368918, -0.339977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.8, -0.4)
 tracker = &"right_hand"
 pose = &"grip"
 
-[node name="MovementDirect2" parent="XROrigin3D/RightController" instance=ExtResource("6_dg77c")]
+[node name="MovementDirect" parent="XROrigin3D/RightController" instance=ExtResource("6_dg77c")]
 
 [node name="RightHand" parent="XROrigin3D/RightController" instance=ExtResource("8_w48qg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133681, 0.220112, -0.19136)
 
 [node name="MovementTurn" parent="XROrigin3D/RightController" instance=ExtResource("9_vivmo")]
 
