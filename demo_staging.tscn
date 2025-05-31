@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://dkr1jkk3jerux"]
+
+[ext_resource type="PackedScene" uid="uid://bnqnnnet4dw12" path="res://addons/godot-xr-tools/staging/staging.tscn" id="1"]
+[ext_resource type="Script" uid="uid://c58xw8uxjxygb" path="res://demo_staging.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="3_jqu5r"]
+[ext_resource type="Texture2D" uid="uid://61n7upjjyhir" path="res://logo.png" id="4_jqu5r"]
+[ext_resource type="Script" uid="uid://lc047dq7c7vi" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="5_73p2q"]
+[ext_resource type="PackedScene" uid="uid://biwemop2xkamp" path="res://scenes/easter_egg.tscn" id="6_73p2q"]
+[ext_resource type="Script" uid="uid://ccebibvumnwn7" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="7_pdmmw"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_7s4vr"]
+resource_local_to_scene = true
+size = Vector2(3, 2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vvsbk"]
+viewport_path = NodePath("LoadingScreen/Viewport2Din3D2/Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73p2q"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_vvsbk")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_270ri"]
+resource_local_to_scene = true
+size = Vector3(3, 2, 0.02)
+
+[node name="DemoStaging" instance=ExtResource("1")]
+script = ExtResource("2")
+main_scene = "uid://y6pt1jgx6v07"
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHandController" index="0" instance=ExtResource("3_jqu5r")]
+
+[node name="LoadingScreen" parent="." index="2"]
+splash_screen = ExtResource("4_jqu5r")
+
+[node name="Viewport2Din3D2" type="Node3D" parent="LoadingScreen" index="3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.73788, 4.06634)
+script = ExtResource("5_73p2q")
+scene = ExtResource("6_73p2q")
+alpha_scissor_threshold = 0.25
+unshaded = true
+filter = true
+scene_properties_keys = PackedStringArray()
+
+[node name="Viewport" type="SubViewport" parent="LoadingScreen/Viewport2Din3D2" index="0"]
+disable_3d = true
+transparent_bg = true
+gui_embed_subwindows = true
+size = Vector2i(300, 200)
+render_target_update_mode = 1
+
+[node name="Screen" type="MeshInstance3D" parent="LoadingScreen/Viewport2Din3D2" index="1"]
+mesh = SubResource("QuadMesh_7s4vr")
+surface_material_override/0 = SubResource("StandardMaterial3D_73p2q")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="LoadingScreen/Viewport2Din3D2" index="2"]
+collision_layer = 5242881
+collision_mask = 0
+script = ExtResource("7_pdmmw")
+viewport_size = Vector2(300, 200)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoadingScreen/Viewport2Din3D2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+shape = SubResource("BoxShape3D_270ri")
+
+[connection signal="scene_exiting" from="." to="." method="_on_Staging_scene_exiting"]
+[connection signal="scene_loaded" from="." to="." method="_on_Staging_scene_loaded"]
+[connection signal="xr_ended" from="." to="." method="_on_Staging_xr_ended"]
+[connection signal="xr_started" from="." to="." method="_on_Staging_xr_started"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://cgcsyrqmkx3ys"]
 
 [ext_resource type="Texture2D" uid="uid://byl748la8beae" path="res://models/textures/TextureAtlas_baseColor.png" id="1_knj3a"]
-[ext_resource type="Script" uid="uid://c8cbf0sdirsid" path="res://chair_sit.gd" id="2_58eu7"]
+[ext_resource type="Script" uid="uid://c8cbf0sdirsid" path="res://models/dump/chair_sit.gd" id="2_58eu7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdxly"]
 resource_name = "TextureAtlas"

@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://biwemop2xkamp"]
+
+[ext_resource type="FontVariation" uid="uid://csskrpp0gb6nm" path="res://fonts/joystix/joystix_font.tres" id="1_s34i4"]
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -128.0
+offset_right = 256.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(512, 256)
+render_target_update_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -20.0
+offset_right = 113.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s34i4")
+text = "у тебе спина біла"
+horizontal_alignment = 1
+vertical_alignment = 1

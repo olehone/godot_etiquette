@@ -126,7 +126,9 @@ func _update_follow_camera():
 func _update_splash_screen():
 	if _splash_screen_material:
 		_splash_screen_material.albedo_texture = splash_screen
-
+		# helpfull if work with pixelart
+		_splash_screen_material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
+		
 
 func _update_progress_bar():
 	if _progress_material:

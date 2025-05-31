@@ -2,21 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf3g1sp6eed6r"
-path.s3tc="res://.godot/imported/cutting_board_big_wall_cut.png-f43fbe2dda89402d803ef5d5d55afd6a.s3tc.ctex"
-path.etc2="res://.godot/imported/cutting_board_big_wall_cut.png-f43fbe2dda89402d803ef5d5d55afd6a.etc2.ctex"
+uid="uid://61n7upjjyhir"
+path.s3tc="res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.s3tc.ctex"
+path.etc2="res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "46d628afdd54bb4ef934f0fc7571e1ed"
-}
 
 [deps]
 
-source_file="res://cutting_board_big_wall_cut.png"
-dest_files=["res://.godot/imported/cutting_board_big_wall_cut.png-f43fbe2dda89402d803ef5d5d55afd6a.s3tc.ctex", "res://.godot/imported/cutting_board_big_wall_cut.png-f43fbe2dda89402d803ef5d5d55afd6a.etc2.ctex"]
+source_file="res://logo.png"
+dest_files=["res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.s3tc.ctex", "res://.godot/imported/logo.png-cca8726399059c8d4f806e28e356b14d.etc2.ctex"]
 
 [params]
 

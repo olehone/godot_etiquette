@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcsib0hw6oduu"
-path="res://.godot/imported/cutting_board.glb-e8f5c80365a2a267013eb631f2c0314f.scn"
+uid="uid://dtw6487c03wsk"
+path="res://.godot/imported/dumpling_on_.glb-6b4f30afe7c91dcecf44c40c5a6ea767.scn"
 
 [deps]
 
-source_file="res://cutting_board.glb"
-dest_files=["res://.godot/imported/cutting_board.glb-e8f5c80365a2a267013eb631f2c0314f.scn"]
+source_file="res://models/dump/dumpling_on_.glb"
+dest_files=["res://.godot/imported/dumpling_on_.glb-6b4f30afe7c91dcecf44c40c5a6ea767.scn"]
 
 [params]
 

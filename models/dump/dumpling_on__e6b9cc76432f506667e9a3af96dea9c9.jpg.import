@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckga8ffv458k5"
-path.s3tc="res://.godot/imported/dumpling_on__e6b9cc76432f506667e9a3af96dea9c9.jpg-5c00644cb75451ff0fa14c3ddcf270cd.s3tc.ctex"
-path.etc2="res://.godot/imported/dumpling_on__e6b9cc76432f506667e9a3af96dea9c9.jpg-5c00644cb75451ff0fa14c3ddcf270cd.etc2.ctex"
+path.s3tc="res://.godot/imported/dumpling_on__e6b9cc76432f506667e9a3af96dea9c9.jpg-9061f4670b3b61f5a6cbdb0e3103e2fc.s3tc.ctex"
+path.etc2="res://.godot/imported/dumpling_on__e6b9cc76432f506667e9a3af96dea9c9.jpg-9061f4670b3b61f5a6cbdb0e3103e2fc.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -15,8 +15,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://dumpling_on__e6b9cc76432f506667e9a3af96dea9c9.jpg"
-dest_files=["res://.godot/imported/dumpling_on__e6b9cc76432f506667e9a3af96dea9c9.jpg-5c00644cb75451ff0fa14c3ddcf270cd.s3tc.ctex", "res://.godot/imported/dumpling_on__e6b9cc76432f506667e9a3af96dea9c9.jpg-5c00644cb75451ff0fa14c3ddcf270cd.etc2.ctex"]
+source_file="res://models/dump/dumpling_on__e6b9cc76432f506667e9a3af96dea9c9.jpg"
+dest_files=["res://.godot/imported/dumpling_on__e6b9cc76432f506667e9a3af96dea9c9.jpg-9061f4670b3b61f5a6cbdb0e3103e2fc.s3tc.ctex", "res://.godot/imported/dumpling_on__e6b9cc76432f506667e9a3af96dea9c9.jpg-9061f4670b3b61f5a6cbdb0e3103e2fc.etc2.ctex"]
 
 [params]
 

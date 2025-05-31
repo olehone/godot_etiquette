@@ -1,33 +1,56 @@
-[gd_scene load_steps=47 format=4 uid="uid://y6pt1jgx6v07"]
+[gd_scene load_steps=60 format=4 uid="uid://dnpt64hq3b7ot"]
 
-[ext_resource type="Texture2D" uid="uid://byl748la8beae" path="res://models/textures/TextureAtlas_baseColor.png" id="1_48knj"]
-[ext_resource type="PackedScene" uid="uid://c2q7cwy3s5bgy" path="res://light.tscn" id="2_m2y5l"]
-[ext_resource type="PackedScene" uid="uid://5cxrovi0lyfg" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_A_small.gltf" id="3_imjy1"]
-[ext_resource type="PackedScene" uid="uid://bhop1x2jlonun" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_potato_chopped.gltf" id="4_u5051"]
-[ext_resource type="PackedScene" uid="uid://cx5rthpdmve6t" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_lettuce.gltf" id="5_v2sba"]
-[ext_resource type="PackedScene" uid="uid://cuocl0sc342on" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_ham_cooked.gltf" id="6_ai24q"]
-[ext_resource type="PackedScene" uid="uid://n7uv1pa8fmli" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_cheese.gltf" id="7_qby1g"]
-[ext_resource type="PackedScene" uid="uid://3kfbtva2wlfr" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_carrot.gltf" id="8_04soa"]
-[ext_resource type="PackedScene" uid="uid://clfta78yl5y3a" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_burger.gltf" id="9_u6vjd"]
-[ext_resource type="PackedScene" uid="uid://dnewkmadyt85s" path="res://addons/kaykit_restaurant_bits/Assets/gltf/dishrack_plates.gltf" id="10_swr0i"]
-[ext_resource type="PackedScene" uid="uid://bxscrcgwiffjh" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_tomatoes.gltf" id="11_2urq5"]
-[ext_resource type="PackedScene" uid="uid://d0phm0syn2mjv" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_steak.gltf" id="12_ix6bv"]
-[ext_resource type="PackedScene" uid="uid://dci78q4vasa3p" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_potatoes.gltf" id="13_2kjvi"]
-[ext_resource type="PackedScene" uid="uid://c2isldjrmb1og" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_onions.gltf" id="14_kvjq3"]
-[ext_resource type="PackedScene" uid="uid://m7wih0upo736" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_lettuce.gltf" id="15_h1gbt"]
-[ext_resource type="PackedScene" uid="uid://c2ylti1p4dgvb" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_cheese.gltf" id="16_km3bq"]
-[ext_resource type="PackedScene" uid="uid://ddvpxwl8srs4g" path="res://addons/kaykit_restaurant_bits/Assets/gltf/chair_A.gltf" id="17_7r7u4"]
-[ext_resource type="PackedScene" uid="uid://b7ltl3ks440yx" path="res://addons/kaykit_restaurant_bits/Assets/gltf/bowl.gltf" id="18_gqv7n"]
-[ext_resource type="PackedScene" uid="uid://deqk8xacbcfec" path="res://addons/kaykit_restaurant_bits/Assets/gltf/ketchup.gltf" id="19_hkf1x"]
-[ext_resource type="PackedScene" uid="uid://bnkg4lq716kaa" path="res://addons/kaykit_restaurant_bits/Assets/gltf/knife.gltf" id="20_e64eg"]
-[ext_resource type="PackedScene" uid="uid://hakf34m0f0am" path="res://addons/kaykit_restaurant_bits/Assets/gltf/mustard.gltf" id="21_wh67g"]
-[ext_resource type="PackedScene" uid="uid://3fl7thmep8p8" path="res://addons/kaykit_restaurant_bits/Assets/gltf/papertowel.gltf" id="22_v2pes"]
-[ext_resource type="PackedScene" uid="uid://bv73vvlv50b5j" path="res://models/Junk_Food/Pizza_One_Piece.glb" id="23_cy76q"]
-[ext_resource type="PackedScene" path="res://cutting_board.tscn" id="24_w3tfb"]
-[ext_resource type="Script" uid="uid://b74oedlyy0tlt" path="res://control.gd" id="25_dfeea"]
-[ext_resource type="FontFile" uid="uid://3cux8aq8gnep" path="res://fonts/good-timing/good timing bd.otf" id="26_kojkm"]
-[ext_resource type="FontVariation" uid="uid://csskrpp0gb6nm" path="res://fonts/joystix/joystix_font.tres" id="27_m2y5l"]
-[ext_resource type="Script" uid="uid://bh6gqr1dwkcdp" path="res://game_title_2.gd" id="28_m2y5l"]
+[ext_resource type="Script" uid="uid://dvw5d3th60c8d" path="res://addons/godot-xr-tools/player/player_body.gd" id="1_fjo7w"]
+[ext_resource type="Script" uid="uid://b7ei1kuvh4mtx" path="res://models/dump/xr_camera_3d.gd" id="2_nvag1"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3_1gyep"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_763e7"]
+[ext_resource type="Script" uid="uid://ogqf5o2a1qif" path="res://addons/godot-xr-tools/functions/function_teleport.gd" id="5_eelws"]
+[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/capsule.tres" id="6_aav4c"]
+[ext_resource type="Material" uid="uid://bk72wfw25ff0v" path="res://addons/godot-xr-tools/materials/teleport.tres" id="7_vi4o4"]
+[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/target.tres" id="8_k5yt2"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="9_epssy"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="10_0ux8s"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="11_06ibd"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="12_1bpss"]
+[ext_resource type="Texture2D" uid="uid://byl748la8beae" path="res://models/textures/TextureAtlas_baseColor.png" id="13_mhr2k"]
+[ext_resource type="PackedScene" uid="uid://c2q7cwy3s5bgy" path="res://models/dump/light.tscn" id="14_exbuj"]
+[ext_resource type="PackedScene" uid="uid://5cxrovi0lyfg" path="res://addons/kaykit_restaurant_bits/Assets/gltf/jar_A_small.gltf" id="15_asjoe"]
+[ext_resource type="PackedScene" uid="uid://bhop1x2jlonun" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_potato_chopped.gltf" id="16_3xw3b"]
+[ext_resource type="PackedScene" uid="uid://cx5rthpdmve6t" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_lettuce.gltf" id="17_4rmv0"]
+[ext_resource type="PackedScene" uid="uid://cuocl0sc342on" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_ham_cooked.gltf" id="18_0xj4m"]
+[ext_resource type="PackedScene" uid="uid://n7uv1pa8fmli" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_cheese.gltf" id="19_tas78"]
+[ext_resource type="PackedScene" uid="uid://3kfbtva2wlfr" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_ingredient_carrot.gltf" id="20_4g1su"]
+[ext_resource type="PackedScene" uid="uid://clfta78yl5y3a" path="res://addons/kaykit_restaurant_bits/Assets/gltf/food_burger.gltf" id="21_vdvos"]
+[ext_resource type="PackedScene" uid="uid://dnewkmadyt85s" path="res://addons/kaykit_restaurant_bits/Assets/gltf/dishrack_plates.gltf" id="22_jqfeq"]
+[ext_resource type="PackedScene" uid="uid://bxscrcgwiffjh" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_tomatoes.gltf" id="23_yx8np"]
+[ext_resource type="PackedScene" uid="uid://d0phm0syn2mjv" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_steak.gltf" id="24_rp85t"]
+[ext_resource type="PackedScene" uid="uid://dci78q4vasa3p" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_potatoes.gltf" id="25_2n2y8"]
+[ext_resource type="PackedScene" uid="uid://c2isldjrmb1og" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_onions.gltf" id="26_y17t8"]
+[ext_resource type="PackedScene" uid="uid://m7wih0upo736" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_lettuce.gltf" id="27_p1eia"]
+[ext_resource type="PackedScene" uid="uid://c2ylti1p4dgvb" path="res://addons/kaykit_restaurant_bits/Assets/gltf/crate_cheese.gltf" id="28_l12pl"]
+[ext_resource type="PackedScene" uid="uid://ddvpxwl8srs4g" path="res://addons/kaykit_restaurant_bits/Assets/gltf/chair_A.gltf" id="29_qqold"]
+[ext_resource type="PackedScene" uid="uid://b7ltl3ks440yx" path="res://addons/kaykit_restaurant_bits/Assets/gltf/bowl.gltf" id="30_wxb6r"]
+[ext_resource type="PackedScene" uid="uid://deqk8xacbcfec" path="res://addons/kaykit_restaurant_bits/Assets/gltf/ketchup.gltf" id="31_50plw"]
+[ext_resource type="PackedScene" uid="uid://bnkg4lq716kaa" path="res://addons/kaykit_restaurant_bits/Assets/gltf/knife.gltf" id="32_u4s3v"]
+[ext_resource type="PackedScene" uid="uid://hakf34m0f0am" path="res://addons/kaykit_restaurant_bits/Assets/gltf/mustard.gltf" id="33_55lk8"]
+[ext_resource type="PackedScene" uid="uid://3fl7thmep8p8" path="res://addons/kaykit_restaurant_bits/Assets/gltf/papertowel.gltf" id="34_41cfw"]
+[ext_resource type="PackedScene" uid="uid://bv73vvlv50b5j" path="res://models/Junk_Food/Pizza_One_Piece.glb" id="35_2me16"]
+[ext_resource type="PackedScene" uid="uid://cm4y3ad73imx8" path="res://models/dump/cutting_board.tscn" id="36_l4xe6"]
+[ext_resource type="Script" uid="uid://b74oedlyy0tlt" path="res://control.gd" id="37_kkiy8"]
+[ext_resource type="FontFile" uid="uid://3cux8aq8gnep" path="res://fonts/good-timing/good timing bd.otf" id="38_ro3cq"]
+[ext_resource type="FontVariation" uid="uid://csskrpp0gb6nm" path="res://fonts/joystix/joystix_font.tres" id="39_w1say"]
+[ext_resource type="Script" uid="uid://bh6gqr1dwkcdp" path="res://models/dump/game_title_2.gd" id="40_exlnp"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kojkm"]
+size = Vector2(0.05, 1)
+subdivide_depth = 40
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m3v73"]
+size = Vector2(1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ivaxt"]
+radius = 0.4
+height = 5.225
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0c6v"]
 resource_name = "mat21"
@@ -71,7 +94,7 @@ size = Vector3(0.955666, 0.382263, 0.0327148)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdxly"]
 resource_name = "TextureAtlas"
 cull_mode = 2
-albedo_texture = ExtResource("1_48knj")
+albedo_texture = ExtResource("13_mhr2k")
 roughness = 0.821336
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6ax64"]
@@ -149,38 +172,31 @@ shadow_mesh = SubResource("ArrayMesh_x7jbs")
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5jqm"]
 size = Vector3(0.161909, 0.0104297, 0.31999)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkpqm"]
-bg_color = Color(0.667875, 0.575102, 0.570499, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
-bg_color = Color(0.819052, 0.672499, 0.864638, 1)
-skew = Vector2(0.155, -0.005)
-
 [sub_resource type="Animation" id="Animation_7wriu"]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(5.82513, 1.48617, 1.22697)]
+"values": [Vector3(-0.321141, 1.21126, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.321141, 1.21126, 0)]
+"values": [Vector3(5.82513, 1.48617, 1.22697)]
 }
 
 [sub_resource type="Animation" id="Animation_rkpqm"]
@@ -190,26 +206,26 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.03, 2.01, 2.95, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(5.82513, 1.48617, 1.22697), Vector3(5.88296, 1.41289, 1.13532), Vector3(5.80809, 1.43861, 1.38128), Vector3(5.80805, 1.51743, 1.3084), Vector3(5.808, 1.486, 1.227)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(2.95),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.321141, 1.21126, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.03, 2.01, 2.95, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(5.82513, 1.48617, 1.22697), Vector3(5.88296, 1.41289, 1.13532), Vector3(5.80809, 1.43861, 1.38128), Vector3(5.80805, 1.51743, 1.3084), Vector3(5.808, 1.486, 1.227)]
 }
 
 [sub_resource type="Animation" id="Animation_xhgcl"]
@@ -242,7 +258,73 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Background/SubViewportContainer/SubViewport"]
-transform = Transform3D(0.35184, -0.295467, 0.888204, 0, 0.948876, 0.315649, -0.936061, -0.111058, 0.333853, 5.82513, 1.48617, 1.22697)
+transform = Transform3D(0.351841, -0.295467, 0.888204, 0, 0.948876, 0.315649, -0.936061, -0.111058, 0.333852, 5.82513, 1.48617, 1.22697)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="Background/SubViewportContainer/SubViewport"]
+transform = Transform3D(0.999391, 0, 0.0348995, 0, 1, 0, -0.0348995, 0, 0.999391, -2.34741, 0, 33.3714)
+visible = false
+
+[node name="PlayerBody" type="CharacterBody3D" parent="Background/SubViewportContainer/SubViewport/XROrigin3D" groups=["player_body"]]
+process_priority = -100
+process_physics_priority = -100
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.347, 0, 33.371)
+top_level = true
+collision_layer = 524288
+collision_mask = 1023
+script = ExtResource("1_fjo7w")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="Background/SubViewportContainer/SubViewport/XROrigin3D"]
+transform = Transform3D(1, 4.65661e-10, 0, 0, 0.985703, 0.168489, 0, -0.168489, 0.985703, 0.0386376, 0.982978, 0.136589)
+fov = 73.2296
+script = ExtResource("2_nvag1")
+
+[node name="LeftController" type="XRController3D" parent="Background/SubViewportContainer/SubViewport/XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, -0.2, 0.8, -0.4)
+tracker = &"left_hand"
+pose = &"grip"
+
+[node name="LeftHand" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/LeftController" instance=ExtResource("3_1gyep")]
+
+[node name="FunctionPickup" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/LeftController" instance=ExtResource("4_763e7")]
+
+[node name="FunctionTeleport" type="Node3D" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/LeftController"]
+script = ExtResource("5_eelws")
+player_material = ExtResource("6_aav4c")
+
+[node name="Teleport" type="MeshInstance3D" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/LeftController/FunctionTeleport"]
+mesh = SubResource("PlaneMesh_kojkm")
+surface_material_override/0 = ExtResource("7_vi4o4")
+
+[node name="Target" type="MeshInstance3D" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/LeftController/FunctionTeleport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -4.92359)
+mesh = SubResource("PlaneMesh_m3v73")
+surface_material_override/0 = ExtResource("8_k5yt2")
+
+[node name="Player_figure" type="Marker3D" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/LeftController/FunctionTeleport/Target"]
+
+[node name="Capsule" type="MeshInstance3D" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/LeftController/FunctionTeleport/Target/Player_figure"]
+transform = Transform3D(1, 0, 0, -5.82077e-11, 1, 9.31323e-10, 0, 0, 1, 2.38419e-07, 2.58152, -0.0146751)
+mesh = SubResource("CapsuleMesh_ivaxt")
+surface_material_override/0 = ExtResource("6_aav4c")
+
+[node name="RightController" type="XRController3D" parent="Background/SubViewportContainer/SubViewport/XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.8, -0.4)
+tracker = &"right_hand"
+pose = &"grip"
+
+[node name="MovementDirect" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/RightController" instance=ExtResource("9_epssy")]
+
+[node name="RightHand" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/RightController" instance=ExtResource("10_0ux8s")]
+
+[node name="MovementTurn" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/RightController" instance=ExtResource("11_06ibd")]
+
+[node name="FunctionPickup" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/RightController" instance=ExtResource("4_763e7")]
+
+[node name="FunctionPointer" parent="Background/SubViewportContainer/SubViewport/XROrigin3D/RightController" instance=ExtResource("12_1bpss")]
+transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, 0.0005126, 0, -0.0146713)
+show_laser = 2
+laser_length = 1
+show_target = true
 
 [node name="scene" type="Node3D" parent="Background"]
 
@@ -343,123 +425,123 @@ shape = SubResource("BoxShape3D_t5jqm")
 
 [node name="Lightning" type="Node3D" parent="Background/scene/Building"]
 
-[node name="Light_6" parent="Background/scene/Building/Lightning" instance=ExtResource("2_m2y5l")]
+[node name="Light_6" parent="Background/scene/Building/Lightning" instance=ExtResource("14_exbuj")]
 transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 3.69917, 2.0461, 0.180321)
 
-[node name="Light_7" parent="Background/scene/Building/Lightning" instance=ExtResource("2_m2y5l")]
+[node name="Light_7" parent="Background/scene/Building/Lightning" instance=ExtResource("14_exbuj")]
 transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 3.69917, 2.0461, -2.48772)
 
-[node name="Light_8" parent="Background/scene/Building/Lightning" instance=ExtResource("2_m2y5l")]
+[node name="Light_8" parent="Background/scene/Building/Lightning" instance=ExtResource("14_exbuj")]
 transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 3.69917, 2.0461, 2.45133)
 
 [node name="Decorations" type="Node3D" parent="Background/scene"]
 
-[node name="jar_A_small2" parent="Background/scene/Decorations" instance=ExtResource("3_imjy1")]
+[node name="jar_A_small2" parent="Background/scene/Decorations" instance=ExtResource("15_asjoe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43512, 0, -0.255791)
 
-[node name="food_ingredient_potato_chopped2" parent="Background/scene/Decorations" instance=ExtResource("4_u5051")]
+[node name="food_ingredient_potato_chopped2" parent="Background/scene/Decorations" instance=ExtResource("16_3xw3b")]
 transform = Transform3D(-0.0456209, 0, 0.201697, 0, 0.206792, 0, -0.201697, 0, -0.0456209, 3.83943, 1.01365, 2.14874)
 
-[node name="food_ingredient_lettuce2" parent="Background/scene/Decorations" instance=ExtResource("5_v2sba")]
+[node name="food_ingredient_lettuce2" parent="Background/scene/Decorations" instance=ExtResource("17_4rmv0")]
 transform = Transform3D(0.329555, 0, 0, 0, 0.329555, 0, 0, 0, 0.329555, 3.43951, 0.941649, 1.21905)
 
-[node name="food_ingredient_ham_cooked2" parent="Background/scene/Decorations" instance=ExtResource("6_ai24q")]
+[node name="food_ingredient_ham_cooked2" parent="Background/scene/Decorations" instance=ExtResource("18_0xj4m")]
 transform = Transform3D(0.119706, 0.048088, 0.137962, -0.0738083, 0.173827, 0.00345229, -0.126088, -0.0560993, 0.128957, 3.35144, 1.01304, 1.68309)
 
-[node name="food_ingredient_cheese2" parent="Background/scene/Decorations" instance=ExtResource("7_qby1g")]
+[node name="food_ingredient_cheese2" parent="Background/scene/Decorations" instance=ExtResource("19_tas78")]
 transform = Transform3D(0.275031, 0, -0.26933, 0, 0.384943, 0, 0.26933, 0, 0.275031, 3.25588, 0.93148, 0.795726)
 
-[node name="food_ingredient_carrot2" parent="Background/scene/Decorations" instance=ExtResource("8_04soa")]
+[node name="food_ingredient_carrot2" parent="Background/scene/Decorations" instance=ExtResource("20_4g1su")]
 transform = Transform3D(0.259431, 0, 0, 0, 0.00550556, 0.259373, 0, -0.259373, 0.00550556, 3.41706, 1.02216, 2.18965)
 
-[node name="food_burger2" parent="Background/scene/Decorations" instance=ExtResource("9_u6vjd")]
+[node name="food_burger2" parent="Background/scene/Decorations" instance=ExtResource("21_vdvos")]
 transform = Transform3D(0.313955, 0, 0, 0, 0.313955, 0, 0, 0, 0.313955, 3.31743, 0.935212, -0.293079)
 
-[node name="dishrack_plates2" parent="Background/scene/Decorations" instance=ExtResource("10_swr0i")]
+[node name="dishrack_plates2" parent="Background/scene/Decorations" instance=ExtResource("22_jqfeq")]
 transform = Transform3D(0.425964, 0, 0, 0, 0.425964, 0, 0, 0, 0.425964, 3.33821, 1.53146, 0.785526)
 
-[node name="dishrack_plates5" parent="Background/scene/Decorations" instance=ExtResource("10_swr0i")]
+[node name="dishrack_plates5" parent="Background/scene/Decorations" instance=ExtResource("22_jqfeq")]
 transform = Transform3D(0.425964, 0, 0, 0, 0.425964, 0, 0, 0, 0.425964, 3.33821, 1.53146, -0.376771)
 
-[node name="dishrack_plates3" parent="Background/scene/Decorations" instance=ExtResource("10_swr0i")]
+[node name="dishrack_plates3" parent="Background/scene/Decorations" instance=ExtResource("22_jqfeq")]
 transform = Transform3D(0.425964, 0, 0, 0, 0.425964, 0, 0, 0, 0.425964, 3.33821, 1.53146, 1.49983)
 
-[node name="dishrack_plates4" parent="Background/scene/Decorations" instance=ExtResource("10_swr0i")]
+[node name="dishrack_plates4" parent="Background/scene/Decorations" instance=ExtResource("22_jqfeq")]
 transform = Transform3D(0.425964, 0, 0, 0, 0.425964, 0, 0, 0, 0.425964, 3.33821, 1.53146, 2.1771)
 
-[node name="crate_tomatoes2" parent="Background/scene/Decorations" instance=ExtResource("11_2urq5")]
+[node name="crate_tomatoes2" parent="Background/scene/Decorations" instance=ExtResource("23_yx8np")]
 transform = Transform3D(0.224467, 0, 0, 0, 0.224467, 0, 0, 0, 0.224467, 3.42576, 0.0161175, -1.78054)
 
-[node name="crate_tomatoes3" parent="Background/scene/Decorations" instance=ExtResource("11_2urq5")]
+[node name="crate_tomatoes3" parent="Background/scene/Decorations" instance=ExtResource("23_yx8np")]
 transform = Transform3D(0.224467, 0, 0, 0, 0.224467, 0, 0, 0, 0.224467, 3.8717, 0.0161175, -1.78054)
 
-[node name="crate_steak2" parent="Background/scene/Decorations" instance=ExtResource("12_ix6bv")]
+[node name="crate_steak2" parent="Background/scene/Decorations" instance=ExtResource("24_rp85t")]
 transform = Transform3D(0.402948, 0, 0, 0, 0.402948, 0, 0, 0, 0.402948, 3.52857, 0, 1.42435)
 
-[node name="crate_potatoes2" parent="Background/scene/Decorations" instance=ExtResource("13_2kjvi")]
+[node name="crate_potatoes2" parent="Background/scene/Decorations" instance=ExtResource("25_2n2y8")]
 transform = Transform3D(0.353706, 0, 0, 0, 0.353706, 0, 0, 0, 0.353706, 3.54437, 0, 2.42258)
 
-[node name="crate_onions2" parent="Background/scene/Decorations" instance=ExtResource("14_kvjq3")]
+[node name="crate_onions2" parent="Background/scene/Decorations" instance=ExtResource("26_y17t8")]
 transform = Transform3D(0.368242, 0, 0, 0, 0.368242, 0, 0, 0, 0.368242, 3.55824, 1.90735e-06, 0.486297)
 
-[node name="crate_lettuce2" parent="Background/scene/Decorations" instance=ExtResource("15_h1gbt")]
+[node name="crate_lettuce2" parent="Background/scene/Decorations" instance=ExtResource("27_p1eia")]
 transform = Transform3D(0.401106, 0, 0, 0, 0.401106, 0, 0, 0, 0.401106, 3.57798, 1.90735e-06, -2.53219)
 
-[node name="crate_cheese2" parent="Background/scene/Decorations" instance=ExtResource("16_km3bq")]
+[node name="crate_cheese2" parent="Background/scene/Decorations" instance=ExtResource("28_l12pl")]
 transform = Transform3D(0.341092, 0, 0, 0, 0.341092, 0, 0, 0, 0.341092, 3.60997, 1.90735e-06, -1.08035)
 
-[node name="chair_A2" parent="Background/scene/Decorations" instance=ExtResource("17_7r7u4")]
+[node name="chair_A2" parent="Background/scene/Decorations" instance=ExtResource("29_qqold")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77379, -1.19209e-07, -2.64766)
 
-[node name="bowl2" parent="Background/scene/Decorations" instance=ExtResource("18_gqv7n")]
+[node name="bowl2" parent="Background/scene/Decorations" instance=ExtResource("30_wxb6r")]
 transform = Transform3D(0.468233, 0, 0, 0, 0.468233, 0, 0, 0, 0.468233, 3.83099, 0.938359, 1.0254)
 
-[node name="ketchup2" parent="Background/scene/Decorations" instance=ExtResource("19_hkf1x")]
+[node name="ketchup2" parent="Background/scene/Decorations" instance=ExtResource("31_50plw")]
 transform = Transform3D(0.506054, 0, 0, 0, 0.506054, 0, 0, 0, 0.506054, 3.28559, 0.953116, -0.670047)
 
-[node name="knife2" parent="Background/scene/Decorations" instance=ExtResource("20_e64eg")]
+[node name="knife2" parent="Background/scene/Decorations" instance=ExtResource("32_u4s3v")]
 transform = Transform3D(0.0100554, -0.404787, 0, 0.135134, 0.00335688, -0.381682, 0.381564, 0.00947848, 0.135176, 3.85132, 1.00282, 1.89532)
 
-[node name="mustard2" parent="Background/scene/Decorations" instance=ExtResource("21_wh67g")]
+[node name="mustard2" parent="Background/scene/Decorations" instance=ExtResource("33_55lk8")]
 transform = Transform3D(0.527943, 0, 0, 0, 0.527943, 0, 0, 0, 0.527943, 3.37969, 0.93148, -0.82964)
 
-[node name="papertowel2" parent="Background/scene/Decorations" instance=ExtResource("22_v2pes")]
+[node name="papertowel2" parent="Background/scene/Decorations" instance=ExtResource("34_41cfw")]
 transform = Transform3D(0.526406, 0, 0, 0, 0.526406, 0, 0, 0, 0.526406, 3.29835, 0.924472, -1.99319)
 
 [node name="pizza" type="Node3D" parent="Background/scene/Decorations"]
 transform = Transform3D(0.559913, -0.000384841, 0.347663, 0.00104369, 0.659067, -0.000951323, -0.347662, 0.00135875, 0.559912, 3.67776, 0.968634, -1.55599)
 
-[node name="Pizza_One_Piece2" parent="Background/scene/Decorations/pizza" instance=ExtResource("23_cy76q")]
+[node name="Pizza_One_Piece2" parent="Background/scene/Decorations/pizza" instance=ExtResource("35_2me16")]
 transform = Transform3D(3.58653, 0.00583283, 0.838768, -0.00689028, 3.6833, 0.00384868, -0.838759, -0.00531661, 3.58653, -0.085916, 0.0117879, 0.0212526)
 
-[node name="Pizza_One_Piece3" parent="Background/scene/Decorations/pizza" instance=ExtResource("23_cy76q")]
+[node name="Pizza_One_Piece3" parent="Background/scene/Decorations/pizza" instance=ExtResource("35_2me16")]
 transform = Transform3D(1.94296, 0.00583283, 3.12916, -0.00759359, 3.6833, -0.00215073, -3.12915, -0.00531661, 1.94297, -0.105187, 0.0118086, 0.0144514)
 
-[node name="Pizza_One_Piece4" parent="Background/scene/Decorations/pizza" instance=ExtResource("23_cy76q")]
+[node name="Pizza_One_Piece4" parent="Background/scene/Decorations/pizza" instance=ExtResource("35_2me16")]
 transform = Transform3D(-0.838768, 0.00583283, 3.58653, -0.00384868, 3.6833, -0.00689028, -3.58653, -0.00531661, -0.838759, -0.0977765, 0.0118059, 0.0207038)
 
-[node name="Pizza_One_Piece5" parent="Background/scene/Decorations/pizza" instance=ExtResource("23_cy76q")]
+[node name="Pizza_One_Piece5" parent="Background/scene/Decorations/pizza" instance=ExtResource("35_2me16")]
 transform = Transform3D(-3.12916, 0.00583283, 1.94296, 0.00215073, 3.6833, -0.00759359, -1.94297, -0.00531661, -3.12915, -0.09058, 0.011812, 0.0328354)
 
-[node name="Pizza_One_Piece6" parent="Background/scene/Decorations/pizza" instance=ExtResource("23_cy76q")]
+[node name="Pizza_One_Piece6" parent="Background/scene/Decorations/pizza" instance=ExtResource("35_2me16")]
 transform = Transform3D(-3.58653, 0.00583283, -0.838768, 0.00689028, 3.6833, -0.00384868, 0.838759, -0.00531661, -3.58653, -0.0738059, 0.0118707, 0.0919204)
 
-[node name="Pizza_One_Piece7" parent="Background/scene/Decorations/pizza" instance=ExtResource("23_cy76q")]
+[node name="Pizza_One_Piece7" parent="Background/scene/Decorations/pizza" instance=ExtResource("35_2me16")]
 transform = Transform3D(-1.94296, 0.00583283, -3.12916, 0.00759359, 3.6833, 0.00215073, 3.12915, -0.00531661, -1.94297, -0.0353519, 0.0117536, 0.0529668)
 
-[node name="Pizza_One_Piece8" parent="Background/scene/Decorations/pizza" instance=ExtResource("23_cy76q")]
+[node name="Pizza_One_Piece8" parent="Background/scene/Decorations/pizza" instance=ExtResource("35_2me16")]
 transform = Transform3D(0.838768, 0.00583283, -3.58653, 0.00384868, 3.6833, 0.00689028, 3.58653, -0.00531661, 0.838759, -0.0228402, 0.0116867, 0.0203266)
 
-[node name="Pizza_One_Piece9" parent="Background/scene/Decorations/pizza" instance=ExtResource("23_cy76q")]
+[node name="Pizza_One_Piece9" parent="Background/scene/Decorations/pizza" instance=ExtResource("35_2me16")]
 transform = Transform3D(3.12916, 0.00583283, -1.94296, -0.00215073, 3.6833, 0.00759359, 1.94297, -0.00531661, 3.12915, -0.029638, 0.0116347, -0.0231356)
 
-[node name="cutting_board" parent="Background/scene/Decorations/pizza" instance=ExtResource("24_w3tfb")]
+[node name="cutting_board" parent="Background/scene/Decorations/pizza" instance=ExtResource("36_l4xe6")]
 transform = Transform3D(1, 1.16415e-10, 5.96046e-08, 0, 1, 0, 0, 0, 1, -0.074203, -1.19209e-07, 0.0412676)
 
-[node name="cutting_board3" parent="Background/scene/Decorations/pizza" instance=ExtResource("24_w3tfb")]
+[node name="cutting_board3" parent="Background/scene/Decorations/pizza" instance=ExtResource("36_l4xe6")]
 transform = Transform3D(0.965745, -0.000320317, -0.259493, 0.000428808, 1, 0.000361484, 0.259493, -0.000460374, 0.965745, -2.84328, 0.0111103, 4.70051)
 
-[node name="cutting_board2" parent="Background/scene/Decorations/pizza" instance=ExtResource("24_w3tfb")]
+[node name="cutting_board2" parent="Background/scene/Decorations/pizza" instance=ExtResource("36_l4xe6")]
 transform = Transform3D(0.515038, 0.770417, 0.375757, -4.65661e-10, 0.438371, -0.898794, -0.857167, 0.462913, 0.225778, -0.866229, 0.513714, 0.152591)
 
 [node name="Control" type="Control" parent="."]
@@ -469,7 +551,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("25_dfeea")
+script = ExtResource("37_kkiy8")
 
 [node name="GameTitle_1" type="Label" parent="Control"]
 layout_mode = 2
@@ -483,7 +565,7 @@ theme_override_colors/font_color = Color(0.99, 0.79266, 0.0792, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("26_kojkm")
+theme_override_fonts/font = ExtResource("38_ro3cq")
 theme_override_font_sizes/font_size = 79
 text = "Table etiquette"
 
@@ -507,13 +589,13 @@ focus_neighbor_left = NodePath("../GameTitle_1")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("27_m2y5l")
+theme_override_fonts/font = ExtResource("39_w1say")
 theme_override_font_sizes/font_size = 156
 text = "vr"
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 171
-script = ExtResource("28_m2y5l")
+script = ExtResource("40_exlnp")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
@@ -540,16 +622,12 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = SubResource("StyleBoxFlat_rkpqm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mae5d")
 text = "Start game"
 
 [node name="Settings" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = SubResource("StyleBoxFlat_rkpqm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mae5d")
 text = "Settings
 "
 
@@ -557,8 +635,6 @@ text = "Settings
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = SubResource("StyleBoxFlat_rkpqm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mae5d")
 text = "Quit"
 
 [node name="AnimationPlayer_Camera" type="AnimationPlayer" parent="."]

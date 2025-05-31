@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdhh7woo4k4qu"]
+
+[ext_resource type="Script" uid="uid://b74oedlyy0tlt" path="res://control.gd" id="37_kthar"]
+[ext_resource type="FontFile" uid="uid://3cux8aq8gnep" path="res://fonts/good-timing/good timing bd.otf" id="38_8oe51"]
+[ext_resource type="FontVariation" uid="uid://csskrpp0gb6nm" path="res://fonts/joystix/joystix_font.tres" id="39_kglnt"]
+[ext_resource type="Script" uid="uid://bh6gqr1dwkcdp" path="res://models/dump/game_title_2.gd" id="40_jp1jm"]
+
+[sub_resource type="Animation" id="Animation_7wriu"]
+length = 5.0
+
+[sub_resource type="Animation" id="Animation_rkpqm"]
+resource_name = "camera_animation"
+length = 4.0
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_xhgcl"]
+resource_name = "vr_animation"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xhgcl"]
+_data = {
+&"RESET": SubResource("Animation_7wriu"),
+&"camera_animation": SubResource("Animation_rkpqm"),
+&"vr_animation": SubResource("Animation_xhgcl")
+}
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("37_kthar")
+
+[node name="GameTitle_1" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 148.0
+offset_top = 48.0
+offset_right = 777.0
+offset_bottom = 144.0
+size_flags_horizontal = 0
+focus_neighbor_right = NodePath("../GameTitle_2")
+theme_override_colors/font_color = Color(0.99, 0.79266, 0.0792, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("38_8oe51")
+theme_override_font_sizes/font_size = 79
+text = "Table etiquette"
+
+[node name="GameTitle_2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.808037
+anchor_top = 0.191382
+anchor_right = 0.808037
+anchor_bottom = 0.191382
+offset_left = -122.287
+offset_top = -93.795
+offset_right = 135.735
+offset_bottom = 94.205
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.349066
+pivot_offset = Vector2(129.011, 91.2072)
+size_flags_horizontal = 8
+focus_neighbor_left = NodePath("../GameTitle_1")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("39_kglnt")
+theme_override_font_sizes/font_size = 156
+text = "vr"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+script = ExtResource("40_jp1jm")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 164.955)
+layout_mode = 2
+
+[node name="Start" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 35
+text = "Start game"
+
+[node name="Settings" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 35
+text = "Settings
+"
+
+[node name="Quit" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 35
+text = "Quit"
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+modulate = Color(0.55, 0.55, 0.55, 0.211765)
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1284.0
+offset_bottom = 720.0
+
+[node name="AnimationPlayer_Camera" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xhgcl")
+}
+autoplay = "camera_animation"
+speed_scale = 0.13
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Start" to="Control" method="_on_start_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Settings" to="Control" method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]
