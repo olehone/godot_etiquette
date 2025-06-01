@@ -1,5 +1,5 @@
 @tool
-class_name XRToolsStaging
+class_name 
 extends Node3D
 
 

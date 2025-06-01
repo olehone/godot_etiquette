@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dbemwsq7bbx7s" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_8isf0"]
 [ext_resource type="Script" uid="uid://rkp4t7eqnc0o" path="res://models/dump/main.gd" id="1_fsva1"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="2_hojwa"]
 [ext_resource type="Texture2D" uid="uid://byl748la8beae" path="res://models/textures/TextureAtlas_baseColor.png" id="3_lswn8"]
 [ext_resource type="PackedScene" uid="uid://c1bcqmqywkpr" path="res://models/Nature.glb" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://b7ei1kuvh4mtx" path="res://models/dump/xr_camera_3d.gd" id="4_lquwl"]
@@ -475,6 +474,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4k2k6")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8isf0"]
+height = 0.782
+radius = 0.105
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj7l0"]
 resource_name = "white"
@@ -2437,31 +2440,10 @@ size = Vector2(1, 1)
 
 [sub_resource type="CapsuleMesh" id="3"]
 radius = 0.4
-height = 5.225
+height = 1.8
 
 [node name="SceneBase" type="Node3D"]
 script = ExtResource("1_8isf0")
-
-[node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15017, 0, 30.835)
-visible = false
-
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
-far = 300.0
-
-[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
-tracker = &"left_hand"
-pose = &"aim"
-
-[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-tracker = &"right_hand"
-pose = &"aim"
-
-[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("2_hojwa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54273, 0, 30.4016)
 
 [node name="Main" type="Node3D" parent="."]
 script = ExtResource("1_fsva1")
@@ -2482,6 +2464,7 @@ shadow_enabled = true
 
 [node name="Nature_0" type="Node3D" parent="Main/Scene"]
 transform = Transform3D(0.999048, 0, 0.0436194, 0, 1, 0, -0.0436194, 0, 0.999048, 0, -0.52075, 0)
+visible = false
 
 [node name="Nature" parent="Main/Scene/Nature_0" instance=ExtResource("4_1bvp3")]
 transform = Transform3D(14.545, 0, 0, 0, 14.545, 0, 0, 0, 14.545, 0, 0, 0)
@@ -2669,6 +2652,7 @@ mesh = SubResource("ArrayMesh_alqr1")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Main/Scene/Building/Floor/Floor_17/Object_36"]
+collision_layer = 16777217
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Scene/Building/Floor/Floor_17/Object_36/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_5yc0h")
@@ -2684,6 +2668,8 @@ mesh = SubResource("ArrayMesh_alqr1")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Main/Scene/Building/Floor/Floor_18/Object_36"]
+collision_layer = 16777217
+collision_mask = 16777217
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Scene/Building/Floor/Floor_18/Object_36/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_5yc0h")
@@ -2699,6 +2685,7 @@ mesh = SubResource("ArrayMesh_alqr1")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Main/Scene/Building/Floor/Floor_19/Object_36"]
+collision_layer = 16777217
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Scene/Building/Floor/Floor_19/Object_36/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_5yc0h")
@@ -2848,6 +2835,7 @@ transform = Transform3D(-0.894935, 0, -0.446198, 0, 1, 0, 0.446198, 0, -0.894935
 transform = Transform3D(5.36442e-07, 0, -1, 0, 1, 0, 1, 0, 5.36442e-07, -0.0951138, -1.19209e-07, 1.20875)
 
 [node name="Object_64" type="RigidBody3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/Chair_005_30"]
+collision_layer = 3
 
 [node name="Object_64" type="MeshInstance3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/Chair_005_30/Object_64"]
 mesh = SubResource("ArrayMesh_op4hj")
@@ -2863,6 +2851,7 @@ shape = SubResource("ConvexPolygonShape3D_a7ey2")
 transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 0.0426569, 0, -1.1949)
 
 [node name="Object_66" type="RigidBody3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/Chair_004_31"]
+collision_layer = 3
 
 [node name="Object_66" type="MeshInstance3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/Chair_004_31/Object_66"]
 mesh = SubResource("ArrayMesh_b4hyb")
@@ -2880,6 +2869,21 @@ transform = Transform3D(0.605586, 0, -0.277259, 0, 0.666038, 0, 0.277259, 0, 0.6
 [node name="table_round_A" type="MeshInstance3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/table_round_A2"]
 mesh = SubResource("ArrayMesh_woxlb")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/table_round_A2"]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/table_round_A2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.911127, 0)
+shape = SubResource("CylinderShape3D_8isf0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/table_round_A2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00285518, 0)
+shape = SubResource("CylinderShape3D_8isf0")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/table_round_A2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45865, 0)
+shape = SubResource("CylinderShape3D_8isf0")
 
 [node name="PickableObject" type="RigidBody3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1"]
 transform = Transform3D(-0.218143, 0, -0.975916, 0, 1, 0, 0.975916, 0, -0.218143, 0.295225, 0.7198, 0.609444)
@@ -3632,6 +3636,7 @@ shape = SubResource("ConvexPolygonShape3D_5orsc")
 
 [node name="pizza" type="Node3D" parent="Main/Scene/Building"]
 transform = Transform3D(0.559913, -0.000384841, 0.347663, 0.00104369, 0.659067, -0.000951323, -0.347662, 0.00135875, 0.559912, 3.67776, 0.968634, -1.55599)
+visible = false
 
 [node name="Pizza_One_Piece2" parent="Main/Scene/Building/pizza" instance=ExtResource("15_b1qrp")]
 transform = Transform3D(3.58653, 0.00583283, 0.838768, -0.00689028, 3.6833, 0.00384868, -0.838759, -0.00531661, 3.58653, -0.085916, 0.0117879, 0.0212526)
@@ -3665,6 +3670,7 @@ transform = Transform3D(0.515038, 0.770417, 0.375757, -4.65661e-10, 0.438371, -0
 
 [node name="dumplings" type="Node3D" parent="Main/Scene/Building"]
 transform = Transform3D(0.559913, -0.000384841, 0.347663, 0.00104369, 0.659067, -0.000951323, -0.347662, 0.00135875, 0.559912, 3.60523, 1.00985, -0.522284)
+visible = false
 
 [node name="dumpling" parent="Main/Scene/Building/dumplings" instance=ExtResource("17_h8e4i")]
 transform = Transform3D(0.644232, 0.464098, 0.0180143, -0.274324, 0.35537, 0.655139, 0.374777, -0.537655, 0.448572, 0.0595798, 0.0990673, -0.431446)
@@ -3730,16 +3736,18 @@ transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195,
 transform = Transform3D(0.674709, 0.00125768, -0.418941, -0.000463742, 0.794195, 0.00163733, 0.418943, -0.00114637, 0.674709, 0.169588, -0.0427548, -0.0630805)
 
 [node name="XROrigin3D" type="XROrigin3D" parent="Main"]
-transform = Transform3D(0.999391, 0, 0.0348995, 0, 1, 0, -0.0348995, 0, 0.999391, -2.34741, 0, 33.3714)
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, -5.48553, -0.042812, 33.1942)
 
 [node name="PlayerBody" type="CharacterBody3D" parent="Main/XROrigin3D" groups=["player_body"]]
 process_priority = -100
 process_physics_priority = -100
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.347, 0, 33.371)
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, -5.50928, -0.0826974, 33.3152)
 top_level = true
 collision_layer = 524288
 collision_mask = 1023
+up_direction = Vector3(0, -1, 0)
 script = ExtResource("15_ryguw")
+player_height_max = 1.815
 
 [node name="XRCamera3D" type="XRCamera3D" parent="Main/XROrigin3D"]
 transform = Transform3D(1, 4.65661e-10, 0, 0, 0.985703, 0.168489, 0, -0.168489, 0.985703, 0.0386376, 0.982978, 0.136589)
@@ -3758,6 +3766,8 @@ pose = &"grip"
 
 [node name="FunctionTeleport" type="Node3D" parent="Main/XROrigin3D/LeftController"]
 script = ExtResource("20_0odxb")
+collision_mask = 16778238
+valid_teleport_mask = 4278190080
 player_material = ExtResource("21_lswn8")
 
 [node name="Teleport" type="MeshInstance3D" parent="Main/XROrigin3D/LeftController/FunctionTeleport"]
@@ -3772,7 +3782,7 @@ surface_material_override/0 = ExtResource("23_xuqvo")
 [node name="Player_figure" type="Marker3D" parent="Main/XROrigin3D/LeftController/FunctionTeleport/Target"]
 
 [node name="Capsule" type="MeshInstance3D" parent="Main/XROrigin3D/LeftController/FunctionTeleport/Target/Player_figure"]
-transform = Transform3D(1, 0, 0, -5.82077e-11, 1, 9.31323e-10, 0, 0, 1, 2.38419e-07, 2.58152, -0.0146751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 mesh = SubResource("3")
 surface_material_override/0 = ExtResource("21_lswn8")
 
