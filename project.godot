@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="lab_5"
-run/main_scene="uid://cqsodpswgup8w"
+run/main_scene="uid://bt5uq5iv1yn7x"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -41,6 +41,14 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+right_utensils="It's for snapping picable objects"
+left_utensils="It's for snapping picable objects"
+main_dish="For placing main dish "
+third_dish=""
+second_dish=""
 
 [layer_names]
 

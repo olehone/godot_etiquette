@@ -1,0 +1,95 @@
+[gd_scene load_steps=16 format=3 uid="uid://cmmvy7rh7bvdu"]
+
+[ext_resource type="Script" uid="uid://dvw5d3th60c8d" path="res://addons/godot-xr-tools/player/player_body.gd" id="1_oa2pf"]
+[ext_resource type="Script" uid="uid://b7ei1kuvh4mtx" path="res://models/dump/xr_camera_3d.gd" id="2_b4csn"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3_khtdg"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_pel6p"]
+[ext_resource type="Script" uid="uid://ogqf5o2a1qif" path="res://addons/godot-xr-tools/functions/function_teleport.gd" id="5_7wpng"]
+[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/capsule.tres" id="6_2rn6s"]
+[ext_resource type="Material" uid="uid://bk72wfw25ff0v" path="res://addons/godot-xr-tools/materials/teleport.tres" id="7_cdsmd"]
+[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/target.tres" id="8_y3xty"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="9_8uo3y"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="10_vo12e"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="11_w8u20"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="12_11e46"]
+
+[sub_resource type="PlaneMesh" id="1"]
+size = Vector2(0.05, 1)
+subdivide_depth = 40
+
+[sub_resource type="PlaneMesh" id="2"]
+size = Vector2(1, 1)
+
+[sub_resource type="CapsuleMesh" id="3"]
+radius = 0.4
+height = 1.8
+
+[node name="XROrigin3D" type="XROrigin3D"]
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 0, 0, 0)
+
+[node name="PlayerBody" type="CharacterBody3D" parent="." groups=["player_body"]]
+process_priority = -100
+process_physics_priority = -100
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, -5.50928, -0.0826974, 33.3152)
+top_level = true
+collision_layer = 524288
+collision_mask = 1023
+up_direction = Vector3(0, -1, 0)
+script = ExtResource("1_oa2pf")
+player_height_max = 1.815
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 4.65661e-10, 0, 0, 0.985703, 0.168489, 0, -0.168489, 0.985703, 0.0386376, 0.982978, 0.136589)
+current = true
+fov = 73.2296
+script = ExtResource("2_b4csn")
+
+[node name="LeftController" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, -0.2, 0.8, -0.4)
+tracker = &"left_hand"
+pose = &"grip"
+
+[node name="LeftHand" parent="LeftController" instance=ExtResource("3_khtdg")]
+
+[node name="FunctionPickup" parent="LeftController" instance=ExtResource("4_pel6p")]
+
+[node name="FunctionTeleport" type="Node3D" parent="LeftController"]
+script = ExtResource("5_7wpng")
+collision_mask = 16778238
+valid_teleport_mask = 4278190080
+player_material = ExtResource("6_2rn6s")
+
+[node name="Teleport" type="MeshInstance3D" parent="LeftController/FunctionTeleport"]
+mesh = SubResource("1")
+surface_material_override/0 = ExtResource("7_cdsmd")
+
+[node name="Target" type="MeshInstance3D" parent="LeftController/FunctionTeleport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -4.92359)
+mesh = SubResource("2")
+surface_material_override/0 = ExtResource("8_y3xty")
+
+[node name="Player_figure" type="Marker3D" parent="LeftController/FunctionTeleport/Target"]
+
+[node name="Capsule" type="MeshInstance3D" parent="LeftController/FunctionTeleport/Target/Player_figure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("3")
+surface_material_override/0 = ExtResource("6_2rn6s")
+
+[node name="RightController" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.8, -0.4)
+tracker = &"right_hand"
+pose = &"grip"
+
+[node name="MovementDirect" parent="RightController" instance=ExtResource("9_8uo3y")]
+
+[node name="RightHand" parent="RightController" instance=ExtResource("10_vo12e")]
+
+[node name="MovementTurn" parent="RightController" instance=ExtResource("11_w8u20")]
+
+[node name="FunctionPickup" parent="RightController" instance=ExtResource("4_pel6p")]
+
+[node name="FunctionPointer" parent="RightController" instance=ExtResource("12_11e46")]
+transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, 0.0005126, 0, -0.0146713)
+show_laser = 2
+laser_length = 1
+show_target = true

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx8tvn3hsbpnd"]
+
+[ext_resource type="Script" uid="uid://dk33dnvgw2f0y" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="1_7wsyf"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_c2std"]
+[ext_resource type="PackedScene" uid="uid://12kj42ufbml3" path="res://scenes/objects/utensils_warning.tscn" id="3_yktxt"]
+
+[sub_resource type="SphereShape3D" id="1"]
+resource_local_to_scene = true
+radius = 2.01038
+
+[node name="SnapZone" type="Area3D"]
+collision_layer = 4
+collision_mask = 65540
+script = ExtResource("1_7wsyf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("1")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+unit_size = 3.0
+max_db = 1.0
+max_distance = 100.0
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("2_c2std")]
+transform = Transform3D(0.23, 0, 0, 0, -1.00536e-08, 0.23, 0, -0.23, -1.00536e-08, 0, 0, 0)
+scene = ExtResource("3_yktxt")
+viewport_size = Vector2(1280, 720)
+
+[connection signal="body_entered" from="." to="." method="_on_snap_zone_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_snap_zone_body_exited"]

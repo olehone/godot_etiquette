@@ -1,0 +1,105 @@
+[gd_scene load_steps=19 format=3 uid="uid://bt5uq5iv1yn7x"]
+
+[ext_resource type="Script" uid="uid://dbemwsq7bbx7s" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_22kx3"]
+[ext_resource type="PackedScene" uid="uid://caxui4mk1bj0p" path="res://scenes/objects/dining_table.tscn" id="2_cbgur"]
+[ext_resource type="Script" uid="uid://rkp4t7eqnc0o" path="res://scenes/objects/main.gd" id="2_qbyn7"]
+[ext_resource type="Script" uid="uid://dvw5d3th60c8d" path="res://addons/godot-xr-tools/player/player_body.gd" id="3_1ik26"]
+[ext_resource type="Script" uid="uid://b7ei1kuvh4mtx" path="res://models/dump/xr_camera_3d.gd" id="4_qbyn7"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="5_yjiwt"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="6_nvk63"]
+[ext_resource type="Script" uid="uid://ogqf5o2a1qif" path="res://addons/godot-xr-tools/functions/function_teleport.gd" id="7_k0lx6"]
+[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/capsule.tres" id="8_oa84b"]
+[ext_resource type="Material" uid="uid://bk72wfw25ff0v" path="res://addons/godot-xr-tools/materials/teleport.tres" id="9_gy8bo"]
+[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/target.tres" id="10_pn68r"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="11_lcs2y"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="12_86h6o"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="13_uxhfo"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="14_jgo2g"]
+
+[sub_resource type="PlaneMesh" id="1"]
+size = Vector2(0.05, 1)
+subdivide_depth = 40
+
+[sub_resource type="PlaneMesh" id="2"]
+size = Vector2(1, 1)
+
+[sub_resource type="CapsuleMesh" id="3"]
+radius = 0.4
+height = 1.8
+
+[node name="SceneBase" type="Node3D"]
+script = ExtResource("1_22kx3")
+
+[node name="Main" type="Node3D" parent="."]
+script = ExtResource("2_qbyn7")
+
+[node name="table_round_A2" parent="Main" instance=ExtResource("2_cbgur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0674049, 0, -2.41542)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="Main"]
+
+[node name="PlayerBody" type="CharacterBody3D" parent="Main/XROrigin3D" groups=["player_body"]]
+process_priority = -100
+process_physics_priority = -100
+top_level = true
+collision_layer = 524288
+collision_mask = 1023
+up_direction = Vector3(0, -1, 0)
+script = ExtResource("3_1ik26")
+player_height_max = 1.815
+
+[node name="XRCamera3D" type="XRCamera3D" parent="Main/XROrigin3D"]
+transform = Transform3D(1, 4.65661e-10, 0, 0, 0.985703, 0.168489, 0, -0.168489, 0.985703, 0.0386376, 0.982978, 0.136589)
+current = true
+fov = 73.2296
+script = ExtResource("4_qbyn7")
+
+[node name="LeftController" type="XRController3D" parent="Main/XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, -0.2, 0.8, -0.4)
+tracker = &"left_hand"
+pose = &"grip"
+
+[node name="LeftHand" parent="Main/XROrigin3D/LeftController" instance=ExtResource("5_yjiwt")]
+
+[node name="FunctionPickup" parent="Main/XROrigin3D/LeftController" instance=ExtResource("6_nvk63")]
+
+[node name="FunctionTeleport" type="Node3D" parent="Main/XROrigin3D/LeftController"]
+script = ExtResource("7_k0lx6")
+collision_mask = 16778238
+valid_teleport_mask = 4278190080
+player_material = ExtResource("8_oa84b")
+
+[node name="Teleport" type="MeshInstance3D" parent="Main/XROrigin3D/LeftController/FunctionTeleport"]
+mesh = SubResource("1")
+surface_material_override/0 = ExtResource("9_gy8bo")
+
+[node name="Target" type="MeshInstance3D" parent="Main/XROrigin3D/LeftController/FunctionTeleport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -4.92359)
+mesh = SubResource("2")
+surface_material_override/0 = ExtResource("10_pn68r")
+
+[node name="Player_figure" type="Marker3D" parent="Main/XROrigin3D/LeftController/FunctionTeleport/Target"]
+
+[node name="Capsule" type="MeshInstance3D" parent="Main/XROrigin3D/LeftController/FunctionTeleport/Target/Player_figure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("3")
+surface_material_override/0 = ExtResource("8_oa84b")
+
+[node name="RightController" type="XRController3D" parent="Main/XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.8, -0.4)
+tracker = &"right_hand"
+pose = &"grip"
+
+[node name="MovementDirect" parent="Main/XROrigin3D/RightController" instance=ExtResource("11_lcs2y")]
+
+[node name="RightHand" parent="Main/XROrigin3D/RightController" instance=ExtResource("12_86h6o")]
+
+[node name="MovementTurn" parent="Main/XROrigin3D/RightController" instance=ExtResource("13_uxhfo")]
+
+[node name="FunctionPickup" parent="Main/XROrigin3D/RightController" instance=ExtResource("6_nvk63")]
+
+[node name="FunctionPointer" parent="Main/XROrigin3D/RightController" instance=ExtResource("14_jgo2g")]
+transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, 0.0005126, 0, -0.0146713)
+show_laser = 2
+laser_length = 1
+show_target = true

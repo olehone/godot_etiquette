@@ -17,7 +17,7 @@ func _ready() -> void:
 		print("No HMD connected, using mouse controls.")
 	
 	# Якщо немає HMD, дозволяємо рухати камеру мишкою
-	"""
+	#"""
 	if not is_hmd_connected:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -37,4 +37,4 @@ func handle_mouse_look(delta: float) -> void:
 
 	# Оновлення повороту камери
 	rotation_degrees = Vector3(rotation_x, rotation_y, 0)
-	"""
+	#"""
