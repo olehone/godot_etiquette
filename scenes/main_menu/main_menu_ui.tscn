@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bdhh7woo4k4qu"]
 
-[ext_resource type="Script" uid="uid://b74oedlyy0tlt" path="res://control.gd" id="37_kthar"]
-[ext_resource type="FontFile" uid="uid://3cux8aq8gnep" path="res://fonts/good-timing/good timing bd.otf" id="38_8oe51"]
-[ext_resource type="FontVariation" uid="uid://csskrpp0gb6nm" path="res://fonts/joystix/joystix_font.tres" id="39_kglnt"]
-[ext_resource type="Script" uid="uid://bh6gqr1dwkcdp" path="res://models/dump/game_title_2.gd" id="40_jp1jm"]
+[ext_resource type="Script" uid="uid://b74oedlyy0tlt" path="res://control.gd" id="1_lhs03"]
+[ext_resource type="FontFile" uid="uid://3cux8aq8gnep" path="res://fonts/good-timing/good timing bd.otf" id="2_rfupy"]
+[ext_resource type="FontVariation" uid="uid://csskrpp0gb6nm" path="res://fonts/joystix/joystix_font.tres" id="3_2gqfx"]
+[ext_resource type="Script" uid="uid://bh6gqr1dwkcdp" path="res://models/dump/game_title_2.gd" id="4_bj61t"]
 
 [sub_resource type="Animation" id="Animation_7wriu"]
 length = 5.0
@@ -33,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("37_kthar")
+script = ExtResource("1_lhs03")
 
 [node name="GameTitle_1" type="Label" parent="Control"]
 layout_mode = 2
@@ -47,7 +47,7 @@ theme_override_colors/font_color = Color(0.99, 0.79266, 0.0792, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("38_8oe51")
+theme_override_fonts/font = ExtResource("2_rfupy")
 theme_override_font_sizes/font_size = 79
 text = "Table etiquette"
 
@@ -71,13 +71,13 @@ focus_neighbor_left = NodePath("../GameTitle_1")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("39_kglnt")
+theme_override_fonts/font = ExtResource("3_2gqfx")
 theme_override_font_sizes/font_size = 156
 text = "vr"
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 171
-script = ExtResource("40_jp1jm")
+script = ExtResource("4_bj61t")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
@@ -106,6 +106,12 @@ size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 35
 text = "Start game"
 
+[node name="Reload" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 35
+text = "Reload"
+
 [node name="Settings" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -126,6 +132,7 @@ offset_left = -2.0
 offset_top = -2.0
 offset_right = 1284.0
 offset_bottom = 720.0
+mouse_filter = 2
 
 [node name="AnimationPlayer_Camera" type="AnimationPlayer" parent="."]
 libraries = {
@@ -135,5 +142,6 @@ autoplay = "camera_animation"
 speed_scale = 0.13
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Start" to="Control" method="_on_start_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Reload" to="Control" method="_on_reload_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Settings" to="Control" method="_on_settings_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]

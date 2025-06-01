@@ -1,4 +1,4 @@
-extends Node3D
+extends XRToolsSceneBase
 
 var xr_interface: XRInterface = null
 

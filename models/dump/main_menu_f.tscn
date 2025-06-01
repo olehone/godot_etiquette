@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://dnpt64hq3b7ot"]
+[gd_scene load_steps=60 format=4 uid="uid://bnw1y4pali5ci"]
 
 [ext_resource type="Script" uid="uid://dvw5d3th60c8d" path="res://addons/godot-xr-tools/player/player_body.gd" id="1_fjo7w"]
 [ext_resource type="Script" uid="uid://b7ei1kuvh4mtx" path="res://models/dump/xr_camera_3d.gd" id="2_nvag1"]

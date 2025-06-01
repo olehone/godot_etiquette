@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bckw0tx2le1l8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "test text"
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "button "
