@@ -20,7 +20,8 @@ func _on_start_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
-	print("Settigns pressed")
+	$Main_Elements.visible = false
+	$Settings.visible = true
 	pass # Replace with function body.
 
 
@@ -43,3 +44,9 @@ func _on_reload_pressed() -> void:
 	scene_base.load_scene("res://scenes/main_menu/main_menu_ui.tscn")
 	print("Scene loaded")
 	pass # Repl
+
+
+func _on_back_pressed() -> void:
+	$Main_Elements.visible = true
+	$Settings.visible = false
+	pass # Replace with function body.

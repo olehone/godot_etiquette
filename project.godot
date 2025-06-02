@@ -54,6 +54,10 @@ food=""
 utensils=""
 hand=""
 
+[gui]
+
+theme/default_theme_scale=2.46
+
 [layer_names]
 
 3d_physics/layer_1="Virtual Environment"

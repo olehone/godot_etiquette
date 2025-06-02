@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://y6pt1jgx6v07"]
+[gd_scene load_steps=62 format=4 uid="uid://y6pt1jgx6v07"]
 
 [ext_resource type="Script" uid="uid://dbemwsq7bbx7s" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_bva8j"]
 [ext_resource type="Script" uid="uid://rkp4t7eqnc0o" path="res://scenes/objects/main.gd" id="1_f52r8"]
@@ -48,9 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://cqg27ghhnapry" path="res://addons/kaykit_restaurant_bits/Assets/gltf/towelrail.gltf" id="44_h5kcm"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="46_vpquf"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="47_6rkor"]
-[ext_resource type="PackedScene" uid="uid://duqehif60vcjg" path="res://addons/godot-xr-tools/audio/area_audio.tscn" id="49_li5uk"]
 [ext_resource type="AudioStream" uid="uid://choe0cqhr07st" path="res://addons/easy_audio/example/music/music_metal.mp3" id="50_3k5n0"]
-[ext_resource type="Script" uid="uid://cib3bou6ha34c" path="res://addons/godot-xr-tools/audio/area_audio_type.gd" id="51_gbc4w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0c6v"]
 resource_name = "mat21"
@@ -172,362 +170,13 @@ shadow_mesh = SubResource("ArrayMesh_x7jbs")
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5jqm"]
 size = Vector3(0.161909, 0.0104297, 0.31999)
 
-[sub_resource type="AudioStream" id="AudioStream_bb6hr"]
-
-[sub_resource type="Resource" id="Resource_e3g0a"]
-resource_local_to_scene = true
-script = ExtResource("51_gbc4w")
-name = "test"
-touch_sound = SubResource("AudioStream_bb6hr")
-metadata/_custom_type_script = "uid://cib3bou6ha34c"
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_li5uk"]
-radius = 12.3308
-
 [node name="Menu" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534837, 0, -1.28922)
 script = ExtResource("1_bva8j")
 metadata/_custom_type_script = "uid://dbemwsq7bbx7s"
 
-[node name="Main2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6241, -1.41366, 2.18177)
-script = ExtResource("1_f52r8")
-
-[node name="Viewport2Din3D" parent="Main2" instance=ExtResource("2_bva8j")]
-transform = Transform3D(0.528957, 0, 0.848649, 0, 1, 0, -0.848649, 0, 0.528957, 6.75407, 1.16653, 7.61102)
-scene = ExtResource("3_bva8j")
-viewport_size = Vector2(1280, 720)
-unshaded = true
-
-[node name="Background" type="Node3D" parent="Main2"]
-
-[node name="scene" type="Node3D" parent="Main2/Background"]
-
-[node name="Building" type="Node3D" parent="Main2/Background/scene"]
-
-[node name="Ceiling_0" type="Node3D" parent="Main2/Background/scene/Building"]
-transform = Transform3D(-5.97535e-07, -34.67, -2.43035e-07, 0, -1.51547e-06, 5.56, -13.67, 1.51547e-06, 1.06234e-14, 10.4928, 4.90177, 5.345)
-visible = false
-
-[node name="Plain_wall" type="MeshInstance3D" parent="Main2/Background/scene/Building/Ceiling_0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
-mesh = SubResource("ArrayMesh_rkpqm")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Main2/Background/scene/Building/Ceiling_0/Plain_wall"]
-transform = Transform3D(0.999983, -4.00888e-11, 0.00575956, 4.0659e-11, 1, -9.91496e-11, -0.00575955, 9.93623e-11, 0.999983, 0.244342, 0.0513194, -0.362116)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main2/Background/scene/Building/Ceiling_0/Plain_wall/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0177503, 0.0226135, -0.0119629)
-shape = SubResource("BoxShape3D_7wriu")
-
-[node name="Walls" type="Node3D" parent="Main2/Background/scene/Building"]
-visible = false
-
-[node name="PlainWall_2" type="Node3D" parent="Main2/Background/scene/Building/Walls"]
-transform = Transform3D(-1.1389e-06, 0, 8.574, 0, 8.574, 0, -26.055, 0, -3.74781e-07, 5.96156, 0.634, 8.62137)
-
-[node name="Plain_wall" type="MeshInstance3D" parent="Main2/Background/scene/Building/Walls/PlainWall_2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
-mesh = SubResource("ArrayMesh_rkpqm")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Main2/Background/scene/Building/Walls/PlainWall_2/Plain_wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244342, 0.0513194, -0.362116)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main2/Background/scene/Building/Walls/PlainWall_2/Plain_wall/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0177503, 0.0226135, -0.0119629)
-shape = SubResource("BoxShape3D_7wriu")
-
-[node name="PlainWall_4" type="Node3D" parent="Main2/Background/scene/Building/Walls"]
-transform = Transform3D(14.253, 0, 0, 0, 10.767, 0, 0, 0, 10.767, 6.27286, 0.634, 0.279737)
-
-[node name="Plain_wall" type="MeshInstance3D" parent="Main2/Background/scene/Building/Walls/PlainWall_4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
-mesh = SubResource("ArrayMesh_rkpqm")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Main2/Background/scene/Building/Walls/PlainWall_4/Plain_wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.244342, 0.0513194, -0.362116)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main2/Background/scene/Building/Walls/PlainWall_4/Plain_wall/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0177503, 0.0226135, -0.0119629)
-shape = SubResource("BoxShape3D_7wriu")
-
-[node name="wall_doorway2" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("7_4bd77")]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 11, 0, 1.62)
-
-[node name="wall3" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.13393, 4.76837e-07, 7.91492)
-
-[node name="wall4" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 6.53359, 4.76837e-07, 7.91492)
-
-[node name="wall5" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 8.5821, 4.76837e-07, 7.91492)
-
-[node name="wall10" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 10.0336, 4.76837e-07, 7.91492)
-
-[node name="wall6" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 11, 0, 6.61)
-
-[node name="wall7" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 11, 0, 4.26854)
-
-[node name="wall8" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 11, 0, -0.972236)
-
-[node name="wall9" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 11, 0, -2.14504)
-
-[node name="wall11" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 13.8222, 0, -2.09935)
-
-[node name="wall12" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 13.8222, 0, 0.594588)
-
-[node name="wall13" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 13.8222, 0, 2.999)
-
-[node name="wall14" parent="Main2/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 13.8222, 0, 5.54243)
-
-[node name="Floor" type="Node3D" parent="Main2/Background/scene/Building"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.285, 0, 0, 3.8893)
-
-[node name="Floor_16" type="Node3D" parent="Main2/Background/scene/Building/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39687, 0, 1.80817)
-
-[node name="Object_36" type="MeshInstance3D" parent="Main2/Background/scene/Building/Floor/Floor_16"]
-mesh = SubResource("ArrayMesh_xhgcl")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Main2/Background/scene/Building/Floor/Floor_16/Object_36"]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Main2/Background/scene/Building/Floor/Floor_16/Object_36/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_8tnp7")
-
-[node name="Floor_17" type="Node3D" parent="Main2/Background/scene/Building/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9993, 0, 1.80817)
-
-[node name="Object_36" type="MeshInstance3D" parent="Main2/Background/scene/Building/Floor/Floor_17"]
-mesh = SubResource("ArrayMesh_xhgcl")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Main2/Background/scene/Building/Floor/Floor_17/Object_36"]
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Main2/Background/scene/Building/Floor/Floor_17/Object_36/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_8tnp7")
-
-[node name="Furniture" type="Node3D" parent="Main2/Background/scene/Building"]
-transform = Transform3D(1, 0, 0, 0, 2.22045e-16, -1, 0, 1, 2.22045e-16, 0, 0, 0)
-visible = false
-
-[node name="KitchenTable_0" type="Node3D" parent="Main2/Background/scene/Building/Furniture"]
-transform = Transform3D(6.55, 0, 0, 0, 1.45439e-15, 6.55, 0, -6.55, 1.45439e-15, 3.3087, 2.98028, -0.977053)
-
-[node name="group1453542057" type="MeshInstance3D" parent="Main2/Background/scene/Building/Furniture/KitchenTable_0"]
-mesh = SubResource("ArrayMesh_rlonj")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Main2/Background/scene/Building/Furniture/KitchenTable_0/group1453542057"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437606, -0.00731392, -0.195869)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main2/Background/scene/Building/Furniture/KitchenTable_0/group1453542057/StaticBody3D"]
-transform = Transform3D(0.999994, 0, 0, 0, 0.999994, -3.78653e-27, 0, 3.78653e-27, 0.999994, 0.000954568, -0.00485854, -0.0013037)
-shape = SubResource("BoxShape3D_t5jqm")
-
-[node name="KitchenTable_1" type="Node3D" parent="Main2/Background/scene/Building/Furniture"]
-transform = Transform3D(6.55, 0, 0, 0, 1.45439e-15, 6.55, 0, -6.55, 1.45439e-15, 3.3087, 0.201118, -0.977053)
-
-[node name="group1453542057" type="MeshInstance3D" parent="Main2/Background/scene/Building/Furniture/KitchenTable_1"]
-mesh = SubResource("ArrayMesh_rlonj")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Main2/Background/scene/Building/Furniture/KitchenTable_1/group1453542057"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0437606, -0.00731392, -0.195869)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main2/Background/scene/Building/Furniture/KitchenTable_1/group1453542057/StaticBody3D"]
-transform = Transform3D(0.999994, 0, 0, 0, 0.999994, -3.78653e-27, 0, 3.78653e-27, 0.999994, 0.000954568, -0.00485854, -0.0013037)
-shape = SubResource("BoxShape3D_t5jqm")
-
-[node name="Lightning" type="Node3D" parent="Main2/Background/scene/Building"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.781687, 0)
-visible = false
-
-[node name="Light_6" parent="Main2/Background/scene/Building/Lightning" instance=ExtResource("10_6rkor")]
-transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 3.69917, 2.0461, 0.180321)
-
-[node name="Light_7" parent="Main2/Background/scene/Building/Lightning" instance=ExtResource("10_6rkor")]
-transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 3.69917, 2.0461, -2.48772)
-
-[node name="Light_8" parent="Main2/Background/scene/Building/Lightning" instance=ExtResource("10_6rkor")]
-transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 3.69917, 2.0461, 2.45133)
-
-[node name="Light_9" parent="Main2/Background/scene/Building/Lightning" instance=ExtResource("10_6rkor")]
-transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 3.69917, 2.0461, 5.13197)
-
-[node name="Light_11" parent="Main2/Background/scene/Building/Lightning" instance=ExtResource("10_6rkor")]
-transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 12.5144, 2.0461, 2.81651)
-
-[node name="Light_12" parent="Main2/Background/scene/Building/Lightning" instance=ExtResource("10_6rkor")]
-transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 9.0232, 2.0461, 1.55527)
-
-[node name="Light_13" parent="Main2/Background/scene/Building/Lightning" instance=ExtResource("10_6rkor")]
-transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 7.19034, 2.0461, -2.48867)
-
-[node name="Light_14" parent="Main2/Background/scene/Building/Lightning" instance=ExtResource("10_6rkor")]
-transform = Transform3D(0.815, 0, 0, 0, 0.44, 0, 0, 0, 0.815, 9.08592, 2.0461, -0.924355)
-
-[node name="Decorations" type="Node3D" parent="Main2/Background/scene"]
-visible = false
-
-[node name="jar_A_small2" parent="Main2/Background/scene/Decorations" instance=ExtResource("11_e3g0a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43512, 0, -0.255791)
-
-[node name="food_ingredient_potato_chopped2" parent="Main2/Background/scene/Decorations" instance=ExtResource("12_8i2hs")]
-transform = Transform3D(-0.0456209, 0, 0.201697, 0, 0.206792, 0, -0.201697, 0, -0.0456209, 3.83943, 1.01365, 2.14874)
-
-[node name="food_ingredient_lettuce2" parent="Main2/Background/scene/Decorations" instance=ExtResource("13_fde4t")]
-transform = Transform3D(0.329555, 0, 0, 0, 0.329555, 0, 0, 0, 0.329555, 3.43951, 0.941649, 1.21905)
-
-[node name="food_ingredient_ham_cooked2" parent="Main2/Background/scene/Decorations" instance=ExtResource("14_s424j")]
-transform = Transform3D(0.119706, 0.048088, 0.137962, -0.0738083, 0.173827, 0.00345229, -0.126088, -0.0560993, 0.128957, 3.35144, 1.01304, 1.68309)
-
-[node name="food_ingredient_cheese2" parent="Main2/Background/scene/Decorations" instance=ExtResource("15_lmo0x")]
-transform = Transform3D(0.275031, 0, -0.26933, 0, 0.384943, 0, 0.26933, 0, 0.275031, 3.25588, 0.93148, 0.795726)
-
-[node name="food_ingredient_carrot2" parent="Main2/Background/scene/Decorations" instance=ExtResource("16_duxfo")]
-transform = Transform3D(0.259431, 0, 0, 0, 0.00550556, 0.259373, 0, -0.259373, 0.00550556, 3.41706, 1.02216, 2.18965)
-
-[node name="food_burger2" parent="Main2/Background/scene/Decorations" instance=ExtResource("17_0888h")]
-transform = Transform3D(0.313955, 0, 0, 0, 0.313955, 0, 0, 0, 0.313955, 3.31743, 0.935212, -0.293079)
-
-[node name="dishrack_plates2" parent="Main2/Background/scene/Decorations" instance=ExtResource("18_lhx75")]
-transform = Transform3D(0.425964, 0, 0, 0, 0.425964, 0, 0, 0, 0.425964, 3.33821, 1.53146, 0.785526)
-
-[node name="dishrack_plates5" parent="Main2/Background/scene/Decorations" instance=ExtResource("18_lhx75")]
-transform = Transform3D(0.425964, 0, 0, 0, 0.425964, 0, 0, 0, 0.425964, 3.33821, 1.53146, -0.376771)
-
-[node name="dishrack_plates3" parent="Main2/Background/scene/Decorations" instance=ExtResource("18_lhx75")]
-transform = Transform3D(0.425964, 0, 0, 0, 0.425964, 0, 0, 0, 0.425964, 3.33821, 1.53146, 1.49983)
-
-[node name="dishrack_plates4" parent="Main2/Background/scene/Decorations" instance=ExtResource("18_lhx75")]
-transform = Transform3D(0.425964, 0, 0, 0, 0.425964, 0, 0, 0, 0.425964, 3.33821, 1.53146, 2.1771)
-
-[node name="crate_tomatoes2" parent="Main2/Background/scene/Decorations" instance=ExtResource("19_kcyhq")]
-transform = Transform3D(0.224467, 0, 0, 0, 0.224467, 0, 0, 0, 0.224467, 3.42576, 0.0161175, -1.78054)
-
-[node name="crate_tomatoes3" parent="Main2/Background/scene/Decorations" instance=ExtResource("19_kcyhq")]
-transform = Transform3D(0.224467, 0, 0, 0, 0.224467, 0, 0, 0, 0.224467, 3.8717, 0.0161175, -1.78054)
-
-[node name="crate_steak2" parent="Main2/Background/scene/Decorations" instance=ExtResource("20_bvyqd")]
-transform = Transform3D(0.402948, 0, 0, 0, 0.402948, 0, 0, 0, 0.402948, 3.52857, 0, 1.42435)
-
-[node name="crate_potatoes2" parent="Main2/Background/scene/Decorations" instance=ExtResource("21_7l674")]
-transform = Transform3D(0.353706, 0, 0, 0, 0.353706, 0, 0, 0, 0.353706, 3.54437, 0, 2.42258)
-
-[node name="crate_onions2" parent="Main2/Background/scene/Decorations" instance=ExtResource("22_cbnnd")]
-transform = Transform3D(0.368242, 0, 0, 0, 0.368242, 0, 0, 0, 0.368242, 3.55824, 1.90735e-06, 0.486297)
-
-[node name="crate_lettuce2" parent="Main2/Background/scene/Decorations" instance=ExtResource("23_1tc74")]
-transform = Transform3D(0.401106, 0, 0, 0, 0.401106, 0, 0, 0, 0.401106, 3.57798, 1.90735e-06, -2.53219)
-
-[node name="crate_cheese2" parent="Main2/Background/scene/Decorations" instance=ExtResource("24_nmgfj")]
-transform = Transform3D(0.341092, 0, 0, 0, 0.341092, 0, 0, 0, 0.341092, 3.60997, 1.90735e-06, -1.08035)
-
-[node name="chair_A2" parent="Main2/Background/scene/Decorations" instance=ExtResource("25_41vot")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77379, -1.19209e-07, -2.64766)
-
-[node name="bowl2" parent="Main2/Background/scene/Decorations" instance=ExtResource("26_vsplr")]
-transform = Transform3D(0.468233, 0, 0, 0, 0.468233, 0, 0, 0, 0.468233, 3.83099, 0.938359, 1.0254)
-
-[node name="ketchup2" parent="Main2/Background/scene/Decorations" instance=ExtResource("27_qrddl")]
-transform = Transform3D(0.506054, 0, 0, 0, 0.506054, 0, 0, 0, 0.506054, 3.28559, 0.953116, -0.670047)
-
-[node name="knife2" parent="Main2/Background/scene/Decorations" instance=ExtResource("28_eqgax")]
-transform = Transform3D(0.0100554, -0.404787, 0, 0.135134, 0.00335688, -0.381682, 0.381564, 0.00947848, 0.135176, 3.85132, 1.00282, 1.89532)
-
-[node name="mustard2" parent="Main2/Background/scene/Decorations" instance=ExtResource("29_5g8q8")]
-transform = Transform3D(0.527943, 0, 0, 0, 0.527943, 0, 0, 0, 0.527943, 3.37969, 0.93148, -0.82964)
-
-[node name="papertowel2" parent="Main2/Background/scene/Decorations" instance=ExtResource("30_0j1fv")]
-transform = Transform3D(0.526406, 0, 0, 0, 0.526406, 0, 0, 0, 0.526406, 3.29835, 0.924472, -1.99319)
-
-[node name="pizza" type="Node3D" parent="Main2/Background/scene/Decorations"]
-transform = Transform3D(0.559913, -0.000384841, 0.347663, 0.00104369, 0.659067, -0.000951323, -0.347662, 0.00135875, 0.559912, 3.67776, 0.968634, -1.55599)
-
-[node name="Pizza_One_Piece2" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("31_y0f4r")]
-transform = Transform3D(3.58653, 0.00583283, 0.838768, -0.00689028, 3.6833, 0.00384868, -0.838759, -0.00531661, 3.58653, -0.085916, 0.0117879, 0.0212526)
-
-[node name="Pizza_One_Piece3" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("31_y0f4r")]
-transform = Transform3D(1.94296, 0.00583283, 3.12916, -0.00759359, 3.6833, -0.00215073, -3.12915, -0.00531661, 1.94297, -0.105187, 0.0118086, 0.0144514)
-
-[node name="Pizza_One_Piece4" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("31_y0f4r")]
-transform = Transform3D(-0.838768, 0.00583283, 3.58653, -0.00384868, 3.6833, -0.00689028, -3.58653, -0.00531661, -0.838759, -0.0977765, 0.0118059, 0.0207038)
-
-[node name="Pizza_One_Piece5" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("31_y0f4r")]
-transform = Transform3D(-3.12916, 0.00583283, 1.94296, 0.00215073, 3.6833, -0.00759359, -1.94297, -0.00531661, -3.12915, -0.09058, 0.011812, 0.0328354)
-
-[node name="Pizza_One_Piece6" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("31_y0f4r")]
-transform = Transform3D(-3.58653, 0.00583283, -0.838768, 0.00689028, 3.6833, -0.00384868, 0.838759, -0.00531661, -3.58653, -0.0738059, 0.0118707, 0.0919204)
-
-[node name="Pizza_One_Piece7" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("31_y0f4r")]
-transform = Transform3D(-1.94296, 0.00583283, -3.12916, 0.00759359, 3.6833, 0.00215073, 3.12915, -0.00531661, -1.94297, -0.0353519, 0.0117536, 0.0529668)
-
-[node name="Pizza_One_Piece8" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("31_y0f4r")]
-transform = Transform3D(0.838768, 0.00583283, -3.58653, 0.00384868, 3.6833, 0.00689028, 3.58653, -0.00531661, 0.838759, -0.0228402, 0.0116867, 0.0203266)
-
-[node name="Pizza_One_Piece9" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("31_y0f4r")]
-transform = Transform3D(3.12916, 0.00583283, -1.94296, -0.00215073, 3.6833, 0.00759359, 1.94297, -0.00531661, 3.12915, -0.029638, 0.0116347, -0.0231356)
-
-[node name="cutting_board" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("32_vpquf")]
-transform = Transform3D(1, 1.16415e-10, 5.96046e-08, 0, 1, 0, 0, 0, 1, -0.074203, -1.19209e-07, 0.0412676)
-
-[node name="cutting_board3" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("32_vpquf")]
-transform = Transform3D(0.965745, -0.000320317, -0.259493, 0.000428808, 1, 0.000361484, 0.259493, -0.000460374, 0.965745, -2.84328, 0.0111103, 4.70051)
-
-[node name="cutting_board2" parent="Main2/Background/scene/Decorations/pizza" instance=ExtResource("32_vpquf")]
-transform = Transform3D(0.515038, 0.770417, 0.375757, -4.65661e-10, 0.438371, -0.898794, -0.857167, 0.462913, 0.225778, -0.866229, 0.513714, 0.152591)
-
-[node name="kitchencounter_sink_backsplash2" parent="Main2/Background/scene/Decorations" instance=ExtResource("33_0hok4")]
-transform = Transform3D(0.672481, 0, 0, 0, 0.672481, 0, 0, 0, 0.672481, 6.43484, 0, -2.40793)
-
-[node name="kitchencounter_straight_B2" parent="Main2/Background/scene/Decorations" instance=ExtResource("34_0q5hc")]
-transform = Transform3D(0.672, 0, 0, 0, 0.672, 0, 0, 0, 0.672, 7.75785, 0, -2.40817)
-
-[node name="kitchentable_sink_large_decorated2" parent="Main2/Background/scene/Decorations" instance=ExtResource("35_ravls")]
-transform = Transform3D(-3.82499e-08, 0, 0.875056, 0, 0.875056, 0, -0.875056, 0, -3.82499e-08, 3.82077, 0, 6.01121)
-
-[node name="oven2" parent="Main2/Background/scene/Decorations" instance=ExtResource("36_75qda")]
-transform = Transform3D(-2.93741e-08, 0, 0.672, 0, 0.672, 0, -0.672, 0, -2.93741e-08, 3.81385, 2.38419e-07, 3.67702)
-
-[node name="kitchentable_A_large2" parent="Main2/Background/scene/Decorations" instance=ExtResource("37_e37ct")]
-transform = Transform3D(-0.0210122, 0, 0.999779, 0, 1, 0, -0.999779, 0, -0.0210122, 9.00504, 0.00375175, 1.6915)
-
-[node name="food_stew2" parent="Main2/Background/scene/Decorations" instance=ExtResource("38_j77l7")]
-transform = Transform3D(0.672, 0, 0, 0, 0.672, 0, 0, 0, 0.672, 9.54414, 0.975687, 0.644736)
-
-[node name="food_vegetableburger2" parent="Main2/Background/scene/Decorations" instance=ExtResource("39_pl2br")]
-transform = Transform3D(0.672, 0, 0, 0, 0.672, 0, 0, 0, 0.672, 9.35743, 0.931727, 2.17519)
-
-[node name="fridge_A_decorated2" parent="Main2/Background/scene/Decorations" instance=ExtResource("40_bwmev")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.79002, 0.00466412, 6.55153)
-
-[node name="menu2" parent="Main2/Background/scene/Decorations" instance=ExtResource("41_1hvne")]
-transform = Transform3D(0.0610485, 0, 0.998135, 0, 1, 0, -0.998135, 0, 0.0610485, 9.72175, 1.02072, 2.87828)
-
-[node name="shelf_papertowel_decorated2" parent="Main2/Background/scene/Decorations" instance=ExtResource("42_dfg18")]
-transform = Transform3D(-1.82276e-08, 0, 0.417, 0, 0.417, 0, -0.417, 0, -1.82276e-08, 2.89598, 1.79361, 3.23274)
-
-[node name="stove_multi_decorated2" parent="Main2/Background/scene/Decorations" instance=ExtResource("43_roylu")]
-transform = Transform3D(0.0028776, 0, -0.876995, 0, 0.877, 0, 0.876995, 0, 0.0028776, 9.11545, -0.0605314, -0.767089)
-
-[node name="towelrail2" parent="Main2/Background/scene/Decorations" instance=ExtResource("44_h5kcm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9532, 0.75338, -4.405)
-
 [node name="Main" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6241, -1.41366, 2.18177)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.43104, -1.41366, 2.2773)
 script = ExtResource("1_f52r8")
 
 [node name="Viewport2Din3D" parent="Main" instance=ExtResource("2_bva8j")]
@@ -541,21 +190,6 @@ unshaded = true
 [node name="scene" type="Node3D" parent="Main/Background"]
 
 [node name="Building" type="Node3D" parent="Main/Background/scene"]
-
-[node name="Ceiling_0" type="Node3D" parent="Main/Background/scene/Building"]
-transform = Transform3D(-5.97535e-07, -34.67, -2.43035e-07, 0, -1.51547e-06, 5.56, -13.67, 1.51547e-06, 1.06234e-14, 10.4928, 4.90177, 5.345)
-
-[node name="Plain_wall" type="MeshInstance3D" parent="Main/Background/scene/Building/Ceiling_0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
-mesh = SubResource("ArrayMesh_rkpqm")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Main/Background/scene/Building/Ceiling_0/Plain_wall"]
-transform = Transform3D(0.999983, -4.00888e-11, 0.00575956, 4.0659e-11, 1, -9.91496e-11, -0.00575955, 9.93623e-11, 0.999983, 0.244342, 0.0513194, -0.362116)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Background/scene/Building/Ceiling_0/Plain_wall/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0177503, 0.0226135, -0.0119629)
-shape = SubResource("BoxShape3D_7wriu")
 
 [node name="Walls" type="Node3D" parent="Main/Background/scene/Building"]
 
@@ -593,16 +227,16 @@ shape = SubResource("BoxShape3D_7wriu")
 transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 11, 0, 1.62)
 
 [node name="wall3" parent="Main/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.13393, 4.76837e-07, 7.91492)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.13393, -0.0838585, 7.91492)
 
 [node name="wall4" parent="Main/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 6.53359, 4.76837e-07, 7.91492)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 6.53359, -0.0838585, 7.91492)
 
 [node name="wall5" parent="Main/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 8.5821, 4.76837e-07, 7.91492)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 8.5821, -0.0838585, 7.91492)
 
 [node name="wall10" parent="Main/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 10.0336, 4.76837e-07, 7.91492)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 10.0336, -0.0838585, 7.91492)
 
 [node name="wall6" parent="Main/Background/scene/Building/Walls" instance=ExtResource("8_li5uk")]
 transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 11, 0, 6.61)
@@ -860,9 +494,10 @@ transform = Transform3D(0.0028776, 0, -0.876995, 0, 0.877, 0, 0.876995, 0, 0.002
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9532, 0.75338, -4.405)
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(0.528957, 0, 0.848649, 0, 1, 0, -0.848649, 0, 0.528957, 0, 0, 0)
+transform = Transform3D(0.528957, 0, 0.848649, 0, 1, 0, -0.848649, 0, 0.528957, -0.41957, 0, 4.40427)
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("47_6rkor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104427, -0.359575, 2.77726)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 4.65661e-10, 0, 0, 0.985703, 0.168489, 0, -0.168489, 0.985703, 0, 0, 0)
@@ -888,20 +523,8 @@ laser_length = 1
 show_target = true
 target_radius = 0.03
 
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41775, 0, 2.76974)
-visible = false
-
-[node name="AreaAudio" parent="Area3D" instance=ExtResource("49_li5uk")]
-stream = ExtResource("50_3k5n0")
-volume_db = 80.0
-max_db = 3.06
-area_audio_type = SubResource("Resource_e3g0a")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_li5uk")
-
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96042, -5.96046e-08, 3.25635)
 stream = ExtResource("50_3k5n0")
 autoplay = true
+parameters/looping = true

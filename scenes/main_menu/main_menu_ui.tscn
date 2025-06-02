@@ -1,9 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdhh7woo4k4qu"]
+[gd_scene load_steps=12 format=3 uid="uid://bdhh7woo4k4qu"]
 
 [ext_resource type="Script" uid="uid://b74oedlyy0tlt" path="res://control.gd" id="1_lhs03"]
 [ext_resource type="FontFile" uid="uid://3cux8aq8gnep" path="res://fonts/good-timing/good timing bd.otf" id="2_rfupy"]
 [ext_resource type="FontVariation" uid="uid://csskrpp0gb6nm" path="res://fonts/joystix/joystix_font.tres" id="3_2gqfx"]
 [ext_resource type="Script" uid="uid://bh6gqr1dwkcdp" path="res://models/dump/game_title_2.gd" id="4_bj61t"]
+[ext_resource type="Script" uid="uid://npomlu4fho65" path="res://addons/godot-xr-tools/user_settings/user_settings_ui.gd" id="5_rfupy"]
+
+[sub_resource type="Theme" id="Theme_rfupy"]
+default_font = ExtResource("3_2gqfx")
+
+[sub_resource type="Theme" id="Theme_2gqfx"]
 
 [sub_resource type="Animation" id="Animation_7wriu"]
 length = 5.0
@@ -28,18 +34,26 @@ _data = {
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 1.387
+anchor_bottom = 1.442
+offset_right = -921.36
+offset_bottom = -558.24
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme = SubResource("Theme_rfupy")
 script = ExtResource("1_lhs03")
 
-[node name="GameTitle_1" type="Label" parent="Control"]
+[node name="Main_Elements" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameTitle_1" type="Label" parent="Control/Main_Elements"]
 layout_mode = 2
-offset_left = 148.0
+offset_left = 77.895
 offset_top = 48.0
-offset_right = 777.0
+offset_right = 706.895
 offset_bottom = 144.0
 size_flags_horizontal = 0
 focus_neighbor_right = NodePath("../GameTitle_2")
@@ -48,20 +62,20 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("2_rfupy")
-theme_override_font_sizes/font_size = 79
+theme_override_font_sizes/font_size = 56
 text = "Table etiquette"
 
-[node name="GameTitle_2" type="Label" parent="Control"]
+[node name="GameTitle_2" type="Label" parent="Control/Main_Elements"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.808037
-anchor_top = 0.191382
-anchor_right = 0.808037
-anchor_bottom = 0.191382
-offset_left = -122.287
-offset_top = -93.795
-offset_right = 135.735
-offset_bottom = 94.205
+anchor_left = 0.848892
+anchor_top = 0.25374
+anchor_right = 0.848892
+anchor_bottom = 0.25374
+offset_left = 534.601
+offset_top = 10.8754
+offset_right = 792.623
+offset_bottom = 198.79
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.349066
@@ -72,7 +86,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("3_2gqfx")
-theme_override_font_sizes/font_size = 156
+theme_override_font_sizes/font_size = 121
 text = "vr"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -80,11 +94,14 @@ justification_flags = 171
 script = ExtResource("4_bj61t")
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Main_Elements"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 813.0
+offset_bottom = 442.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 64
@@ -92,40 +109,253 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Main_Elements/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 25
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 164.955)
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Main_Elements/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 58.43)
 layout_mode = 2
 
-[node name="Start" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="Control/Main_Elements/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 35
 text = "Start game"
 
-[node name="Reload" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="Control/Main_Elements/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 35
-text = "Reload"
-
-[node name="Settings" type="Button" parent="Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 35
 text = "Settings
 "
 
-[node name="Quit" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="Control/Main_Elements/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 35
 text = "Quit"
 
+[node name="Settings" type="Control" parent="Control"]
+visible = false
+anchors_preset = 0
+offset_right = 857.0
+offset_bottom = 479.0
+
+[node name="UserSettingsUI" type="TabContainer" parent="Control/Settings"]
+layout_mode = 2
+offset_left = 62.89
+offset_top = 31.335
+offset_right = 551.89
+offset_bottom = 311.335
+size_flags_horizontal = 3
+size_flags_vertical = 3
+current_tab = 0
+script = ExtResource("5_rfupy")
+
+[node name="Input" type="MarginContainer" parent="Control/Settings/UserSettingsUI"]
+layout_mode = 2
+tooltip_text = "Hi"
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 0
+
+[node name="InputVBox" type="VBoxContainer" parent="Control/Settings/UserSettingsUI/Input"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SnapTurning" type="HBoxContainer" parent="Control/Settings/UserSettingsUI/Input/InputVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Settings/UserSettingsUI/Input/InputVBox/SnapTurning"]
+layout_mode = 2
+text = "Snap turning:"
+
+[node name="SnapTurningCB" type="CheckBox" parent="Control/Settings/UserSettingsUI/Input/InputVBox/SnapTurning"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 4.1
+theme = SubResource("Theme_2gqfx")
+alignment = 1
+
+[node name="yAxisDeadZone" type="HBoxContainer" parent="Control/Settings/UserSettingsUI/Input/InputVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Settings/UserSettingsUI/Input/InputVBox/yAxisDeadZone"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Y axis dead zone"
+
+[node name="yAxisDeadZoneSlider" type="HSlider" parent="Control/Settings/UserSettingsUI/Input/InputVBox/yAxisDeadZone"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 0.5
+step = 0.01
+value = 0.1
+
+[node name="xAxisDeadZone" type="HBoxContainer" parent="Control/Settings/UserSettingsUI/Input/InputVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Settings/UserSettingsUI/Input/InputVBox/xAxisDeadZone"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "X axis dead zone"
+
+[node name="xAxisDeadZoneSlider" type="HSlider" parent="Control/Settings/UserSettingsUI/Input/InputVBox/xAxisDeadZone"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 0.5
+step = 0.01
+value = 0.2
+
+[node name="HapticsScale" type="HBoxContainer" parent="Control/Settings/UserSettingsUI/Input/InputVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Settings/UserSettingsUI/Input/InputVBox/HapticsScale"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Haptics Scale"
+
+[node name="HapticsScaleSlider" type="HSlider" parent="Control/Settings/UserSettingsUI/Input/InputVBox/HapticsScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="HSeparator" type="HSeparator" parent="Control/Settings/UserSettingsUI/Input/InputVBox"]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Control/Settings/UserSettingsUI/Input/InputVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Save" type="Button" parent="Control/Settings/UserSettingsUI/Input/InputVBox/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Apply"
+
+[node name="Reset" type="Button" parent="Control/Settings/UserSettingsUI/Input/InputVBox/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Reset"
+
+[node name="Back" type="Button" parent="Control/Settings/UserSettingsUI/Input/InputVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Back"
+
+[node name="Player" type="MarginContainer" parent="Control/Settings/UserSettingsUI"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 1
+
+[node name="PlayerVBox" type="VBoxContainer" parent="Control/Settings/UserSettingsUI/Player"]
+layout_mode = 2
+
+[node name="PlayerHeight" type="HBoxContainer" parent="Control/Settings/UserSettingsUI/Player/PlayerVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Settings/UserSettingsUI/Player/PlayerVBox/PlayerHeight"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Height adjust:"
+
+[node name="PlayerHeightSlider" type="HSlider" parent="Control/Settings/UserSettingsUI/Player/PlayerVBox/PlayerHeight"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 2.5
+step = 0.05
+value = 1.5
+
+[node name="HSeparator" type="HSeparator" parent="Control/Settings/UserSettingsUI/Player/PlayerVBox"]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Control/Settings/UserSettingsUI/Player/PlayerVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Save" type="Button" parent="Control/Settings/UserSettingsUI/Player/PlayerVBox/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Apply"
+
+[node name="Reset" type="Button" parent="Control/Settings/UserSettingsUI/Player/PlayerVBox/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Reset"
+
+[node name="Back" type="Button" parent="Control/Settings/UserSettingsUI/Player/PlayerVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Back"
+
+[node name="WebXR" type="MarginContainer" parent="Control/Settings/UserSettingsUI"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 2
+
+[node name="WebXRVBox" type="VBoxContainer" parent="Control/Settings/UserSettingsUI/WebXR"]
+layout_mode = 2
+
+[node name="WebXR" type="HBoxContainer" parent="Control/Settings/UserSettingsUI/WebXR/WebXRVBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Settings/UserSettingsUI/WebXR/WebXRVBox/WebXR"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "WebXR primary:"
+
+[node name="WebXRPrimary" type="OptionButton" parent="Control/Settings/UserSettingsUI/WebXR/WebXRVBox/WebXR"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+selected = 0
+item_count = 3
+popup/item_0/text = "Auto"
+popup/item_0/id = 0
+popup/item_1/text = "Thumbstick"
+popup/item_1/id = 1
+popup/item_2/text = "Trackpad"
+popup/item_2/id = 2
+
+[node name="HSeparator" type="HSeparator" parent="Control/Settings/UserSettingsUI/WebXR/WebXRVBox"]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Control/Settings/UserSettingsUI/WebXR/WebXRVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Save" type="Button" parent="Control/Settings/UserSettingsUI/WebXR/WebXRVBox/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Apply"
+
+[node name="Reset" type="Button" parent="Control/Settings/UserSettingsUI/WebXR/WebXRVBox/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Reset"
+
+[node name="Back" type="Button" parent="Control/Settings/UserSettingsUI/WebXR/WebXRVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Back"
+
 [node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
 modulate = Color(0.55, 0.55, 0.55, 0.211765)
 layout_mode = 0
 offset_left = -2.0
@@ -141,7 +371,21 @@ libraries = {
 autoplay = "camera_animation"
 speed_scale = 0.13
 
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Start" to="Control" method="_on_start_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Reload" to="Control" method="_on_reload_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Settings" to="Control" method="_on_settings_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/Main_Elements/MarginContainer/VBoxContainer/Start" to="Control" method="_on_start_pressed"]
+[connection signal="pressed" from="Control/Main_Elements/MarginContainer/VBoxContainer/Settings" to="Control" method="_on_settings_pressed"]
+[connection signal="pressed" from="Control/Main_Elements/MarginContainer/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/Settings/UserSettingsUI/Input/InputVBox/SnapTurning/SnapTurningCB" to="Control/Settings/UserSettingsUI" method="_on_SnapTurningCB_pressed"]
+[connection signal="value_changed" from="Control/Settings/UserSettingsUI/Input/InputVBox/yAxisDeadZone/yAxisDeadZoneSlider" to="Control/Settings/UserSettingsUI" method="_on_y_axis_dead_zone_slider_value_changed"]
+[connection signal="value_changed" from="Control/Settings/UserSettingsUI/Input/InputVBox/xAxisDeadZone/xAxisDeadZoneSlider" to="Control/Settings/UserSettingsUI" method="_on_x_axis_dead_zone_slider_value_changed"]
+[connection signal="value_changed" from="Control/Settings/UserSettingsUI/Input/InputVBox/HapticsScale/HapticsScaleSlider" to="Control/Settings/UserSettingsUI" method="_on_haptics_scale_slider_value_changed"]
+[connection signal="pressed" from="Control/Settings/UserSettingsUI/Input/InputVBox/Buttons/Save" to="Control/Settings/UserSettingsUI" method="_on_Save_pressed"]
+[connection signal="pressed" from="Control/Settings/UserSettingsUI/Input/InputVBox/Buttons/Reset" to="Control/Settings/UserSettingsUI" method="_on_Reset_pressed"]
+[connection signal="pressed" from="Control/Settings/UserSettingsUI/Input/InputVBox/Back" to="Control" method="_on_back_pressed"]
+[connection signal="drag_ended" from="Control/Settings/UserSettingsUI/Player/PlayerVBox/PlayerHeight/PlayerHeightSlider" to="Control/Settings/UserSettingsUI" method="_on_PlayerHeightSlider_drag_ended"]
+[connection signal="pressed" from="Control/Settings/UserSettingsUI/Player/PlayerVBox/Buttons/Save" to="Control/Settings/UserSettingsUI" method="_on_Save_pressed"]
+[connection signal="pressed" from="Control/Settings/UserSettingsUI/Player/PlayerVBox/Buttons/Reset" to="Control/Settings/UserSettingsUI" method="_on_Reset_pressed"]
+[connection signal="pressed" from="Control/Settings/UserSettingsUI/Player/PlayerVBox/Back" to="Control" method="_on_back_pressed"]
+[connection signal="item_selected" from="Control/Settings/UserSettingsUI/WebXR/WebXRVBox/WebXR/WebXRPrimary" to="Control/Settings/UserSettingsUI" method="_on_PlayerHeightSlider_drag_ended"]
+[connection signal="pressed" from="Control/Settings/UserSettingsUI/WebXR/WebXRVBox/Buttons/Save" to="Control/Settings/UserSettingsUI" method="_on_Save_pressed"]
+[connection signal="pressed" from="Control/Settings/UserSettingsUI/WebXR/WebXRVBox/Buttons/Reset" to="Control/Settings/UserSettingsUI" method="_on_Reset_pressed"]
+[connection signal="pressed" from="Control/Settings/UserSettingsUI/WebXR/WebXRVBox/Back" to="Control" method="_on_back_pressed"]
