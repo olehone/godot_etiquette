@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://y6pt1jgx6v07"]
+[gd_scene load_steps=67 format=4 uid="uid://y6pt1jgx6v07"]
 
 [ext_resource type="Script" uid="uid://dbemwsq7bbx7s" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_bva8j"]
 [ext_resource type="Script" uid="uid://rkp4t7eqnc0o" path="res://scenes/objects/main.gd" id="1_f52r8"]
@@ -48,6 +48,9 @@
 [ext_resource type="PackedScene" uid="uid://cqg27ghhnapry" path="res://addons/kaykit_restaurant_bits/Assets/gltf/towelrail.gltf" id="44_h5kcm"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="46_vpquf"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="47_6rkor"]
+[ext_resource type="PackedScene" uid="uid://duqehif60vcjg" path="res://addons/godot-xr-tools/audio/area_audio.tscn" id="49_li5uk"]
+[ext_resource type="AudioStream" uid="uid://choe0cqhr07st" path="res://addons/easy_audio/example/music/music_metal.mp3" id="50_3k5n0"]
+[ext_resource type="Script" uid="uid://cib3bou6ha34c" path="res://addons/godot-xr-tools/audio/area_audio_type.gd" id="51_gbc4w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0c6v"]
 resource_name = "mat21"
@@ -168,6 +171,18 @@ shadow_mesh = SubResource("ArrayMesh_x7jbs")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5jqm"]
 size = Vector3(0.161909, 0.0104297, 0.31999)
+
+[sub_resource type="AudioStream" id="AudioStream_bb6hr"]
+
+[sub_resource type="Resource" id="Resource_e3g0a"]
+resource_local_to_scene = true
+script = ExtResource("51_gbc4w")
+name = "test"
+touch_sound = SubResource("AudioStream_bb6hr")
+metadata/_custom_type_script = "uid://cib3bou6ha34c"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_li5uk"]
+radius = 12.3308
 
 [node name="Menu" type="Node3D"]
 script = ExtResource("1_bva8j")
@@ -872,3 +887,21 @@ distance = 4.0
 laser_length = 1
 show_target = true
 target_radius = 0.03
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.41775, 0, 2.76974)
+visible = false
+
+[node name="AreaAudio" parent="Area3D" instance=ExtResource("49_li5uk")]
+stream = ExtResource("50_3k5n0")
+volume_db = 80.0
+max_db = 3.06
+area_audio_type = SubResource("Resource_e3g0a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_li5uk")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96042, -5.96046e-08, 3.25635)
+stream = ExtResource("50_3k5n0")
+autoplay = true
