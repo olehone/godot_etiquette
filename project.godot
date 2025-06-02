@@ -49,6 +49,10 @@ left_utensils="It's for snapping picable objects"
 main_dish="For placing main dish "
 third_dish=""
 second_dish=""
+fork_food=""
+food=""
+utensils=""
+hand=""
 
 [layer_names]
 
