@@ -175,7 +175,6 @@ metadata/_custom_type_script = "uid://dbemwsq7bbx7s"
 
 [node name="Main2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6241, -1.41366, 2.18177)
-visible = false
 script = ExtResource("1_f52r8")
 
 [node name="Viewport2Din3D" parent="Main2" instance=ExtResource("2_bva8j")]
