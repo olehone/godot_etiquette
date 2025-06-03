@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
+Audio="*res://addons/easy_audio/audio.gd"
+Music="*res://addons/easy_audio/music.gd"
 
 [debug]
 
@@ -36,7 +38,7 @@ project/assembly_name="OpenXR Demo"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/easy_audio/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg")
 
 [filesystem]
 
@@ -53,6 +55,10 @@ fork_food=""
 food=""
 utensils=""
 hand=""
+
+[godot_xr_tools]
+
+player/standard_height=1.5
 
 [gui]
 

@@ -1,13 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdhh7woo4k4qu"]
+[gd_scene load_steps=12 format=3 uid="uid://bcon3oe15vhc4"]
 
-[ext_resource type="Script" uid="uid://b74oedlyy0tlt" path="res://control.gd" id="1_lhs03"]
-[ext_resource type="FontFile" uid="uid://3cux8aq8gnep" path="res://fonts/good-timing/good timing bd.otf" id="2_rfupy"]
-[ext_resource type="FontVariation" uid="uid://csskrpp0gb6nm" path="res://fonts/joystix/joystix_font.tres" id="3_2gqfx"]
-[ext_resource type="Script" uid="uid://bh6gqr1dwkcdp" path="res://models/dump/game_title_2.gd" id="4_bj61t"]
-[ext_resource type="Script" uid="uid://npomlu4fho65" path="res://addons/godot-xr-tools/user_settings/user_settings_ui.gd" id="5_rfupy"]
+[ext_resource type="FontVariation" uid="uid://csskrpp0gb6nm" path="res://fonts/joystix/joystix_font.tres" id="1_s0q3m"]
+[ext_resource type="Script" uid="uid://b74oedlyy0tlt" path="res://control.gd" id="2_vb6g3"]
+[ext_resource type="FontFile" uid="uid://3cux8aq8gnep" path="res://fonts/good-timing/good timing bd.otf" id="3_uj7ff"]
+[ext_resource type="Script" uid="uid://bh6gqr1dwkcdp" path="res://models/dump/game_title_2.gd" id="4_1ue3y"]
+[ext_resource type="Script" uid="uid://npomlu4fho65" path="res://addons/godot-xr-tools/user_settings/user_settings_ui.gd" id="5_j0lhc"]
 
 [sub_resource type="Theme" id="Theme_rfupy"]
-default_font = ExtResource("3_2gqfx")
+default_font = ExtResource("1_s0q3m")
 
 [sub_resource type="Theme" id="Theme_2gqfx"]
 
@@ -42,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 theme = SubResource("Theme_rfupy")
-script = ExtResource("1_lhs03")
+script = ExtResource("2_vb6g3")
 
 [node name="Main_Elements" type="Control" parent="Control"]
 anchors_preset = 0
@@ -61,7 +61,7 @@ theme_override_colors/font_color = Color(0.99, 0.79266, 0.0792, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("2_rfupy")
+theme_override_fonts/font = ExtResource("3_uj7ff")
 theme_override_font_sizes/font_size = 56
 text = "Table etiquette"
 
@@ -85,13 +85,13 @@ focus_neighbor_left = NodePath("../GameTitle_1")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("3_2gqfx")
+theme_override_fonts/font = ExtResource("1_s0q3m")
 theme_override_font_sizes/font_size = 121
 text = "vr"
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 171
-script = ExtResource("4_bj61t")
+script = ExtResource("4_1ue3y")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/Main_Elements"]
@@ -117,10 +117,11 @@ theme_override_constants/separation = 25
 custom_minimum_size = Vector2(0, 58.43)
 layout_mode = 2
 
-[node name="Start" type="Button" parent="Control/Main_Elements/MarginContainer/VBoxContainer"]
+[node name="Restart" type="Button" parent="Control/Main_Elements/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Start game"
+text = "Restart
+"
 
 [node name="Settings" type="Button" parent="Control/Main_Elements/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -131,7 +132,7 @@ text = "Settings
 [node name="Quit" type="Button" parent="Control/Main_Elements/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Quit"
+text = "To main menu"
 
 [node name="Settings" type="Control" parent="Control"]
 visible = false
@@ -148,7 +149,7 @@ offset_bottom = 484.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 current_tab = 0
-script = ExtResource("5_rfupy")
+script = ExtResource("5_j0lhc")
 
 [node name="Input" type="MarginContainer" parent="Control/Settings/UserSettingsUI"]
 layout_mode = 2
@@ -370,7 +371,7 @@ libraries = {
 autoplay = "camera_animation"
 speed_scale = 0.13
 
-[connection signal="pressed" from="Control/Main_Elements/MarginContainer/VBoxContainer/Start" to="Control" method="_on_start_pressed"]
+[connection signal="pressed" from="Control/Main_Elements/MarginContainer/VBoxContainer/Restart" to="Control" method="_on_start_pressed"]
 [connection signal="pressed" from="Control/Main_Elements/MarginContainer/VBoxContainer/Settings" to="Control" method="_on_settings_pressed"]
 [connection signal="pressed" from="Control/Main_Elements/MarginContainer/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]
 [connection signal="pressed" from="Control/Settings/UserSettingsUI/Input/InputVBox/SnapTurning/SnapTurningCB" to="Control/Settings/UserSettingsUI" method="_on_SnapTurningCB_pressed"]

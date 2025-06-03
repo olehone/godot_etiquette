@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ungirnwga6pc"]
+[gd_scene load_steps=2 format=3 uid="uid://benl6k3sqes2q"]
 
 [ext_resource type="Script" uid="uid://btff3hxrefqbo" path="res://addons/godot-xr-tools/assets/meshes/control_pad/control_pad_display.gd" id="1_iqtwx"]
 

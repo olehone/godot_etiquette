@@ -26,9 +26,10 @@ func _on_settings_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
-	print("Quit pressed")
-	get_tree().quit()
-	pass # Replace with function body.
+	var scene_base : XRToolsStaging = XRTools.find_xr_ancestor(self, "*", "XRToolsStaging")
+	if not scene_base:
+		return
+	scene_base.load_scene("res://scenes/main_menu/main_menu.tscn")
 
 
 func _on_reload_pressed() -> void:

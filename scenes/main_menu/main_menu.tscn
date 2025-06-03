@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://y6pt1jgx6v07"]
+[gd_scene load_steps=71 format=4 uid="uid://y6pt1jgx6v07"]
 
 [ext_resource type="Script" uid="uid://dbemwsq7bbx7s" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_bva8j"]
 [ext_resource type="Script" uid="uid://rkp4t7eqnc0o" path="res://scenes/objects/main.gd" id="1_f52r8"]
@@ -48,7 +48,11 @@
 [ext_resource type="PackedScene" uid="uid://cqg27ghhnapry" path="res://addons/kaykit_restaurant_bits/Assets/gltf/towelrail.gltf" id="44_h5kcm"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="46_vpquf"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="47_6rkor"]
+[ext_resource type="Script" uid="uid://0y15dclo78bc" path="res://addons/godot-xr-tools/assets/meshes/control_pad/control_pad.gd" id="49_gbc4w"]
 [ext_resource type="AudioStream" uid="uid://cjw3c3js3p416" path="res://models/music/restaurant-music.mp3" id="49_tjoo1"]
+[ext_resource type="Script" uid="uid://lc047dq7c7vi" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="50_e3g0a"]
+[ext_resource type="Script" uid="uid://btff3hxrefqbo" path="res://addons/godot-xr-tools/assets/meshes/control_pad/control_pad_display.gd" id="51_8i2hs"]
+[ext_resource type="Script" uid="uid://ccebibvumnwn7" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="52_fde4t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0c6v"]
 resource_name = "mat21"
@@ -169,6 +173,38 @@ shadow_mesh = SubResource("ArrayMesh_x7jbs")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5jqm"]
 size = Vector3(0.161909, 0.0104297, 0.31999)
+
+[sub_resource type="PackedScene" id="PackedScene_s424j"]
+_bundled = {
+"conn_count": 5,
+"conns": PackedInt32Array(1073741848, 1073741847, 116, 115, 2, 0, 0, 1073741850, 1073741849, 118, 117, 2, 0, 0, 1073741852, 1073741851, 120, 119, 2, 0, 0, 1073741854, 1073741853, 122, 121, 2, 0, 0, 1073741856, 1073741855, 124, 123, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("ControlPadDisplay", "TabContainer", "offset_right", "offset_bottom", "tab_alignment", "current_tab", "script", "RefreshTimer", "Timer", "wait_time", "autostart", "Body", "MarginContainer", "layout_mode", "theme_override_constants/margin_left", "theme_override_constants/margin_top", "theme_override_constants/margin_right", "theme_override_constants/margin_bottom", "metadata/_tab_index", "VBoxContainer", "VBoxContainer", "layout_mode", "Position", "HBoxContainer", "layout_mode", "Name", "Label", "custom_minimum_size", "layout_mode", "text", "Value", "Label", "layout_mode", "text", "Velocity", "HBoxContainer", "layout_mode", "Name", "Label", "custom_minimum_size", "layout_mode", "text", "Value", "Label", "layout_mode", "text", "Scale", "HBoxContainer", "layout_mode", "Label", "Label", "custom_minimum_size", "layout_mode", "text", "BodyScaleSlider", "HSlider", "layout_mode", "size_flags_horizontal", "size_flags_vertical", "min_value", "max_value", "step", "value", "Settings", "MarginContainer", "visible", "layout_mode", "theme_override_constants/margin_left", "theme_override_constants/margin_top", "theme_override_constants/margin_right", "theme_override_constants/margin_bottom", "metadata/_tab_index", "VBoxContainer", "VBoxContainer", "layout_mode", "Panel", "HBoxContainer", "layout_mode", "Label", "Label", "custom_minimum_size", "layout_mode", "text", "Container", "HBoxContainer", "layout_mode", "size_flags_horizontal", "alignment", "Left", "Button", "custom_minimum_size", "layout_mode", "text", "Right", "Button", "custom_minimum_size", "layout_mode", "text", "Demo", "HBoxContainer", "layout_mode", "Label", "Label", "custom_minimum_size", "layout_mode", "text", "Container", "HBoxContainer", "layout_mode", "size_flags_horizontal", "alignment", "MainScene", "Button", "layout_mode", "text", "_on_refresh_timer_timeout", "timeout", "_on_body_scale_slider_value_changed", "value_changed", "_on_panel_left_pressed", "pressed", "_on_panel_right_pressed", "pressed", "_on_main_scene_pressed", "pressed"),
+"node_count": 24,
+"node_paths": [NodePath("."), NodePath("."), NodePath("./Body"), NodePath("./Body/VBoxContainer"), NodePath("./Body/VBoxContainer/Position"), NodePath("./Body/VBoxContainer/Position"), NodePath("./Body/VBoxContainer"), NodePath("./Body/VBoxContainer/Velocity"), NodePath("./Body/VBoxContainer/Velocity"), NodePath("./Body/VBoxContainer"), NodePath("./Body/VBoxContainer/Scale"), NodePath("./Body/VBoxContainer/Scale"), NodePath("."), NodePath("./Settings"), NodePath("./Settings/VBoxContainer"), NodePath("./Settings/VBoxContainer/Panel"), NodePath("./Settings/VBoxContainer/Panel"), NodePath("./Settings/VBoxContainer/Panel/Container"), NodePath("./Settings/VBoxContainer/Panel/Container"), NodePath("./Settings/VBoxContainer"), NodePath("./Settings/VBoxContainer/Demo"), NodePath("./Settings/VBoxContainer/Demo"), NodePath("./Settings/VBoxContainer/Demo/Container"), NodePath("."), NodePath("RefreshTimer"), NodePath("."), NodePath("Body/VBoxContainer/Scale/BodyScaleSlider"), NodePath("."), NodePath("Settings/VBoxContainer/Panel/Container/Left"), NodePath("."), NodePath("Settings/VBoxContainer/Panel/Container/Right"), NodePath("."), NodePath("Settings/VBoxContainer/Demo/Container/MainScene")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 5, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 0, 1073741824, 0, 8, 7, -1, 2, 9, 5, 10, 6, 0, 1073741825, 0, 12, 11, -1, 6, 13, 7, 14, 8, 15, 9, 16, 10, 17, 11, 18, 12, 0, 1073741826, 0, 20, 19, -1, 1, 21, 13, 0, 1073741827, 0, 23, 22, -1, 1, 24, 14, 0, 1073741828, 0, 26, 25, -1, 3, 27, 15, 28, 16, 29, 17, 0, 1073741829, 0, 31, 30, -1, 2, 32, 18, 33, 19, 0, 1073741830, 0, 35, 34, -1, 1, 36, 20, 0, 1073741831, 0, 38, 37, -1, 3, 39, 21, 40, 22, 41, 23, 0, 1073741832, 0, 43, 42, -1, 2, 44, 24, 45, 25, 0, 1073741833, 0, 47, 46, -1, 1, 48, 26, 0, 1073741834, 0, 50, 49, -1, 3, 51, 27, 52, 28, 53, 29, 0, 1073741835, 0, 55, 54, -1, 7, 56, 30, 57, 31, 58, 32, 59, 33, 60, 34, 61, 35, 62, 36, 0, 1073741836, 0, 64, 63, -1, 7, 65, 37, 66, 38, 67, 39, 68, 40, 69, 41, 70, 42, 71, 43, 0, 1073741837, 0, 73, 72, -1, 1, 74, 44, 0, 1073741838, 0, 76, 75, -1, 1, 77, 45, 0, 1073741839, 0, 79, 78, -1, 3, 80, 46, 81, 47, 82, 48, 0, 1073741840, 0, 84, 83, -1, 3, 85, 49, 86, 50, 87, 51, 0, 1073741841, 0, 89, 88, -1, 3, 90, 52, 91, 53, 92, 54, 0, 1073741842, 0, 94, 93, -1, 3, 95, 55, 96, 56, 97, 57, 0, 1073741843, 0, 99, 98, -1, 1, 100, 58, 0, 1073741844, 0, 102, 101, -1, 3, 103, 59, 104, 60, 105, 61, 0, 1073741845, 0, 107, 106, -1, 3, 108, 62, 109, 63, 110, 64, 0, 1073741846, 0, 112, 111, -1, 2, 113, 65, 114, 66, 0),
+"variants": [400.0, 200.0, 1, 0, ExtResource("51_8i2hs"), 0.1, true, 2, 5, 5, 5, 5, 0, 2, 2, Vector2(90, 0), 2, "Position:", 2, "0, 0, 0", 2, Vector2(90, 0), 2, "Velocity:
+", 2, "0, 0, 0", 2, Vector2(90, 0), 2, "Scale:", 2, 3, 4, 0.5, 2.0, 0.1, 1.0, false, 2, 5, 5, 5, 5, 1, 2, 2, Vector2(90, 0), 2, "Panel:", 2, 3, 1, Vector2(80, 0), 2, "Left", Vector2(80, 0), 2, "Right
+", 2, Vector2(90, 0), 2, "Main:", 2, 3, 1, 2, "Return to Main Scene"],
+"version": 3
+}
+
+[sub_resource type="QuadMesh" id="QuadMesh_lmo0x"]
+resource_local_to_scene = true
+size = Vector2(0.16, 0.08)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gbc4w"]
+viewport_path = NodePath("XROrigin3D/ControlPad/Viewport2Din3D/Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbc4w"]
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_gbc4w")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lhx75"]
+resource_local_to_scene = true
+size = Vector3(0.16, 0.08, 0.02)
 
 [node name="Menu" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534837, 0, -1.28922)
@@ -519,9 +555,50 @@ pose = &"grip"
 [node name="FunctionPointer" parent="XROrigin3D/RightController" instance=ExtResource("6_tjoo1")]
 transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, 0.0005126, 0, -0.0146713)
 distance = 4.0
+show_laser = 2
 laser_length = 1
 show_target = true
-target_radius = 0.03
+target_radius = 0.01
+
+[node name="ControlPad" type="Node3D" parent="XROrigin3D"]
+transform = Transform3D(11.8681, 0, 4.76837e-07, 0, 11.8681, 0, -4.76837e-07, 0, 11.8681, -9.31404, -9.68171, 5.91837)
+script = ExtResource("49_gbc4w")
+
+[node name="Viewport2Din3D" type="Node3D" parent="XROrigin3D/ControlPad"]
+script = ExtResource("50_e3g0a")
+screen_size = Vector2(0.16, 0.08)
+collision_layer = 4194304
+scene = SubResource("PackedScene_s424j")
+viewport_size = Vector2(400, 200)
+update_mode = 2
+throttle_fps = 15.0
+input_keyboard = false
+transparent = 0
+alpha_scissor_threshold = 0.25
+unshaded = true
+filter = true
+scene_properties_keys = PackedStringArray("control_pad_display.gd")
+
+[node name="Viewport" type="SubViewport" parent="XROrigin3D/ControlPad/Viewport2Din3D"]
+disable_3d = true
+gui_embed_subwindows = true
+size = Vector2i(400, 200)
+render_target_update_mode = 1
+
+[node name="Screen" type="MeshInstance3D" parent="XROrigin3D/ControlPad/Viewport2Din3D"]
+mesh = SubResource("QuadMesh_lmo0x")
+surface_material_override/0 = SubResource("StandardMaterial3D_gbc4w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="XROrigin3D/ControlPad/Viewport2Din3D"]
+collision_layer = 4194304
+collision_mask = 0
+script = ExtResource("52_fde4t")
+screen_size = Vector2(0.16, 0.08)
+viewport_size = Vector2(400, 200)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/ControlPad/Viewport2Din3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+shape = SubResource("BoxShape3D_lhx75")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96042, -5.96046e-08, 3.25635)

@@ -54,6 +54,7 @@ func _on_SnapTurningCB_pressed():
 
 # Player settings changed
 func _on_PlayerHeightSlider_drag_ended(_value_changed):
+	print("Change hight")
 	XRToolsUserSettings.player_height = player_height_slider.value
 	emit_signal("player_height_changed", XRToolsUserSettings.player_height)
 
