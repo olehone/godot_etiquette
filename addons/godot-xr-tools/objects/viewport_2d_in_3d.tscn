@@ -1,19 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://clujaf3u776a3"]
+[gd_scene load_steps=9 format=3 uid="uid://clujaf3u776a3"]
 
 [ext_resource type="Script" uid="uid://lc047dq7c7vi" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="1"]
 [ext_resource type="Script" uid="uid://ccebibvumnwn7" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="2"]
+[ext_resource type="VideoStream" uid="uid://o0cjn3noew6h" path="res://models/video/finishing_position.ogv" id="2_4gj7x"]
+
+[sub_resource type="PackedScene" id="PackedScene_wb3kh"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("VideoStreamPlayer", "VideoStreamPlayer", "anchors_preset", "anchor_right", "anchor_bottom", "grow_horizontal", "grow_vertical", "stream", "metadata/_edit_use_anchors_"),
+"node_count": 1,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 7, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 0),
+"variants": [15, 1.0, 1.0, 2, 2, ExtResource("2_4gj7x"), true],
+"version": 3
+}
 
 [sub_resource type="QuadMesh" id="1"]
 resource_local_to_scene = true
 size = Vector2(3, 2)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_gvc48"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wb3kh"]
 viewport_path = NodePath("Viewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gj7x"]
 transparency = 1
 cull_mode = 2
-albedo_texture = SubResource("ViewportTexture_gvc48")
+albedo_texture = SubResource("ViewportTexture_wb3kh")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="4"]
@@ -22,6 +36,8 @@ size = Vector3(3, 2, 0.02)
 
 [node name="Viewport2Din3D" type="Node3D"]
 script = ExtResource("1")
+scene = SubResource("PackedScene_wb3kh")
+input_keyboard = false
 alpha_scissor_threshold = 0.25
 unshaded = false
 filter = true

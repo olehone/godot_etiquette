@@ -48,7 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://cqg27ghhnapry" path="res://addons/kaykit_restaurant_bits/Assets/gltf/towelrail.gltf" id="44_h5kcm"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="46_vpquf"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="47_6rkor"]
-[ext_resource type="AudioStream" uid="uid://choe0cqhr07st" path="res://addons/easy_audio/example/music/music_metal.mp3" id="50_3k5n0"]
+[ext_resource type="AudioStream" uid="uid://cjw3c3js3p416" path="res://models/music/restaurant-music.mp3" id="49_tjoo1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0c6v"]
 resource_name = "mat21"
@@ -525,6 +525,6 @@ target_radius = 0.03
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96042, -5.96046e-08, 3.25635)
-stream = ExtResource("50_3k5n0")
+stream = ExtResource("49_tjoo1")
 autoplay = true
 parameters/looping = true

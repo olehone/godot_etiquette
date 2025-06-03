@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://csua0ijv5ddqx"]
+
+[ext_resource type="VideoStream" uid="uid://o0cjn3noew6h" path="res://models/video/finishing_position.ogv" id="1_dn7m5"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer"]
+stream = ExtResource("1_dn7m5")
+autoplay = true
+metadata/_edit_use_anchors_ = true
