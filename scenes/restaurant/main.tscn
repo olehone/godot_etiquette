@@ -1,10 +1,9 @@
-[gd_scene load_steps=399 format=4 uid="uid://cqsodpswgup8w"]
+[gd_scene load_steps=404 format=4 uid="uid://cqsodpswgup8w"]
 
 [ext_resource type="Script" uid="uid://dbemwsq7bbx7s" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_8isf0"]
 [ext_resource type="Script" uid="uid://rkp4t7eqnc0o" path="res://scenes/objects/main.gd" id="1_fsva1"]
 [ext_resource type="Texture2D" uid="uid://byl748la8beae" path="res://models/textures/TextureAtlas_baseColor.png" id="3_lswn8"]
 [ext_resource type="PackedScene" uid="uid://c1bcqmqywkpr" path="res://models/Nature.glb" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://b68d757gcpkmb" path="res://scenes/restaurant/area_3d.gd" id="4_33n0s"]
 [ext_resource type="Script" uid="uid://b7ei1kuvh4mtx" path="res://models/dump/xr_camera_3d.gd" id="4_lquwl"]
 [ext_resource type="Texture2D" uid="uid://r1j0fs75ct2b" path="res://addons/kaykit_restaurant_bits/Assets/gltf/restaurantbits_texture.png" id="4_ryguw"]
 [ext_resource type="Script" uid="uid://cgrl67imhfk5o" path="res://addons/godot-xr-tools/objects/pickable.gd" id="5_d13ii"]
@@ -41,7 +40,6 @@
 [ext_resource type="Script" uid="uid://biv82q474nr4g" path="res://addons/godot-xr-tools/rumble/rumbler.gd" id="32_hxffl"]
 [ext_resource type="Texture2D" uid="uid://bfqkbxthhxsgw" path="res://models/dump/cutlery_8.png" id="32_ugw2o"]
 [ext_resource type="Resource" uid="uid://brci6umrcd157" path="res://addons/godot-xr-tools/rumble/tap_rumble.tres" id="33_33n0s"]
-[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="33_wbcwb"]
 [ext_resource type="Texture2D" uid="uid://bn1g3o4ukakxx" path="res://models/dump/cutlery_0.png" id="34_6fy7r"]
 [ext_resource type="PackedScene" uid="uid://dc5t2qgmhb2nf" path="res://addons/godot-xr-tools/objects/hand_pose_area.tscn" id="34_peqnb"]
 [ext_resource type="Resource" uid="uid://ciw0f7mg4ai0k" path="res://addons/godot-xr-tools/hands/poses/pose_point_left.tres" id="35_if6b6"]
@@ -54,39 +52,63 @@
 [ext_resource type="Texture2D" uid="uid://b0e3f6hs5amfe" path="res://models/dump/cutlery_5.png" id="39_spr82"]
 [ext_resource type="PackedScene" uid="uid://csua0ijv5ddqx" path="res://models/video/video_stream_player.tscn" id="40_33n0s"]
 [ext_resource type="AudioStream" uid="uid://dova7xts0l240" path="res://models/music/restaurant-music_2.mp3" id="40_hxffl"]
-[ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="55_peqnb"]
+[ext_resource type="AudioStream" uid="uid://dkbwab2do7yam" path="res://models/music/pop.mp3" id="48_peqnb"]
+[ext_resource type="Script" uid="uid://of7ao7e0douc" path="res://scenes/restaurant/food.gd" id="54_33n0s"]
+[ext_resource type="AudioStream" uid="uid://ckf3neywwxyxt" path="res://models/music/eating.mp3" id="55_peqnb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hxffl"]
-radius = 0.257624
+radius = 1.75021
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6qrwf"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a8t5h"]
+lifetime_randomness = 1.0
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(1, 0.3, 0.3)
+emission_shape = 1
+emission_sphere_radius = 0.4
+inherit_velocity_ratio = 0.104
+direction = Vector3(0.1, 6.25, -2.445)
+spread = 4.0
+initial_velocity_min = 0.5
+initial_velocity_max = 4.0
+scale_min = 0.55
+scale_over_velocity_min = 785.87
+scale_over_velocity_max = 1000.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8t5h"]
+albedo_color = Color(1, 0.74, 0.35, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rfj1b"]
+material = SubResource("StandardMaterial3D_a8t5h")
+size = Vector3(0.02, 0.02, 0.02)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_if6b6"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hxffl"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yqr6d"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_33n0s"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_78r8o"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_L", "Armature/Skeleton3D:Little_Intermediate_L", "Armature/Skeleton3D:Little_Metacarpal_L", "Armature/Skeleton3D:Little_Proximal_L", "Armature/Skeleton3D:Middle_Distal_L", "Armature/Skeleton3D:Middle_Intermediate_L", "Armature/Skeleton3D:Middle_Metacarpal_L", "Armature/Skeleton3D:Middle_Proximal_L", "Armature/Skeleton3D:Ring_Distal_L", "Armature/Skeleton3D:Ring_Intermediate_L", "Armature/Skeleton3D:Ring_Metacarpal_L", "Armature/Skeleton3D:Ring_Proximal_L", "Armature/Skeleton3D:Thumb_Distal_L", "Armature/Skeleton3D:Thumb_Metacarpal_L", "Armature/Skeleton3D:Thumb_Proximal_L", "Armature/Skeleton:Little_Distal_L", "Armature/Skeleton:Little_Intermediate_L", "Armature/Skeleton:Little_Proximal_L", "Armature/Skeleton:Middle_Distal_L", "Armature/Skeleton:Middle_Intermediate_L", "Armature/Skeleton:Middle_Proximal_L", "Armature/Skeleton:Ring_Distal_L", "Armature/Skeleton:Ring_Intermediate_L", "Armature/Skeleton:Ring_Proximal_L", "Armature/Skeleton:Thumb_Distal_L", "Armature/Skeleton:Thumb_Proximal_L"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_peqnb"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dawis"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_if6b6"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_28f5q"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_L", "Armature/Skeleton3D:Index_Intermediate_L", "Armature/Skeleton3D:Index_Metacarpal_L", "Armature/Skeleton3D:Index_Proximal_L", "Armature/Skeleton:Index_Distal_L", "Armature/Skeleton:Index_Intermediate_L", "Armature/Skeleton:Index_Proximal_L"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_yqr6d"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ogaej"]
 graph_offset = Vector2(-536, 11)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_6qrwf")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_if6b6")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_hxffl")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_yqr6d")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_33n0s")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_78r8o")
 nodes/Grip/position = Vector2(0, 20)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_peqnb")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_dawis")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_if6b6")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_28f5q")
 nodes/Trigger/position = Vector2(-360, 20)
 node_connections = [&"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1", &"output", 0, &"Grip"]
 
@@ -101,34 +123,34 @@ size = Vector2(1, 1)
 radius = 0.4
 height = 1.8
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_78r8o"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aloo1"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dawis"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5nil6"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_28f5q"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_pgqqg"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ogaej"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2wtu6"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_aloo1"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_nxn4s"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5nil6"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_y67y5"]
 graph_offset = Vector2(-552.664, 107.301)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_78r8o")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_aloo1")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_dawis")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_5nil6")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_28f5q")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_pgqqg")
 nodes/Grip/position = Vector2(0, 40)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_ogaej")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_2wtu6")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_aloo1")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_nxn4s")
 nodes/Trigger/position = Vector2(-360, 40)
 node_connections = [&"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1", &"output", 0, &"Grip"]
 
@@ -584,6 +606,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4k2k6")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_if6b6"]
+height = 0.1875
+radius = 1.50146
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8isf0"]
 height = 0.782
@@ -3531,6 +3557,52 @@ shadow_mesh = SubResource("ArrayMesh_vda3p")
 height = 0.83
 radius = 0.085
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_if6b6"]
+resource_local_to_scene = true
+radius = 0.585
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32utb"]
+resource_name = "restaurant"
+albedo_texture = ExtResource("4_ryguw")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hwuw7"]
+_surfaces = [{
+"aabb": AABB(-0.412169, -0.0874199, -0.412168, 0.824336, 0.105493, 0.824337),
+"format": 34359742465,
+"index_count": 162,
+"index_data": PackedByteArray("BQAIAAwACAAWAAwADAAWAAQACAANABYABAAWAA0ACAAXAA0ACAACABcADQAXAAIACAAFAAIADQACAAcABAANAAcABQAOAAIAEAAMAAQADwAFAAwADwAMABAADwAYAAUABQAYAA4ACQAYAA8ADgAYAAkABgAPABAABgAJAA8ADgAJABkACQAAABkADgAZAAAADgAAAAIACQAGAAAAAAAHAAIABgAQABIAAAABAAcABgARAAAAAAARABoAAAAaAAEABgAbABEABgASABsACgAaABEACgARABsACgAbABIACgABABoAAQAcAAcAEgADAAoACgADAAEAEgAQABMAEgATAAMAEAAEABMACwAEAAcACwAHABwAEwAEAAsAAwATABQACwAUABMAAwAUABUAFQAUAAsAFQALABwAAwAVAAEAAQAVABwA"),
+"lods": [0.046803, PackedByteArray("BQAIAAwACAAEAAwACAANAAQACAACAA0ACAAFAAIADQACAAcABAANAAcABQAOAAIADgAAAAIAAAAHAAIADgAFAAkADgAJAAAADwAFAAwACQAFAA8AEAAMAAQADwAMABAABgAJAA8ACQAGAAAABgAPABAABgARAAAAAAARAAEAAAABAAcACgARAAYACgABABEABgAQABIACgAGABIAEgAQABMAEAAEABMAEgADAAoACgADAAEAEgATAAMAAwATABQAEwAEAAsACwAUABMACwAEAAcAAwAUABUAFQAUAAsAAwAVAAEAFQALAAcAAQAVAAcA"), 0.0561946, PackedByteArray("AAAHAAIACAACAAcACAAFAAIAAgAFAAkACQAFAAgAAgAJAAAACQAGAAAACQAIAAQABgAJAAQACAAHAAQACgAAAAYABgAEAAoAAAABAAcACgABAAAACwAEAAcACgAEAAsAAQALAAcACgALAAMAAQADAAsACgADAAEA"), 0.226918, PackedByteArray("AAABAAIAAwABAAAAAQAEAAIAAQADAAQABQACAAQAAwAAAAYAAgAGAAAAAgAFAAYABgAEAAMABgAFAAQA")],
+"name": "restaurant",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 29,
+"vertex_data": PackedByteArray("yXCFvgAS5rxTcIW+yHCFvgAS5rxScIU+22+FPgAS5rxScIW+yHCFvogOlDxScIU+3G+FPogOlDxTcIU+22+FPogOlDxScIW+yXCFvogOlDxTcIW+3G+FPgAS5rxTcIU+kwfTPhTxTr092wy9XNwMvRjxTr27B9O+2QfTvvzwTr2J2ww9iNoMPfDwTr2wB9M+bHaoPgAPlDzcZAaxK37GPiwJs71l7hM9tu0TPR0Js71Gfsa+dewPtgAPlDwBd6i+AADitYgOlDwAAACAbH7GviIJs7207hO9lneovgAPlDzcZAaxEGYNtgAPlDwCd6g+TdwMvRjxTr27B9M+S+8TvTIJs71RfsY+kwfTPhTxTr1K2ww9K37GPi0Js71Z7hO9e9oMPfTwTr2wB9O+Ve8TvTEJs71Rfsa+bH7GviIJs72o7hM92QfTvvzwTr2Y2wy9wu0TPR0Js71GfsY+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wdm7f"]
+resource_name = "food_ingredient_cheese_slice_Cube_010"
+_surfaces = [{
+"aabb": AABB(-0.412169, -0.0874199, -0.412168, 0.824336, 0.105493, 0.824337),
+"attribute_data": PackedByteArray("sHSYPrYYLT+wdJg+thgtPwAgrz62GC0/sHSYPsMXED8AIK8+wxcQP7B0mD7DFxA/ACCvPsMXED8AIK8+thgtP7B0mD7DFxQ/sHSYPrYYLT+wdJg+wxcUPwAgrz7DFxQ/sHSYPrYYLT8AIK8+wxcUPwAgrz62GC0/PEmlPp2VJT8AIK8+thgtP0K3tT6dlSU/et2RPp2VJT+AS6I+nZUlP3rdkT6dlSE/PEmlPp2VIT+AS6I+nZUhP0K3tT6dlSE/pBmyPsAXED9eyqM+wBcQP17Koz7DFxA/BnuVPsAXED9eyqM+wBcQP4BLoj6dlSE/eFylPgJjKj+oprQ+AmMqPxrukj4CYyo/RjiiPgJjKj+AS6I+nZUlP0Y4oj4CYyo/Gu6SPgJjKj+oprQ+AmMqP3hcpT4CYyo/Qre1Pp2VIT88SaU+nZUhP3rdkT6dlSE/PEmlPp2VJT+oprQ+AmMqP0Y4oj4CYyo/Qre1Pp2VJT963ZE+nZUlP3pcpT4CYyo/Gu6SPgJjKj96XKU+AmMqPxrukj4CYyo/qKa0PgJjKj9GOKI+AmMqPw=="),
+"format": 34359742487,
+"index_count": 162,
+"index_data": PackedByteArray("BgAXABgAFwAnABgAGAAnAAQAGQAGABgAGQAoAAYAFgAoABkAAwAWABkAGQAYABoAAwAZABoAGgAYAAQAAwAaABsAAwAbACkAFAApABsAGwAFABQAGwAaABwAGwAcAAUAGgAEABwABQAcAB0AHAAEABUAFQAdABwACwAeAAcACwAqAB4AEQALAAcAHgAqABMAEQAHACsAHgATACwAEQArAB8AEwAJACwAEQAfAC0AEwAIAAkADQAtAB8ACAAgAAkADQAfABAACAAuACAADwANABAAEgAgAC4ADwAQAC8AEgAwACAAIQAPAC8AEgAMADAAIQAiAA8AEgAKAAwACgAiACEACgAhAAwAAQAxAA4AAQAjADEAAAABAA4AAAAyAAEAAAAkADIAAAAOAAIAJQACAA4AJQAzAAIAJgAAAAIAJgA0AAAA"),
+"lods": [0.046803, PackedByteArray("BgAXABgAFwAEABgAGQAGABgAFgAGABkAAwAWABkAGQAYABoAAwAZABoAGgAYAAQAAwAaABsAFAADABsAGwAFABQAGwAaABwAGwAcAAUAGgAEABwABQAcAB0AHAAEABUAFQAdABwACwAeAAcAHgALABMAEQALAAcAHgATAAkAEQAHAB8AEwAIAAkAEQAfAA0ACAAgAAkADQAfABAAEgAgAAgADwANABAAEgAMACAAIQAPABAAEgAKAAwACgAhAAwAIQAiAA8ACgAiACEAAQAjAA4AAAABAA4AAAAkAAEAAAAOAAIAJQACAA4AJgAAAAIA"), 0.0561946, PackedByteArray("AAAOAAIAAAABAA4ADwANABAAEQAQAA0ADAAPABAAEQAHABAADAAKAA8AEQALAAcAEgAKAAwABwALABMAEgAMAAkABwATAAkAEgAJAAgAEwAIAAkAFAAVAAUAFAAEABUAAwAEABQAAwAWAAQAFgAXAAQAFgAGABcA"), 0.226918, PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgAJAAgABwALAAgACgAMAAkACwAHAA0ADAAKAA0ADAANAAcA")],
+"material": SubResource("StandardMaterial3D_32utb"),
+"name": "restaurant",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 53,
+"vertex_data": PackedByteArray("yXCFvgAS5rxTcIW+yHCFvgAS5rxScIU+22+FPgAS5rxScIW+yXCFvogOlDxTcIW+3G+FPogOlDxTcIU+yHCFvogOlDxScIU+22+FPogOlDxScIW+22+FPgAS5rxScIW+yXCFvogOlDxTcIW+yXCFvgAS5rxTcIW+yHCFvogOlDxScIU+22+FPogOlDxScIW+yHCFvgAS5rxScIU+3G+FPogOlDxTcIU+3G+FPgAS5rxTcIU+iNoMPfDwTr2wB9M+3G+FPgAS5rxTcIU+kwfTPhTxTr092wy92QfTvvzwTr2J2ww9XNwMvRjxTr27B9O+2QfTvvzwTr2J2ww9iNoMPfDwTr2wB9M+XNwMvRjxTr27B9O+kwfTPhTxTr092wy9bHaoPgAPlDzcZAaxdewPtgAPlDwBd6i+AADitYgOlDwAAACAlneovgAPlDzcZAaxEGYNtgAPlDwCd6g+TdwMvRjxTr27B9M+tu0TPR0Js71Gfsa+K37GPiwJs71l7hM9bH7GviIJs7207hO9S+8TvTIJs71RfsY+TdwMvRjxTr27B9M+S+8TvTIJs71RfsY+bH7GviIJs7207hO9K37GPiwJs71l7hM9tu0TPR0Js71Gfsa+kwfTPhTxTr1K2ww9e9oMPfTwTr2wB9O+2QfTvvzwTr2Y2wy9e9oMPfTwTr2wB9O+K37GPi0Js71Z7hO9Ve8TvTEJs71Rfsa+kwfTPhTxTr1K2ww92QfTvvzwTr2Y2wy9wu0TPR0Js71GfsY+bH7GviIJs72o7hM9wu0TPR0Js71GfsY+bH7GviIJs72o7hM9K37GPi0Js71Z7hO9Ve8TvTEJs71Rfsa+5YnLE271OzrLk+UJdvRHxRl2yxN29EhFjWhG9Iu5csa4i43oT/g3r0Z0jej/v/+/cZdG9P+//z/b7e02Zr6dPSMS7TYX/QgfIxLtNjn7aR4RSdttBr+Lvtvt7TYGv4s+EUnbbWa+nL3tttttF/0InzNs5Qlu9Tu61JaWXcPxX9LtttttOvtpnpbdwUb///+/PjmWXdSUfshoItUWw/FgUrRK9sP///8/vYb2w9f/Vsf3Q0H51/9XRwe8tMoMlUVD9aMI3Kee/EUJXP//xfIkPv9/////v/+/CVwI3DPX9i7/fwjcxvIjvkF59sNQ8eu/Pt8bGbrUaEQjxj9fA+gp7sAgI0b///+/5GY/X7rUaMQqaZZdk9X6xL6oAAD+//+/vqi/KP///79AV74o////P/9/vij+//8/SbX3w////z8HvEH5T/HsP/ZDtMpy+YYKlt3VFpPV+kQ+3yNG////v8AgGxms7xJUwMaWXdzjpO5oIsFG////vxuZP1+s7xLU2zk/X62V7Mm+qAAA/v//v76ovyj///+/QFe+KP///z//f74o/v//Pw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hwuw7")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nb352"]
+points = PackedVector3Array(0.412167, -0.050524, 0.0343742, 0.387637, -0.0874199, 0.0360688, 0.412167, -0.050524, -0.034455, 0.328975, 0.0180736, 0, 0.260549, 0.0180632, 0.26055, 0.260549, -0.028085, 0.26055, 0.0360677, -0.0874199, 0.387638, 0.387637, -0.0874199, -0.0361495, 0.260549, -0.028085, -0.260631, 0.260549, 0.0180632, -0.260631, -8.17478e-05, 0.0180736, 0.328976, -8.17478e-05, 0.0180736, -0.329057, 0.0343732, -0.050524, 0.412088, -0.034456, -0.050524, 0.412168, -0.0361505, -0.0874199, 0.387638, 0.0360677, -0.0874199, -0.387719, 0.0343732, -0.050524, -0.412168, -0.329058, 0.0180736, 0, -0.260632, 0.0180632, 0.26055, -0.034456, -0.050524, -0.412168, -0.260632, 0.0180632, -0.260631, -0.260632, -0.028085, 0.26055, -0.38772, -0.0874199, 0.0360688, -0.0361505, -0.0874199, -0.387719, -0.412169, -0.050524, -0.034455, -0.412169, -0.050524, 0.0343742, -0.260632, -0.028085, -0.260631, -0.38772, -0.0874199, -0.0361495)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a7at7"]
 height = 0.548408
 radius = 0.0625
@@ -3672,48 +3744,6 @@ shadow_mesh = SubResource("ArrayMesh_4winv")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yndw2"]
 data = PackedVector3Array(-0.2691, 0.05, -0.4027, -0.0945, 0.1, -0.475, -0.2691, 0.1, -0.4027, -0.2691, 0.05, -0.4027, -0.0945, 0.05, -0.475, -0.0945, 0.1, -0.475, -0.4027, 0.05, -0.2691, -0.2691, 0.05, -0.4027, -0.2691, 0.1, -0.4027, -0.0945, 0.05, -0.475, 0.0945, 0.1, -0.475, -0.0945, 0.1, -0.475, -0.4027, 0.05, -0.2691, -0.2691, 0.1, -0.4027, -0.4027, 0.1, -0.2691, -0.0945, 0.05, -0.475, 0.0945, 0.05, -0.475, 0.0945, 0.1, -0.475, -0.475, 0.05, -0.0945, -0.4027, 0.05, -0.2691, -0.4027, 0.1, -0.2691, 0.0945, 0.05, -0.475, 0.2691, 0.1, -0.4027, 0.0945, 0.1, -0.475, -0.475, 0.05, -0.0945, -0.4027, 0.1, -0.2691, -0.475, 0.1, -0.0945, 0.0945, 0.05, -0.475, 0.2691, 0.05, -0.4027, 0.2691, 0.1, -0.4027, -0.475, 0.05, 0.0945, -0.475, 0.05, -0.0945, -0.475, 0.1, -0.0945, 0.2691, 0.05, -0.4027, 0.4027, 0.1, -0.2691, 0.2691, 0.1, -0.4027, -0.475, 0.05, 0.0945, -0.475, 0.1, -0.0945, -0.475, 0.1, 0.0945, 0.2691, 0.05, -0.4027, 0.4027, 0.05, -0.2691, 0.4027, 0.1, -0.2691, -0.4027, 0.05, 0.2691, -0.475, 0.05, 0.0945, -0.475, 0.1, 0.0945, 0.4027, 0.05, -0.2691, 0.475, 0.1, -0.0945, 0.4027, 0.1, -0.2691, -0.4027, 0.05, 0.2691, -0.475, 0.1, 0.0945, -0.4027, 0.1, 0.2691, 0.4027, 0.05, -0.2691, 0.475, 0.05, -0.0945, 0.475, 0.1, -0.0945, -0.2691, 0.05, 0.4027, -0.4027, 0.05, 0.2691, -0.4027, 0.1, 0.2691, 0.475, 0.05, -0.0945, 0.475, 0.1, 0.0945, 0.475, 0.1, -0.0945, -0.2691, 0.05, 0.4027, -0.4027, 0.1, 0.2691, -0.2691, 0.1, 0.4027, 0.475, 0.05, -0.0945, 0.475, 0.05, 0.0945, 0.475, 0.1, 0.0945, -0.0945, 0.05, 0.475, -0.2691, 0.05, 0.4027, -0.2691, 0.1, 0.4027, 0.475, 0.05, 0.0945, 0.4027, 0.1, 0.2691, 0.475, 0.1, 0.0945, -0.0945, 0.05, 0.475, -0.2691, 0.1, 0.4027, -0.0945, 0.1, 0.475, 0.475, 0.05, 0.0945, 0.4027, 0.05, 0.2691, 0.4027, 0.1, 0.2691, 0.0945, 0.05, 0.475, -0.0945, 0.05, 0.475, -0.0945, 0.1, 0.475, 0.4027, 0.05, 0.2691, 0.2691, 0.1, 0.4027, 0.4027, 0.1, 0.2691, 0.0945, 0.05, 0.475, -0.0945, 0.1, 0.475, 0.0945, 0.1, 0.475, 0.4027, 0.05, 0.2691, 0.2691, 0.05, 0.4027, 0.2691, 0.1, 0.4027, 0.2691, 0.05, 0.4027, 0.0945, 0.05, 0.475, 0.0945, 0.1, 0.475, 0.2691, 0.05, 0.4027, 0.0945, 0.1, 0.475, 0.2691, 0.1, 0.4027, 0.1699, 0.03, 0.2543, 0.0746, 0.1, 0.375, 0.0597, 0.03, 0.3, 0.0597, 0.03, 0.3, 0.0746, 0.1, 0.375, -0.0746, 0.1, 0.375, 0.1699, 0.03, 0.2543, 0.2124, 0.1, 0.3179, 0.0746, 0.1, 0.375, 0.0597, 0.03, 0.3, -0.0746, 0.1, 0.375, -0.0597, 0.03, 0.3, 0.2543, 0.03, 0.1699, 0.2124, 0.1, 0.3179, 0.1699, 0.03, 0.2543, -0.0597, 0.03, 0.3, -0.0746, 0.1, 0.375, -0.2124, 0.1, 0.3179, 0.2543, 0.03, 0.1699, 0.3179, 0.1, 0.2124, 0.2124, 0.1, 0.3179, -0.0597, 0.03, 0.3, -0.2124, 0.1, 0.3179, -0.1699, 0.03, 0.2543, 0.3, 0.03, 0.0597, 0.3179, 0.1, 0.2124, 0.2543, 0.03, 0.1699, -0.1699, 0.03, 0.2543, -0.2124, 0.1, 0.3179, -0.3179, 0.1, 0.2124, 0.3, 0.03, 0.0597, 0.375, 0.1, 0.0746, 0.3179, 0.1, 0.2124, -0.1699, 0.03, 0.2543, -0.3179, 0.1, 0.2124, -0.2543, 0.03, 0.1699, 0.3, 0.03, -0.0597, 0.375, 0.1, 0.0746, 0.3, 0.03, 0.0597, -0.2543, 0.03, 0.1699, -0.3179, 0.1, 0.2124, -0.375, 0.1, 0.0746, 0.3, 0.03, -0.0597, 0.375, 0.1, -0.0746, 0.375, 0.1, 0.0746, -0.2543, 0.03, 0.1699, -0.375, 0.1, 0.0746, -0.3, 0.03, 0.0597, 0.2543, 0.03, -0.1699, 0.375, 0.1, -0.0746, 0.3, 0.03, -0.0597, -0.3, 0.03, 0.0597, -0.375, 0.1, 0.0746, -0.375, 0.1, -0.0746, 0.2543, 0.03, -0.1699, 0.3179, 0.1, -0.2124, 0.375, 0.1, -0.0746, -0.3, 0.03, 0.0597, -0.375, 0.1, -0.0746, -0.3, 0.03, -0.0597, 0.1699, 0.03, -0.2543, 0.3179, 0.1, -0.2124, 0.2543, 0.03, -0.1699, -0.3, 0.03, -0.0597, -0.375, 0.1, -0.0746, -0.3179, 0.1, -0.2124, 0.1699, 0.03, -0.2543, 0.2124, 0.1, -0.3179, 0.3179, 0.1, -0.2124, -0.3, 0.03, -0.0597, -0.3179, 0.1, -0.2124, -0.2543, 0.03, -0.1699, 0.0597, 0.03, -0.3, 0.2124, 0.1, -0.3179, 0.1699, 0.03, -0.2543, -0.2543, 0.03, -0.1699, -0.3179, 0.1, -0.2124, -0.2124, 0.1, -0.3179, 0.0597, 0.03, -0.3, 0.0746, 0.1, -0.375, 0.2124, 0.1, -0.3179, -0.2543, 0.03, -0.1699, -0.2124, 0.1, -0.3179, -0.1699, 0.03, -0.2543, -0.0597, 0.03, -0.3, 0.0746, 0.1, -0.375, 0.0597, 0.03, -0.3, -0.1699, 0.03, -0.2543, -0.2124, 0.1, -0.3179, -0.0746, 0.1, -0.375, -0.0597, 0.03, -0.3, -0.0746, 0.1, -0.375, 0.0746, 0.1, -0.375, -0.1699, 0.03, -0.2543, -0.0746, 0.1, -0.375, -0.0597, 0.03, -0.3, -0.0746, 0.1, -0.375, 0.0945, 0.1, -0.475, 0.0746, 0.1, -0.375, 0.0746, 0.1, -0.375, 0.0945, 0.1, -0.475, 0.2691, 0.1, -0.4027, -0.0746, 0.1, -0.375, -0.0945, 0.1, -0.475, 0.0945, 0.1, -0.475, 0.0746, 0.1, -0.375, 0.2691, 0.1, -0.4027, 0.2124, 0.1, -0.3179, -0.2124, 0.1, -0.3179, -0.0945, 0.1, -0.475, -0.0746, 0.1, -0.375, 0.2124, 0.1, -0.3179, 0.2691, 0.1, -0.4027, 0.4027, 0.1, -0.2691, -0.2124, 0.1, -0.3179, -0.2691, 0.1, -0.4027, -0.0945, 0.1, -0.475, 0.2124, 0.1, -0.3179, 0.4027, 0.1, -0.2691, 0.3179, 0.1, -0.2124, -0.3179, 0.1, -0.2124, -0.2691, 0.1, -0.4027, -0.2124, 0.1, -0.3179, 0.3179, 0.1, -0.2124, 0.4027, 0.1, -0.2691, 0.475, 0.1, -0.0945, -0.3179, 0.1, -0.2124, -0.4027, 0.1, -0.2691, -0.2691, 0.1, -0.4027, 0.3179, 0.1, -0.2124, 0.475, 0.1, -0.0945, 0.375, 0.1, -0.0746, -0.375, 0.1, -0.0746, -0.4027, 0.1, -0.2691, -0.3179, 0.1, -0.2124, 0.375, 0.1, -0.0746, 0.475, 0.1, -0.0945, 0.475, 0.1, 0.0945, -0.375, 0.1, -0.0746, -0.475, 0.1, -0.0945, -0.4027, 0.1, -0.2691, 0.375, 0.1, -0.0746, 0.475, 0.1, 0.0945, 0.375, 0.1, 0.0746, -0.375, 0.1, 0.0746, -0.475, 0.1, -0.0945, -0.375, 0.1, -0.0746, 0.375, 0.1, 0.0746, 0.475, 0.1, 0.0945, 0.4027, 0.1, 0.2691, -0.375, 0.1, 0.0746, -0.475, 0.1, 0.0945, -0.475, 0.1, -0.0945, 0.375, 0.1, 0.0746, 0.4027, 0.1, 0.2691, 0.3179, 0.1, 0.2124, -0.3179, 0.1, 0.2124, -0.475, 0.1, 0.0945, -0.375, 0.1, 0.0746, 0.3179, 0.1, 0.2124, 0.4027, 0.1, 0.2691, 0.2691, 0.1, 0.4027, -0.3179, 0.1, 0.2124, -0.4027, 0.1, 0.2691, -0.475, 0.1, 0.0945, 0.3179, 0.1, 0.2124, 0.2691, 0.1, 0.4027, 0.2124, 0.1, 0.3179, -0.2124, 0.1, 0.3179, -0.4027, 0.1, 0.2691, -0.3179, 0.1, 0.2124, 0.2124, 0.1, 0.3179, 0.2691, 0.1, 0.4027, 0.0945, 0.1, 0.475, -0.2124, 0.1, 0.3179, -0.2691, 0.1, 0.4027, -0.4027, 0.1, 0.2691, 0.2124, 0.1, 0.3179, 0.0945, 0.1, 0.475, 0.0746, 0.1, 0.375, -0.0746, 0.1, 0.375, -0.2691, 0.1, 0.4027, -0.2124, 0.1, 0.3179, 0.0746, 0.1, 0.375, 0.0945, 0.1, 0.475, -0.0945, 0.1, 0.475, -0.0746, 0.1, 0.375, -0.0945, 0.1, 0.475, -0.2691, 0.1, 0.4027, 0.0746, 0.1, 0.375, -0.0945, 0.1, 0.475, -0.0746, 0.1, 0.375, -0.0945, 0.05, -0.475, 0.0845, 0, -0.425, 0.0945, 0.05, -0.475, 0.0945, 0.05, -0.475, 0.0845, 0, -0.425, 0.2407, 0, -0.3603, -0.0945, 0.05, -0.475, -0.0845, 0, -0.425, 0.0845, 0, -0.425, 0.0945, 0.05, -0.475, 0.2407, 0, -0.3603, 0.2691, 0.05, -0.4027, -0.2691, 0.05, -0.4027, -0.0845, 0, -0.425, -0.0945, 0.05, -0.475, 0.2691, 0.05, -0.4027, 0.2407, 0, -0.3603, 0.3603, 0, -0.2407, -0.2691, 0.05, -0.4027, -0.2407, 0, -0.3603, -0.0845, 0, -0.425, 0.2691, 0.05, -0.4027, 0.3603, 0, -0.2407, 0.4027, 0.05, -0.2691, -0.4027, 0.05, -0.2691, -0.2407, 0, -0.3603, -0.2691, 0.05, -0.4027, 0.4027, 0.05, -0.2691, 0.3603, 0, -0.2407, 0.425, 0, -0.0845, -0.4027, 0.05, -0.2691, -0.3603, 0, -0.2407, -0.2407, 0, -0.3603, 0.4027, 0.05, -0.2691, 0.425, 0, -0.0845, 0.475, 0.05, -0.0945, -0.475, 0.05, -0.0945, -0.3603, 0, -0.2407, -0.4027, 0.05, -0.2691, 0.475, 0.05, -0.0945, 0.425, 0, -0.0845, 0.425, 0, 0.0845, -0.475, 0.05, -0.0945, -0.425, 0, -0.0845, -0.3603, 0, -0.2407, 0.475, 0.05, -0.0945, 0.425, 0, 0.0845, 0.475, 0.05, 0.0945, -0.475, 0.05, 0.0945, -0.425, 0, -0.0845, -0.475, 0.05, -0.0945, 0.475, 0.05, 0.0945, 0.425, 0, 0.0845, 0.3603, 0, 0.2407, -0.475, 0.05, 0.0945, -0.425, 0, 0.0845, -0.425, 0, -0.0845, 0.475, 0.05, 0.0945, 0.3603, 0, 0.2407, 0.4027, 0.05, 0.2691, -0.4027, 0.05, 0.2691, -0.425, 0, 0.0845, -0.475, 0.05, 0.0945, 0.4027, 0.05, 0.2691, 0.3603, 0, 0.2407, 0.2407, 0, 0.3603, -0.4027, 0.05, 0.2691, -0.3603, 0, 0.2407, -0.425, 0, 0.0845, 0.4027, 0.05, 0.2691, 0.2407, 0, 0.3603, 0.2691, 0.05, 0.4027, -0.2691, 0.05, 0.4027, -0.3603, 0, 0.2407, -0.4027, 0.05, 0.2691, 0.2691, 0.05, 0.4027, 0.2407, 0, 0.3603, 0.0845, 0, 0.425, -0.2691, 0.05, 0.4027, -0.2407, 0, 0.3603, -0.3603, 0, 0.2407, 0.2691, 0.05, 0.4027, 0.0845, 0, 0.425, 0.0945, 0.05, 0.475, -0.0945, 0.05, 0.475, -0.2407, 0, 0.3603, -0.2691, 0.05, 0.4027, 0.0945, 0.05, 0.475, 0.0845, 0, 0.425, -0.0845, 0, 0.425, -0.0945, 0.05, 0.475, -0.0845, 0, 0.425, -0.2407, 0, 0.3603, 0.0945, 0.05, 0.475, -0.0845, 0, 0.425, -0.0945, 0.05, 0.475, 0, 0.03, 0, -0.0597, 0.03, -0.3, 0.0597, 0.03, -0.3, 0, 0.03, 0, -0.1699, 0.03, -0.2543, -0.0597, 0.03, -0.3, 0, 0.03, 0, 0.0597, 0.03, -0.3, 0.1699, 0.03, -0.2543, 0, 0.03, 0, -0.2543, 0.03, -0.1699, -0.1699, 0.03, -0.2543, 0, 0.03, 0, 0.1699, 0.03, -0.2543, 0.2543, 0.03, -0.1699, 0, 0.03, 0, -0.3, 0.03, -0.0597, -0.2543, 0.03, -0.1699, 0, 0.03, 0, 0.2543, 0.03, -0.1699, 0.3, 0.03, -0.0597, 0, 0.03, 0, -0.3, 0.03, 0.0597, -0.3, 0.03, -0.0597, 0, 0.03, 0, 0.3, 0.03, -0.0597, 0.3, 0.03, 0.0597, 0, 0.03, 0, -0.2543, 0.03, 0.1699, -0.3, 0.03, 0.0597, 0, 0.03, 0, 0.3, 0.03, 0.0597, 0.2543, 0.03, 0.1699, 0, 0.03, 0, -0.1699, 0.03, 0.2543, -0.2543, 0.03, 0.1699, 0, 0.03, 0, 0.2543, 0.03, 0.1699, 0.1699, 0.03, 0.2543, 0, 0.03, 0, -0.0597, 0.03, 0.3, -0.1699, 0.03, 0.2543, 0, 0.03, 0, 0.1699, 0.03, 0.2543, 0.0597, 0.03, 0.3, 0, 0.03, 0, 0.0597, 0.03, 0.3, -0.0597, 0.03, 0.3, 0, 0, 0, 0.0845, 0, -0.425, -0.0845, 0, -0.425, 0, 0, 0, 0.2407, 0, -0.3603, 0.0845, 0, -0.425, 0, 0, 0, -0.0845, 0, -0.425, -0.2407, 0, -0.3603, 0, 0, 0, 0.3603, 0, -0.2407, 0.2407, 0, -0.3603, 0, 0, 0, -0.2407, 0, -0.3603, -0.3603, 0, -0.2407, 0, 0, 0, 0.425, 0, -0.0845, 0.3603, 0, -0.2407, 0, 0, 0, -0.3603, 0, -0.2407, -0.425, 0, -0.0845, 0, 0, 0, 0.425, 0, 0.0845, 0.425, 0, -0.0845, 0, 0, 0, -0.425, 0, -0.0845, -0.425, 0, 0.0845, 0, 0, 0, 0.3603, 0, 0.2407, 0.425, 0, 0.0845, 0, 0, 0, -0.425, 0, 0.0845, -0.3603, 0, 0.2407, 0, 0, 0, 0.2407, 0, 0.3603, 0.3603, 0, 0.2407, 0, 0, 0, -0.3603, 0, 0.2407, -0.2407, 0, 0.3603, 0, 0, 0, 0.0845, 0, 0.425, 0.2407, 0, 0.3603, 0, 0, 0, -0.2407, 0, 0.3603, -0.0845, 0, 0.425, 0, 0, 0, -0.0845, 0, 0.425, 0.0845, 0, 0.425)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32utb"]
-resource_name = "restaurant"
-albedo_texture = ExtResource("4_ryguw")
-roughness = 0.5
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_hwuw7"]
-_surfaces = [{
-"aabb": AABB(-0.412169, -0.0874199, -0.412168, 0.824336, 0.105493, 0.824337),
-"format": 34359742465,
-"index_count": 162,
-"index_data": PackedByteArray("BQAIAAwACAAWAAwADAAWAAQACAANABYABAAWAA0ACAAXAA0ACAACABcADQAXAAIACAAFAAIADQACAAcABAANAAcABQAOAAIAEAAMAAQADwAFAAwADwAMABAADwAYAAUABQAYAA4ACQAYAA8ADgAYAAkABgAPABAABgAJAA8ADgAJABkACQAAABkADgAZAAAADgAAAAIACQAGAAAAAAAHAAIABgAQABIAAAABAAcABgARAAAAAAARABoAAAAaAAEABgAbABEABgASABsACgAaABEACgARABsACgAbABIACgABABoAAQAcAAcAEgADAAoACgADAAEAEgAQABMAEgATAAMAEAAEABMACwAEAAcACwAHABwAEwAEAAsAAwATABQACwAUABMAAwAUABUAFQAUAAsAFQALABwAAwAVAAEAAQAVABwA"),
-"lods": [0.046803, PackedByteArray("BQAIAAwACAAEAAwACAANAAQACAACAA0ACAAFAAIADQACAAcABAANAAcABQAOAAIADgAAAAIAAAAHAAIADgAFAAkADgAJAAAADwAFAAwACQAFAA8AEAAMAAQADwAMABAABgAJAA8ACQAGAAAABgAPABAABgARAAAAAAARAAEAAAABAAcACgARAAYACgABABEABgAQABIACgAGABIAEgAQABMAEAAEABMAEgADAAoACgADAAEAEgATAAMAAwATABQAEwAEAAsACwAUABMACwAEAAcAAwAUABUAFQAUAAsAAwAVAAEAFQALAAcAAQAVAAcA"), 0.0561946, PackedByteArray("AAAHAAIACAACAAcACAAFAAIAAgAFAAkACQAFAAgAAgAJAAAACQAGAAAACQAIAAQABgAJAAQACAAHAAQACgAAAAYABgAEAAoAAAABAAcACgABAAAACwAEAAcACgAEAAsAAQALAAcACgALAAMAAQADAAsACgADAAEA"), 0.226918, PackedByteArray("AAABAAIAAwABAAAAAQAEAAIAAQADAAQABQACAAQAAwAAAAYAAgAGAAAAAgAFAAYABgAEAAMABgAFAAQA")],
-"name": "restaurant",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 29,
-"vertex_data": PackedByteArray("yXCFvgAS5rxTcIW+yHCFvgAS5rxScIU+22+FPgAS5rxScIW+yHCFvogOlDxScIU+3G+FPogOlDxTcIU+22+FPogOlDxScIW+yXCFvogOlDxTcIW+3G+FPgAS5rxTcIU+kwfTPhTxTr092wy9XNwMvRjxTr27B9O+2QfTvvzwTr2J2ww9iNoMPfDwTr2wB9M+bHaoPgAPlDzcZAaxK37GPiwJs71l7hM9tu0TPR0Js71Gfsa+dewPtgAPlDwBd6i+AADitYgOlDwAAACAbH7GviIJs7207hO9lneovgAPlDzcZAaxEGYNtgAPlDwCd6g+TdwMvRjxTr27B9M+S+8TvTIJs71RfsY+kwfTPhTxTr1K2ww9K37GPi0Js71Z7hO9e9oMPfTwTr2wB9O+Ve8TvTEJs71Rfsa+bH7GviIJs72o7hM92QfTvvzwTr2Y2wy9wu0TPR0Js71GfsY+")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_wdm7f"]
-resource_name = "food_ingredient_cheese_slice_Cube_010"
-_surfaces = [{
-"aabb": AABB(-0.412169, -0.0874199, -0.412168, 0.824336, 0.105493, 0.824337),
-"attribute_data": PackedByteArray("sHSYPrYYLT+wdJg+thgtPwAgrz62GC0/sHSYPsMXED8AIK8+wxcQP7B0mD7DFxA/ACCvPsMXED8AIK8+thgtP7B0mD7DFxQ/sHSYPrYYLT+wdJg+wxcUPwAgrz7DFxQ/sHSYPrYYLT8AIK8+wxcUPwAgrz62GC0/PEmlPp2VJT8AIK8+thgtP0K3tT6dlSU/et2RPp2VJT+AS6I+nZUlP3rdkT6dlSE/PEmlPp2VIT+AS6I+nZUhP0K3tT6dlSE/pBmyPsAXED9eyqM+wBcQP17Koz7DFxA/BnuVPsAXED9eyqM+wBcQP4BLoj6dlSE/eFylPgJjKj+oprQ+AmMqPxrukj4CYyo/RjiiPgJjKj+AS6I+nZUlP0Y4oj4CYyo/Gu6SPgJjKj+oprQ+AmMqP3hcpT4CYyo/Qre1Pp2VIT88SaU+nZUhP3rdkT6dlSE/PEmlPp2VJT+oprQ+AmMqP0Y4oj4CYyo/Qre1Pp2VJT963ZE+nZUlP3pcpT4CYyo/Gu6SPgJjKj96XKU+AmMqPxrukj4CYyo/qKa0PgJjKj9GOKI+AmMqPw=="),
-"format": 34359742487,
-"index_count": 162,
-"index_data": PackedByteArray("BgAXABgAFwAnABgAGAAnAAQAGQAGABgAGQAoAAYAFgAoABkAAwAWABkAGQAYABoAAwAZABoAGgAYAAQAAwAaABsAAwAbACkAFAApABsAGwAFABQAGwAaABwAGwAcAAUAGgAEABwABQAcAB0AHAAEABUAFQAdABwACwAeAAcACwAqAB4AEQALAAcAHgAqABMAEQAHACsAHgATACwAEQArAB8AEwAJACwAEQAfAC0AEwAIAAkADQAtAB8ACAAgAAkADQAfABAACAAuACAADwANABAAEgAgAC4ADwAQAC8AEgAwACAAIQAPAC8AEgAMADAAIQAiAA8AEgAKAAwACgAiACEACgAhAAwAAQAxAA4AAQAjADEAAAABAA4AAAAyAAEAAAAkADIAAAAOAAIAJQACAA4AJQAzAAIAJgAAAAIAJgA0AAAA"),
-"lods": [0.046803, PackedByteArray("BgAXABgAFwAEABgAGQAGABgAFgAGABkAAwAWABkAGQAYABoAAwAZABoAGgAYAAQAAwAaABsAFAADABsAGwAFABQAGwAaABwAGwAcAAUAGgAEABwABQAcAB0AHAAEABUAFQAdABwACwAeAAcAHgALABMAEQALAAcAHgATAAkAEQAHAB8AEwAIAAkAEQAfAA0ACAAgAAkADQAfABAAEgAgAAgADwANABAAEgAMACAAIQAPABAAEgAKAAwACgAhAAwAIQAiAA8ACgAiACEAAQAjAA4AAAABAA4AAAAkAAEAAAAOAAIAJQACAA4AJgAAAAIA"), 0.0561946, PackedByteArray("AAAOAAIAAAABAA4ADwANABAAEQAQAA0ADAAPABAAEQAHABAADAAKAA8AEQALAAcAEgAKAAwABwALABMAEgAMAAkABwATAAkAEgAJAAgAEwAIAAkAFAAVAAUAFAAEABUAAwAEABQAAwAWAAQAFgAXAAQAFgAGABcA"), 0.226918, PackedByteArray("AAABAAIAAwAEAAUAAwAGAAQABwAIAAkACgAJAAgABwALAAgACgAMAAkACwAHAA0ADAAKAA0ADAANAAcA")],
-"material": SubResource("StandardMaterial3D_32utb"),
-"name": "restaurant",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 53,
-"vertex_data": PackedByteArray("yXCFvgAS5rxTcIW+yHCFvgAS5rxScIU+22+FPgAS5rxScIW+yXCFvogOlDxTcIW+3G+FPogOlDxTcIU+yHCFvogOlDxScIU+22+FPogOlDxScIW+22+FPgAS5rxScIW+yXCFvogOlDxTcIW+yXCFvgAS5rxTcIW+yHCFvogOlDxScIU+22+FPogOlDxScIW+yHCFvgAS5rxScIU+3G+FPogOlDxTcIU+3G+FPgAS5rxTcIU+iNoMPfDwTr2wB9M+3G+FPgAS5rxTcIU+kwfTPhTxTr092wy92QfTvvzwTr2J2ww9XNwMvRjxTr27B9O+2QfTvvzwTr2J2ww9iNoMPfDwTr2wB9M+XNwMvRjxTr27B9O+kwfTPhTxTr092wy9bHaoPgAPlDzcZAaxdewPtgAPlDwBd6i+AADitYgOlDwAAACAlneovgAPlDzcZAaxEGYNtgAPlDwCd6g+TdwMvRjxTr27B9M+tu0TPR0Js71Gfsa+K37GPiwJs71l7hM9bH7GviIJs7207hO9S+8TvTIJs71RfsY+TdwMvRjxTr27B9M+S+8TvTIJs71RfsY+bH7GviIJs7207hO9K37GPiwJs71l7hM9tu0TPR0Js71Gfsa+kwfTPhTxTr1K2ww9e9oMPfTwTr2wB9O+2QfTvvzwTr2Y2wy9e9oMPfTwTr2wB9O+K37GPi0Js71Z7hO9Ve8TvTEJs71Rfsa+kwfTPhTxTr1K2ww92QfTvvzwTr2Y2wy9wu0TPR0Js71GfsY+bH7GviIJs72o7hM9wu0TPR0Js71GfsY+bH7GviIJs72o7hM9K37GPi0Js71Z7hO9Ve8TvTEJs71Rfsa+5YnLE271OzrLk+UJdvRHxRl2yxN29EhFjWhG9Iu5csa4i43oT/g3r0Z0jej/v/+/cZdG9P+//z/b7e02Zr6dPSMS7TYX/QgfIxLtNjn7aR4RSdttBr+Lvtvt7TYGv4s+EUnbbWa+nL3tttttF/0InzNs5Qlu9Tu61JaWXcPxX9LtttttOvtpnpbdwUb///+/PjmWXdSUfshoItUWw/FgUrRK9sP///8/vYb2w9f/Vsf3Q0H51/9XRwe8tMoMlUVD9aMI3Kee/EUJXP//xfIkPv9/////v/+/CVwI3DPX9i7/fwjcxvIjvkF59sNQ8eu/Pt8bGbrUaEQjxj9fA+gp7sAgI0b///+/5GY/X7rUaMQqaZZdk9X6xL6oAAD+//+/vqi/KP///79AV74o////P/9/vij+//8/SbX3w////z8HvEH5T/HsP/ZDtMpy+YYKlt3VFpPV+kQ+3yNG////v8AgGxms7xJUwMaWXdzjpO5oIsFG////vxuZP1+s7xLU2zk/X62V7Mm+qAAA/v//v76ovyj///+/QFe+KP///z//f74o/v//Pw==")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_hwuw7")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nb352"]
-points = PackedVector3Array(0.412167, -0.050524, 0.0343742, 0.387637, -0.0874199, 0.0360688, 0.412167, -0.050524, -0.034455, 0.328975, 0.0180736, 0, 0.260549, 0.0180632, 0.26055, 0.260549, -0.028085, 0.26055, 0.0360677, -0.0874199, 0.387638, 0.387637, -0.0874199, -0.0361495, 0.260549, -0.028085, -0.260631, 0.260549, 0.0180632, -0.260631, -8.17478e-05, 0.0180736, 0.328976, -8.17478e-05, 0.0180736, -0.329057, 0.0343732, -0.050524, 0.412088, -0.034456, -0.050524, 0.412168, -0.0361505, -0.0874199, 0.387638, 0.0360677, -0.0874199, -0.387719, 0.0343732, -0.050524, -0.412168, -0.329058, 0.0180736, 0, -0.260632, 0.0180632, 0.26055, -0.034456, -0.050524, -0.412168, -0.260632, 0.0180632, -0.260631, -0.260632, -0.028085, 0.26055, -0.38772, -0.0874199, 0.0360688, -0.0361505, -0.0874199, -0.387719, -0.412169, -0.050524, -0.034455, -0.412169, -0.050524, 0.0343742, -0.260632, -0.028085, -0.260631, -0.38772, -0.0874199, -0.0361495)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_554td"]
 resource_name = "restaurant"
@@ -3948,11 +3978,20 @@ current = true
 fov = 73.2296
 script = ExtResource("4_lquwl")
 
-[node name="Area3D" type="Area3D" parent="XROrigin3D/XRCamera3D"]
-script = ExtResource("4_33n0s")
+[node name="Area3D" type="Area3D" parent="XROrigin3D/XRCamera3D" groups=["head"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/Area3D"]
 shape = SubResource("SphereShape3D_hxffl")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="XROrigin3D/XRCamera3D"]
+transform = Transform3D(0.556832, 0, 0, 0, 0.556831, 0, 0, 0, 0.556832, -5.18589e-10, -0.096736, -0.0942308)
+emitting = false
+amount = 40
+amount_ratio = 0.698
+lifetime = 1.27
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_a8t5h")
+draw_pass_1 = SubResource("BoxMesh_rfj1b")
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, -0.2, 0.8, -0.4)
@@ -3991,7 +4030,7 @@ bone_idx = 9
 
 [node name="AnimationTree" parent="XROrigin3D/LeftController/LeftHand" index="1"]
 root_node = NodePath("../Hand_Nails_low_L")
-tree_root = SubResource("AnimationNodeBlendTree_yqr6d")
+tree_root = SubResource("AnimationNodeBlendTree_ogaej")
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftController" instance=ExtResource("7_ycdy4")]
 
@@ -4056,9 +4095,10 @@ bone_idx = 9
 
 [node name="AnimationTree" parent="XROrigin3D/RightController/RightHand" index="1"]
 root_node = NodePath("../Hand_Nails_low_R")
-tree_root = SubResource("AnimationNodeBlendTree_5nil6")
+tree_root = SubResource("AnimationNodeBlendTree_y67y5")
 
 [node name="MovementTurn" parent="XROrigin3D/RightController" instance=ExtResource("9_vivmo")]
+turn_mode = 2
 
 [node name="FunctionPickup" parent="XROrigin3D/RightController" instance=ExtResource("7_ycdy4")]
 
@@ -4501,8 +4541,8 @@ skeleton = NodePath("")
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/table_round_A2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.911127, 0)
-shape = SubResource("CylinderShape3D_8isf0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.906244, 0)
+shape = SubResource("CylinderShape3D_if6b6")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/table_round_A2/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00285518, 0)
@@ -5523,35 +5563,31 @@ shape = SubResource("CylinderShape3D_7v8ak")
 
 [node name="SnapZone" parent="Main/Table/table_round_A2/table_round_A2" instance=ExtResource("29_fmtxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674902, 1.00382, 0.847571)
-accepted_group = null
 stash_sound = ExtResource("31_ugw2o")
 grab_distance = 0.6
 snap_exclude = "food"
 
 [node name="SnapZone2" parent="Main/Table/table_round_A2/table_round_A2" instance=ExtResource("29_fmtxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.718958, 1.00382, 0.847571)
-accepted_group = null
 stash_sound = ExtResource("31_ugw2o")
 grab_distance = 0.6
 snap_exclude = "food"
 
 [node name="SnapZone4" parent="Main/Table/table_round_A2/table_round_A2" instance=ExtResource("29_fmtxb")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0.668377, 1.00382, -0.631699)
-accepted_group = null
 stash_sound = ExtResource("31_ugw2o")
 grab_distance = 0.6
 snap_exclude = "food"
 
 [node name="SnapZone5" parent="Main/Table/table_round_A2/table_round_A2" instance=ExtResource("29_fmtxb")]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.266872, 1.00382, -0.481035)
-accepted_group = null
 stash_sound = ExtResource("31_ugw2o")
 grab_distance = 0.6
 snap_exclude = "food"
 
 [node name="Fork" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["left_utensils", "utensils"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.655445, 1.19297, 0.789751)
-collision_layer = 4
+collision_layer = 65536
 collision_mask = 196615
 freeze_mode = 1
 script = ExtResource("5_d13ii")
@@ -5565,12 +5601,71 @@ skeleton = NodePath("")
 transform = Transform3D(0.636956, -5.96046e-08, 1.77636e-15, 0, -2.78422e-08, -0.636956, 5.96046e-08, 0.636956, -2.78422e-08, 7.62939e-06, 0, -0.0131092)
 shape = SubResource("CylinderShape3D_vewyw")
 
-[node name="SnapZone" parent="Main/Table/table_round_A2/Fork" groups=["food"] instance=ExtResource("33_wbcwb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, 0, -0.273108)
-accepted_group = null
-stash_sound = ExtResource("31_ugw2o")
-grab_distance = 0.585
-snap_require = "fork_food"
+[node name="Area3D" type="Area3D" parent="Main/Table/table_round_A2/Fork"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Fork/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8147e-06, 0, -0.273108)
+shape = SubResource("SphereShape3D_if6b6")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Main/Table/table_round_A2/Fork/Area3D"]
+transform = Transform3D(1.79587, 0, 0, 0, 1.79588, 0, -5.96046e-08, 0, 1.79588, 3.8147e-06, 0, -0.273108)
+unit_size = 3.0
+max_db = 1.0
+max_distance = 100.0
+
+[node name="Chese" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.637605, 1.46522, 0.384572)
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("54_33n0s")
+snap_sound = ExtResource("48_peqnb")
+delete_sound = ExtResource("55_peqnb")
+
+[node name="food_ingredient_cheese_slice" type="MeshInstance3D" parent="Main/Table/table_round_A2/Chese"]
+transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
+mesh = SubResource("ArrayMesh_wdm7f")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Chese"]
+transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_nb352")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Main/Table/table_round_A2/Chese"]
+stream = ExtResource("55_peqnb")
+
+[node name="Area3D" type="Area3D" parent="Main/Table/table_round_A2/Chese"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Chese/Area3D"]
+transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_nb352")
+
+[node name="Chese2" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 9.50417, 1.9913, 4.64277)
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
+script = ExtResource("54_33n0s")
+snap_sound = ExtResource("48_peqnb")
+delete_sound = ExtResource("55_peqnb")
+
+[node name="food_ingredient_cheese_slice" type="MeshInstance3D" parent="Main/Table/table_round_A2/Chese2"]
+transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
+mesh = SubResource("ArrayMesh_wdm7f")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Chese2"]
+transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_nb352")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Main/Table/table_round_A2/Chese2"]
+stream = ExtResource("55_peqnb")
+
+[node name="Area3D" type="Area3D" parent="Main/Table/table_round_A2/Chese2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Chese2/Area3D"]
+transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_nb352")
 
 [node name="Spoon" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["right_utensils"]]
 transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -0.299343, 1.01756, -0.667009)
@@ -5620,29 +5715,8 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Plate"]
 shape = SubResource("ConcavePolygonShape3D_yndw2")
 
-[node name="Chese" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.0476837, 1.30781, 0.954853)
-collision_layer = 4
-collision_mask = 196615
-freeze_mode = 1
-script = ExtResource("5_d13ii")
-
-[node name="food_ingredient_cheese_slice" type="MeshInstance3D" parent="Main/Table/table_round_A2/Chese"]
-transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
-mesh = SubResource("ArrayMesh_wdm7f")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Main/Table/table_round_A2/Chese"]
-transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_nb352")
-
-[node name="GrabPointSnap" parent="Main/Table/table_round_A2/Chese" instance=ExtResource("55_peqnb")]
-transform = Transform3D(1, 0, 0, 0, 0.0166845, 0.999861, 0, -0.999861, 0.0166845, 0, 0, 0)
-visible = true
-require_group = "food"
-
 [node name="Lettuse" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
-transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0.220654, 1.34288, 0.721085)
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.582502, 10.68, 0.721085)
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
@@ -5658,7 +5732,7 @@ transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_6wo6a")
 
 [node name="Carrot" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
-transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -0.128025, 1.29908, 0.672331)
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -0.128025, 10.6362, 0.672331)
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
@@ -5674,7 +5748,7 @@ transform = Transform3D(0.304477, 0, 1.49012e-08, 0, 0.304478, 0, -1.49012e-08, 
 shape = SubResource("ConvexPolygonShape3D_33n0s")
 
 [node name="Onion" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
-transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -0.0779317, 1.30645, 0.561404)
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -0.0779317, 10.6436, 0.561404)
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
@@ -5690,7 +5764,7 @@ transform = Transform3D(0.347124, 0, 1.49012e-08, 0, 0.347124, 0, -1.49012e-08, 
 shape = SubResource("ConvexPolygonShape3D_peqnb")
 
 [node name="SteakPieces" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
-transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 0.18332, 1.25651, 0.939554)
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 0.18332, 10.5936, 0.939554)
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
@@ -5706,7 +5780,7 @@ transform = Transform3D(0.199037, 0, 7.45058e-09, 0, 0.199037, 0, -7.45058e-09, 
 shape = SubResource("ConvexPolygonShape3D_if6b6")
 
 [node name="SteakPieces2" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
-transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 0.133608, 1.29574, 1.06249)
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 0.133608, 10.6329, 1.06249)
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
@@ -5721,27 +5795,29 @@ skeleton = NodePath("")
 transform = Transform3D(0.199037, 0, 7.45058e-09, 0, 0.199037, 0, -7.45058e-09, 0, 0.199037, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_if6b6")
 
-[node name="Food5" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
-transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -0.210768, 1.39239, 0.875276)
+[node name="Tomato" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, -0.606114, 10.7295, 0.557612)
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
 script = ExtResource("5_d13ii")
 
-[node name="food_ingredient_tomato_slice" type="MeshInstance3D" parent="Main/Table/table_round_A2/Food5"]
+[node name="food_ingredient_tomato_slice" type="MeshInstance3D" parent="Main/Table/table_round_A2/Tomato"]
 transform = Transform3D(0.479343, 0, 1.49012e-08, 0, 0.479343, 0, -1.49012e-08, 0, 0.479343, 0, 0, 0)
 mesh = SubResource("ArrayMesh_g6ji0")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Food5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Tomato"]
 transform = Transform3D(0.479343, 0, 1.49012e-08, 0, 0.479343, 0, -1.49012e-08, 0, 0.479343, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_yqr6d")
 
 [connection signal="body_entered" from="XROrigin3D/XRCamera3D/Area3D" to="XROrigin3D/XRCamera3D/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="XROrigin3D/XRCamera3D/Area3D" to="Main/Table/table_round_A2/Chese" method="_on_area_entered"]
 [connection signal="body_entered" from="Main/Scene/videos/stand/PushButton/InteractableAreaButton" to="Main/Scene/videos/stand/PushButton/InteractableAreaButton/Rumbler" method="rumble_hand"]
 [connection signal="body_exited" from="Main/Scene/videos/stand/PushButton/InteractableAreaButton" to="Main/Scene/videos/stand/PushButton/InteractableAreaButton/Rumbler" method="cancel_hand"]
 [connection signal="button_pressed" from="Main/Scene/videos/stand/PushButton/InteractableAreaButton" to="Main/Scene/videos/Node3D/projector_screen" method="_on_interactable_area_button_button_pressed"]
 [connection signal="button_released" from="Main/Scene/videos/stand/PushButton/InteractableAreaButton" to="Main/Scene/videos/Node3D/projector_screen" method="_on_interactable_area_button_button_released"]
+[connection signal="area_entered" from="Main/Table/table_round_A2/Fork/Area3D" to="Main/Table/table_round_A2/Chese" method="_on_area_entered"]
 
 [editable path="XROrigin3D/LeftController/LeftHand"]
 [editable path="XROrigin3D/LeftController/LeftHand/Hand_Nails_low_L"]

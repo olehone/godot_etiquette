@@ -55,6 +55,7 @@ fork_food=""
 food=""
 utensils=""
 hand=""
+head=""
 
 [godot_xr_tools]
 

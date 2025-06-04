@@ -27,7 +27,7 @@ size = Vector3(3, 2, 0.02)
 
 [node name="Staging" instance=ExtResource("1_gardl")]
 script = ExtResource("2_7u1ix")
-main_scene = "uid://y6pt1jgx6v07"
+main_scene = "uid://cqsodpswgup8w"
 
 [node name="LoadingScreen" parent="." index="2"]
 splash_screen = ExtResource("3_2o5eh")
