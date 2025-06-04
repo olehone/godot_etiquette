@@ -196,7 +196,7 @@ size = Vector2(0.16, 0.08)
 [sub_resource type="ViewportTexture" id="ViewportTexture_gbc4w"]
 viewport_path = NodePath("XROrigin3D/ControlPad/Viewport2Din3D/Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3g0a"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbc4w"]
 cull_mode = 2
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_gbc4w")
@@ -207,7 +207,6 @@ resource_local_to_scene = true
 size = Vector3(0.16, 0.08, 0.02)
 
 [node name="Menu" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.534837, 0, -1.28922)
 script = ExtResource("1_bva8j")
 metadata/_custom_type_script = "uid://dbemwsq7bbx7s"
 
@@ -587,7 +586,7 @@ render_target_update_mode = 1
 
 [node name="Screen" type="MeshInstance3D" parent="XROrigin3D/ControlPad/Viewport2Din3D"]
 mesh = SubResource("QuadMesh_lmo0x")
-surface_material_override/0 = SubResource("StandardMaterial3D_e3g0a")
+surface_material_override/0 = SubResource("StandardMaterial3D_gbc4w")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="XROrigin3D/ControlPad/Viewport2Din3D"]
 collision_layer = 4194304

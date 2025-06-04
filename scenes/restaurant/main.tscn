@@ -1,4 +1,4 @@
-[gd_scene load_steps=404 format=4 uid="uid://cqsodpswgup8w"]
+[gd_scene load_steps=403 format=4 uid="uid://cqsodpswgup8w"]
 
 [ext_resource type="Script" uid="uid://dbemwsq7bbx7s" path="res://addons/godot-xr-tools/staging/scene_base.gd" id="1_8isf0"]
 [ext_resource type="Script" uid="uid://rkp4t7eqnc0o" path="res://scenes/objects/main.gd" id="1_fsva1"]
@@ -52,34 +52,13 @@
 [ext_resource type="Texture2D" uid="uid://b0e3f6hs5amfe" path="res://models/dump/cutlery_5.png" id="39_spr82"]
 [ext_resource type="PackedScene" uid="uid://csua0ijv5ddqx" path="res://models/video/video_stream_player.tscn" id="40_33n0s"]
 [ext_resource type="AudioStream" uid="uid://dova7xts0l240" path="res://models/music/restaurant-music_2.mp3" id="40_hxffl"]
+[ext_resource type="Script" uid="uid://dk33dnvgw2f0y" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="47_if6b6"]
 [ext_resource type="AudioStream" uid="uid://dkbwab2do7yam" path="res://models/music/pop.mp3" id="48_peqnb"]
 [ext_resource type="Script" uid="uid://of7ao7e0douc" path="res://scenes/restaurant/food.gd" id="54_33n0s"]
 [ext_resource type="AudioStream" uid="uid://ckf3neywwxyxt" path="res://models/music/eating.mp3" id="55_peqnb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hxffl"]
-radius = 1.75021
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a8t5h"]
-lifetime_randomness = 1.0
-particle_flag_rotate_y = true
-emission_shape_scale = Vector3(1, 0.3, 0.3)
-emission_shape = 1
-emission_sphere_radius = 0.4
-inherit_velocity_ratio = 0.104
-direction = Vector3(0.1, 6.25, -2.445)
-spread = 4.0
-initial_velocity_min = 0.5
-initial_velocity_max = 4.0
-scale_min = 0.55
-scale_over_velocity_min = 785.87
-scale_over_velocity_max = 1000.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8t5h"]
-albedo_color = Color(1, 0.74, 0.35, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_rfj1b"]
-material = SubResource("StandardMaterial3D_a8t5h")
-size = Vector3(0.02, 0.02, 0.02)
+radius = 0.168917
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_if6b6"]
 animation = &"Grip"
@@ -3559,7 +3538,11 @@ radius = 0.085
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_if6b6"]
 resource_local_to_scene = true
-radius = 0.585
+radius = 0.255
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yqr6d"]
+resource_local_to_scene = true
+radius = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32utb"]
 resource_name = "restaurant"
@@ -3981,17 +3964,8 @@ script = ExtResource("4_lquwl")
 [node name="Area3D" type="Area3D" parent="XROrigin3D/XRCamera3D" groups=["head"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32831e-10, -0.0564491, -4.65661e-10)
 shape = SubResource("SphereShape3D_hxffl")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="XROrigin3D/XRCamera3D"]
-transform = Transform3D(0.556832, 0, 0, 0, 0.556831, 0, 0, 0, 0.556832, -5.18589e-10, -0.096736, -0.0942308)
-emitting = false
-amount = 40
-amount_ratio = 0.698
-lifetime = 1.27
-one_shot = true
-process_material = SubResource("ParticleProcessMaterial_a8t5h")
-draw_pass_1 = SubResource("BoxMesh_rfj1b")
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 0.999962, -0.00872654, 0, 0.00872654, 0.999962, -0.2, 0.8, -0.4)
@@ -4123,7 +4097,7 @@ transform = Transform3D(0.414693, 0, -0.909961, 0, 1, 0, 0.909961, 0, 0.414693, 
 environment = SubResource("Environment_m0xew")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main/Scene"]
-transform = Transform3D(-0.860249, -0.411517, -0.301041, 0.266491, -0.866243, 0.422618, -0.434689, 0.283332, 0.85485, 0.499557, 16.817, 4.71584)
+transform = Transform3D(-0.151647, 0.916542, 0.370073, -0.851108, -0.311461, 0.422618, 0.502611, -0.250884, 0.827309, 0.499557, 16.817, 4.71584)
 shadow_enabled = true
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Main/Scene"]
@@ -4499,7 +4473,7 @@ shape = SubResource("ConvexPolygonShape3D_cx51g")
 transform = Transform3D(-0.894935, 0, -0.446198, 0, 1, 0, 0.446198, 0, -0.894935, -4.88295, -1.78814e-07, -0.154812)
 
 [node name="Chair" type="Node3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1"]
-transform = Transform3D(-0.0540781, 0, -0.998536, 0, 1, 0, 0.998536, 0, -0.0540781, -1.47845, 0.229401, -0.276226)
+transform = Transform3D(-0.0540781, 0, -0.998536, 0, 1, 0, 0.998536, 0, -0.0540781, -0.97239, 0.229401, -0.844296)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Main/Scene/Building/Dining/Furniture/TableSet_1/Chair"]
 collision_layer = 3
@@ -5534,7 +5508,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="Table" type="Node3D" parent="Main"]
-transform = Transform3D(0.788291, 0, -2.98023e-08, 0, 0.788291, 0, 2.98023e-08, 0, 0.788291, -0.85215, -0.0680416, 29.2049)
+transform = Transform3D(0.610264, 0, 0.49898, 0, 0.788291, 0, -0.49898, 0, 0.610264, 1.10684, -0.0680426, 26.8248)
 script = ExtResource("1_fsva1")
 
 [node name="table_round_A2" type="Node3D" parent="Main/Table"]
@@ -5601,26 +5575,36 @@ skeleton = NodePath("")
 transform = Transform3D(0.636956, -5.96046e-08, 1.77636e-15, 0, -2.78422e-08, -0.636956, 5.96046e-08, 0.636956, -2.78422e-08, 7.62939e-06, 0, -0.0131092)
 shape = SubResource("CylinderShape3D_vewyw")
 
-[node name="Area3D" type="Area3D" parent="Main/Table/table_round_A2/Fork"]
+[node name="Area3D" type="Area3D" parent="Main/Table/table_round_A2/Fork" groups=["utensils"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Fork/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8147e-06, 0, -0.273108)
 shape = SubResource("SphereShape3D_if6b6")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Main/Table/table_round_A2/Fork/Area3D"]
-transform = Transform3D(1.79587, 0, 0, 0, 1.79588, 0, -5.96046e-08, 0, 1.79588, 3.8147e-06, 0, -0.273108)
+[node name="SnapZone" type="Area3D" parent="Main/Table/table_round_A2/Fork"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49012e-08, 0, -0.277436)
+collision_layer = 4
+collision_mask = 65540
+script = ExtResource("47_if6b6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Fork/SnapZone"]
+shape = SubResource("SphereShape3D_yqr6d")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Main/Table/table_round_A2/Fork/SnapZone"]
 unit_size = 3.0
 max_db = 1.0
 max_distance = 100.0
 
 [node name="Chese" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.637605, 1.46522, 0.384572)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.5945, 1.39668, 0.665499)
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
 script = ExtResource("54_33n0s")
+attach_offset = Vector3(0, 0.15, 0)
 snap_sound = ExtResource("48_peqnb")
 delete_sound = ExtResource("55_peqnb")
+eating_particles_scene = "uid://b0qfu555g0yoe"
 
 [node name="food_ingredient_cheese_slice" type="MeshInstance3D" parent="Main/Table/table_round_A2/Chese"]
 transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
@@ -5637,33 +5621,6 @@ stream = ExtResource("55_peqnb")
 [node name="Area3D" type="Area3D" parent="Main/Table/table_round_A2/Chese"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Chese/Area3D"]
-transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_nb352")
-
-[node name="Chese2" type="RigidBody3D" parent="Main/Table/table_round_A2" groups=["food", "fork_food"]]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 9.50417, 1.9913, 4.64277)
-collision_layer = 4
-collision_mask = 196615
-freeze_mode = 1
-script = ExtResource("54_33n0s")
-snap_sound = ExtResource("48_peqnb")
-delete_sound = ExtResource("55_peqnb")
-
-[node name="food_ingredient_cheese_slice" type="MeshInstance3D" parent="Main/Table/table_round_A2/Chese2"]
-transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
-mesh = SubResource("ArrayMesh_wdm7f")
-skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Chese2"]
-transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_nb352")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Main/Table/table_round_A2/Chese2"]
-stream = ExtResource("55_peqnb")
-
-[node name="Area3D" type="Area3D" parent="Main/Table/table_round_A2/Chese2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Table/table_round_A2/Chese2/Area3D"]
 transform = Transform3D(0.410307, 0, 0, 0, 0.410307, 0, 0, 0, 0.410307, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_nb352")
 
@@ -5818,6 +5775,8 @@ shape = SubResource("ConvexPolygonShape3D_yqr6d")
 [connection signal="button_pressed" from="Main/Scene/videos/stand/PushButton/InteractableAreaButton" to="Main/Scene/videos/Node3D/projector_screen" method="_on_interactable_area_button_button_pressed"]
 [connection signal="button_released" from="Main/Scene/videos/stand/PushButton/InteractableAreaButton" to="Main/Scene/videos/Node3D/projector_screen" method="_on_interactable_area_button_button_released"]
 [connection signal="area_entered" from="Main/Table/table_round_A2/Fork/Area3D" to="Main/Table/table_round_A2/Chese" method="_on_area_entered"]
+[connection signal="body_entered" from="Main/Table/table_round_A2/Fork/SnapZone" to="Main/Table/table_round_A2/Fork/SnapZone" method="_on_snap_zone_body_entered"]
+[connection signal="body_exited" from="Main/Table/table_round_A2/Fork/SnapZone" to="Main/Table/table_round_A2/Fork/SnapZone" method="_on_snap_zone_body_exited"]
 
 [editable path="XROrigin3D/LeftController/LeftHand"]
 [editable path="XROrigin3D/LeftController/LeftHand/Hand_Nails_low_L"]
